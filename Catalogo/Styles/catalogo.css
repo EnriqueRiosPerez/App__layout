@@ -7,14 +7,32 @@
   width: 100%; */
  
 }
-/* .sectionCatalog__cardsandbuton{
+.sectionCatalog__cardsandbuton{
     height: calc(100% - 55px); 
-}*/
+    overflow: auto;
+    
+
+}
+  /*scroll*/
+  .sectionCatalog__cardsandbuton::-webkit-scrollbar {
+    width:2px;
+  }
+  
+  .sectionCatalog__cardsandbuton::-webkit-scrollbar-thumb {
+    background-color: #2f4f7d7e;
+    border-radius: 0.5px;
+  }
+  
+  .sectionCatalog__cardsandbuton::-webkit-scrollbar-thumb:hover {
+    background: #2c36738c;
+  }
+
 .sectionCatalog__cards{
   /* height: 100%; */
-  height: calc(100% - 55px);
+  /* height: calc(100% - 55px); */
+   /* overflow: auto; */
   width: 100%;
-  overflow: auto;
+ 
   display: grid;
   padding: 1rem;
   gap: 2rem;
@@ -25,21 +43,36 @@
   }
   
   
-  /*scroll*/
-  .sectionCatalog__cards::-webkit-scrollbar {
-    width: 1px;
-  }
-  
-  .sectionCatalog__cards::-webkit-scrollbar-thumb {
-    background-color: #2f4f7d7e;
-    border-radius: 0.5px;
-  }
-  
-  .sectionCatalog__cards::-webkit-scrollbar-thumb:hover {
-    background: #2c36738c;
-  }
 
 
+  .sectionCatalog__pagin{
+    height: 100px;
+     width: 100%; 
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     font-size: 1rem;
+
+  }
+  .sectionCatalog__pagin span{
+    padding: 0 5rem;
+
+  }
+.sectionCatalog__pagin__Button{
+  padding: 1rem;
+  border:none;
+  color: black;
+  padding: 1rem;
+  border-radius: 5px;
+}
+.sectionCatalog__pagin__Button:hover{
+  background-color: #3a465e;
+  color: white;
+  cursor: pointer;
+}
+/* .sectionCatalog__pagin__Button i{
+  color: white;
+} */
 
 
 /* estilos del card */

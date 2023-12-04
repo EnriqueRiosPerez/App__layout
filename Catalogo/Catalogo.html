@@ -29,15 +29,24 @@
             </header>
             <section class="sectionCatalog">  
                 <div class="sectionCatalog__SearchDiv">
-                    <input type="text" name="" id="" placeholder="Search..." class="SearchDiv__input"/>
-                    <button type="button"><i class="fa-solid fa-magnifying-glass icon"> </i></button>
+                    <input type="text" name="" id="searchInput" placeholder="Search..." class="SearchDiv__input"/>
+                    <button type="button" id="searchInput__Buton"><i class="fa-solid fa-magnifying-glass icon"> </i></button>
                 </div>
         
-                <!-- <section class="sectionCatalog__cardsandbuton"> -->
+                <section class="sectionCatalog__cardsandbuton">
                     <section class="sectionCatalog__cards" id="tarjetas">
                     </section>
-                    <!-- <button type="button"></button>
-                </section> -->
+                    <div class="sectionCatalog__pagin">
+                        <!-- Botón para ir a la página anterior -->
+                        <button id="atras" class="sectionCatalog__pagin__Button"><i class="fa-solid fa-left-long"></i> Prev</button>
+                        <!-- Información de la página actual -->
+                        <span id="informacion-pagina"></span>
+                        <!-- Botón para ir a la página siguiente -->
+                        <button id="siguiente" class="sectionCatalog__pagin__Button"><i class="fa-solid fa-right-long"></i> Next</button>
+                        </div>
+                    </div>
+                    <!-- <button type="button"></button> -->
+                </section>
               
 
     
