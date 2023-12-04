@@ -1,0 +1,61 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Montserrat;
+    /* font-family: system-ui; */
+  }
+  
+  html {
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  body {
+    font-size: 1.2rem;
+    height: 100%;
+    overflow: hidden;
+    padding: 10px; 
+    background-color: orange;
+    /* background-color:#F4F5FA; */
+  
+  }
+  
+  
+  /* el como se acomoda el modelo */
+  
+  .mainContainer{
+    /* background-color: red; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+  
+  
+  }
+  .mainContainer__Nav{
+    width: 250px;
+    height: 100%;
+    /* background-color: #414b57; */
+    background-color: var(--background-nav-header);
+  
+  }
+  .mainContainer__HeadersectionSubPage{
+    width: 100%;
+    height: 100%;
+    /* background-color: burlywood; */
+  }
+  .mainContainer__Header{
+    width: 100%;
+    height: var(--headerHeight);
+    background-color: var(--background-nav-header);
+  }
+  
+  
+  .sectionSubPage{
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    height: calc(100% - 60px);
+  }
+  /*  termina el como se acomoda el modelo*/
+  

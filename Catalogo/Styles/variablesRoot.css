@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700");
+
+
+
+
+
+:root {
+
+  --primary-100:#414b57;
+  --primary-200:#6c7784;
+  --primary-300:#ccd7e5;
+  --accent-100:#7ea0b7;
+  --accent-200:#23465a;
+  --text-100:#0d141f;
+  --text-200:#333a46;
+  --bg-100:#ffffff;
+  --bg-200:#f5f5f5;
+  --bg-300:#cccccc;
+    
+
+
+
+
+  /* seccion del order */
+
+  --headerHeight:60px;
+  
+  /* termina seccion del order */
+
+    /* seccion de las cards */
+  --largo: 50px;
+  --border-card: 0.8rem;
+  --border-input:0.313rem;
+  --backgroundCardOscuro: background-color: #1E2835;
+  --borderCardOscuro: border: 1px solid #394B63;
+  --paddingContainer: 8px;
+  --infoIconSize: 1.5rem;
+  --redondeo: calc( var(--infoIconSize) + var(--paddingContainer));
+  --color1: #414b57;
+  --color-fondo-claro:#F4F5FA;
+  --color-back-oscuro: #0d141f;
+  /* --background-nav-header:#333a46; */
+  /* --background-nav-header:#414b57; */
+  /* #788696 */
+  --background-nav-header:#757E8A;
+    /* termina seccion de las cars */
+
+    /* seccion del seach */
+
+    --iconSearch__width:55px;
+    /* termian seccion del search */
+}

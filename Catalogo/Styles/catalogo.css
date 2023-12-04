@@ -1,0 +1,230 @@
+.sectionCatalog{
+  background-color: #f5f5f5;
+  width: 100%;
+  height: calc(100% - var(--headerHeight));
+  padding: 1rem 0 0 0;
+  /* height: 100%;
+  width: 100%; */
+ 
+}
+/* .sectionCatalog__cardsandbuton{
+    height: calc(100% - 55px); 
+}*/
+.sectionCatalog__cards{
+  /* height: 100%; */
+  height: calc(100% - 55px);
+  width: 100%;
+  overflow: auto;
+  display: grid;
+  padding: 1rem;
+  gap: 2rem;
+  /* background-color: var(--color1); */
+  grid-auto-flow: dense;
+  grid-auto-rows: auto;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  }
+  
+  
+  /*scroll*/
+  .sectionCatalog__cards::-webkit-scrollbar {
+    width: 1px;
+  }
+  
+  .sectionCatalog__cards::-webkit-scrollbar-thumb {
+    background-color: #2f4f7d7e;
+    border-radius: 0.5px;
+  }
+  
+  .sectionCatalog__cards::-webkit-scrollbar-thumb:hover {
+    background: #2c36738c;
+  }
+
+
+
+
+/* estilos del card */
+.card{
+  height: auto;
+  border-radius: 0 0 var(--border-card) var(--border-card);
+  background: #e0e0e0;
+  background: #ffffff;
+  
+  outline: 2px solid #c3c6ce;
+  transition: all 0.2s ease;
+}
+.card:hover {
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+    /* modo claro */
+    
+  
+    color: #fff;
+    
+        transform: scale(1.002);
+
+ 
+}
+/* estilos de la seccion de imagenes*/
+
+.card__sectionImage{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+.sectionImage__ImageContainer{
+  width: 100%;
+  aspect-ratio: 1/0.75;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.sectionImage__Image{
+  width: 100%;
+  height: 100%;
+}
+.sectionImage__Titulo{
+
+  color: #1A2933;
+  margin-top: 0.2rem;
+  text-align: center;
+}
+
+.sectionImage__icono{
+  position: absolute;
+  right: 2%;
+  top: 2%;
+  height: var(--largo);
+  display: flex;
+  aspect-ratio: 1/1;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  outline: 1px solid lightgray;
+  border-radius: calc(var(--largo) / 2);
+  padding: calc(var(--largo) / 8);
+}
+.sectionImage__iconlogo{
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: contain;
+}
+
+  /* estilos de la informacon */
+.card__sectionInfo{
+  width: 100%;
+  padding: 0 0.75rem 0.75rem 0.75rem ;
+}  
+
+
+.twoContainer {
+  width: 100%;
+  display: inline-flex;
+}
+
+.twoContainer > div {
+  min-width: 50%;
+}
+
+.twoContainer > div:nth-child(1) {
+  padding-right: 10px;
+}
+.oneContainer{
+    width: 100%;
+    display: inline-flex;
+}
+.twoContainer__coolinput{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: static;
+  /*max-width: 240px;*/
+}
+.twoContainer__Input{
+  padding: 8px;
+  font-size: 0.85rem;
+  border: none;
+  outline: 1px #394B63 solid;
+  color: black;
+  background: #ffff;
+  border-radius: var(--border-input);
+  text-wrap: pretty;
+}
+.twoContainer__Input:focus {
+  outline: none;
+  outline: 1px solid #5d87ff;
+}
+.twoContainer__Title{
+  font-size: 0.9rem;
+  color: black;
+  font-weight: 600;
+  position: relative;
+  top: 0.5rem;
+  margin: 0 0 0 7px;
+  padding: 0 3px;
+  background: white;
+  width: fit-content;
+}
+
+.boton{
+    width: 100%;
+    display: inline-flex;
+}
+.contenedorBoton{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.8rem 0 0 0;
+}
+
+
+
+h5{  
+   
+    padding: 8px;
+    color:  #FFFFFF;
+}
+.comic-button {
+  display: inline-block;
+  width: 100%;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  text-align: center;
+
+  color: #fff;
+  /* background-color: #7ea0b7; 
+   */
+   background-color: #788696;
+  border:none;
+  /* border:invert 1px solid black; */
+  border-radius: var(--border-input);
+  transition: all 0.3s ease;
+}
+.comic-button:hover {
+    transform: scale(1.002);
+    cursor: pointer;
+
+  }
+
+
+  .infoContainer{
+    z-index: 100;
+    position: fixed;
+    bottom: 1rem;
+    right: 1.5rem;
+    background: #2c5367;
+    padding: var(--paddingContainer);
+    border-radius: var(--redondeo) 10px calc(var(--redondeo) - 5px) var(--redondeo);
+    cursor: pointer;
+
+  }
+  .infoIcon {
+    font-size: var(--infoIconSize);
+    color: white;
+}
+.iconSpan {
+  font-size: var(--infoSpanSize);
+  color: white;
+}
