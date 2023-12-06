@@ -7,7 +7,9 @@ const botonSiguienteDOM = document.querySelector("#siguiente");
 const elementosPorPagina = 10;
 let paginaActual = 1;
 const baseDeDatos = [];
-let datos = [];
+let dbPrincipal = [];
+let dbPrincipal__Copia =[];
+let datosCopia = [];
 
 //variablas de conexion del servidor
 let localhostAll =  "https://localhost:44314/handlers/catalog_header.ashx?type=all&id=65"
@@ -68,7 +70,7 @@ function metodoForeach(respuesta){
                     
                     <section class="card__sectionImage">
                         <figure class="sectionImage__ImageContainer">
-                            <img loading="lazy"  class="sectionImage__Image" src="${localhostPart+elemento.ID_NP}" alt="" >
+                            <img loading="lazy"  class="sectionImage__Image" src="${serverPart+elemento.ID_NP}" alt="" >
                             
                             <figcaption><h3 class="sectionImage__Titulo ">${elemento.Num_parte}</h3> </figcaption>
                         </figure>
@@ -138,11 +140,13 @@ function metodoForeach(respuesta){
 
 async function datoAwait()
 {
-    datos = await fetch(localhostAll).then(res => res.json()).then(respuesta => {
+    dbPrincipal = await fetch(serverAll).then(res => res.json()).then(respuesta => {
         return respuesta
       })
-      console.log(datos);
-      renderizar()
+      console.log(dbPrincipal);
+      dbPrincipal__Copia = [...dbPrincipal]
+      renderizar(dbPrincipal__Copia)
+
 
 }
 
@@ -150,19 +154,19 @@ function avanzarPagina() {
     // Incrementar "paginaActual"
     paginaActual = paginaActual + 1;
     // Redibujar
-    renderizar();
+    renderizar(dbPrincipal__Copia);
 }
 
 function retrocederPagina() {
     // Disminuye "paginaActual"
     paginaActual = paginaActual - 1;
     // Redibujar
-    renderizar();
+    renderizar(dbPrincipal__Copia);
 }
-function obtenerPaginasTotales() {
-    return Math.ceil(datos.length / elementosPorPagina);
+function obtenerPaginasTotales(useData) {
+    return Math.ceil(useData.length / elementosPorPagina);
 }
-function gestionarBotones() {
+function gestionarBotones(useData) {
     // Comprobar que no se pueda retroceder
     if (paginaActual === 1) {
     botonAtrasDOM.setAttribute("disabled", true);
@@ -170,23 +174,23 @@ function gestionarBotones() {
     botonAtrasDOM.removeAttribute("disabled");
     }
     // Comprobar que no se pueda avanzar
-    if (paginaActual === obtenerPaginasTotales()) {
+    if (paginaActual === obtenerPaginasTotales(useData)) {
     botonSiguienteDOM.setAttribute("disabled", true);
     } else {
     botonSiguienteDOM.removeAttribute("disabled");
     }
 }
 
-function obtenerRebanadaDeBaseDeDatos(pagina = 1) {
+function obtenerRebanadaDeBaseDeDatos(pagina = 1,useData) {
    const corteDeInicio = (paginaActual - 1) * elementosPorPagina;
    const corteDeFinal = corteDeInicio + elementosPorPagina;
-   return datos.slice(corteDeInicio, corteDeFinal);
+   return useData.slice(corteDeInicio, corteDeFinal);
 }
-function renderizar() {
+function renderizar(useData) {
     informacionPaginaDOM.innerHTML=""
-    const rebanadaDatos = obtenerRebanadaDeBaseDeDatos(paginaActual,);
-    gestionarBotones();
-    informacionPaginaDOM.textContent = `${paginaActual}/${obtenerPaginasTotales()}`;
+    const rebanadaDatos = obtenerRebanadaDeBaseDeDatos(paginaActual,useData);
+    gestionarBotones(useData);
+    informacionPaginaDOM.textContent = `${paginaActual}/${obtenerPaginasTotales(useData)}`;
     contenedorTarjetas.innerHTML=""
            metodoForeach(rebanadaDatos).then(res =>{
             console.time("dibujar")
@@ -199,19 +203,122 @@ function renderizar() {
 
 let buttonSearch = document.getElementById("searchInput__Buton")
 buttonSearch.addEventListener("click",()=>{
-    let busqueda = "aSm"
-    busqueda =  busqueda.toUpperCase()
+    let search = inputSearch.value.toUpperCase().trim()
+    let arraySearchs = search.trim().split(" ")
+    let arrayFiltrados = []
+    let arrayConcatenado = []
+    console.log(arraySearchs)
+
+    dbPrincipal__Copia = [...dbPrincipal]
+    // busqueda =  busqueda.toUpperCase()
     // console.log(busqueda)
-    let filtrados = datos.filter((dato)=>{
-        if (dato.Proveedor === busqueda){
-            // console.log(dato.Proveedor)
-            return true
+    if (search.length !== 0 ){
+
+        arraySearchs.forEach(searchItem =>{
+            let filtrado = dbPrincipal__Copia.filter(dato =>{
+                let valores= Object.values(dato).toString()
+                valores = valores.replaceAll(",","")
+                valores = valores.replace(/\s+/g, '')  
+                valores = valores.toUpperCase()
+                if (valores.indexOf(searchItem,0) > 0 ){
+                    arrayConcatenado.push(dato)
+                    return true
+                       // console.log(valores)
+                   }
+            })
+            // arrayFiltrados.concat(filtrado);
+            arrayFiltrados.push(filtrado)
+            console.log("uno ");
+            console.log(filtrado)
+
+        })
+
+        function findDuplicates(arr) {
+            const distinct = new Set(arr);        // para mejorar el rendimiento
+            const filtered = arr.filter(item => {
+                // elimina el elemento del conjunto en el primer encuentro
+                if (distinct.has(item)) {
+                    distinct.delete(item);
+                }
+                // devolver el elemento en encuentros posteriores
+                else {
+                    return item;
+                }
+            });
+         
+            return [...new Set(filtered)]
         }
-        
-  
-    })
+     
+
+
+
+        let filtradito = dbPrincipal__Copia.filter(dato=> {
+            // let filtradito = dbPrincipal__Copia.map(dato=> {
+            let valores= Object.values(dato).toString()
+            valores = valores.replaceAll(",","")
+            valores = valores.replace(/\s+/g, '')  
+            valores = valores.toUpperCase()
+            //console.log(valores)
+            if (valores.indexOf(search,0) > 0 ){
+             return true
+                // console.log(valores)
+            }
+           
+        })
+        // console.log(filtradito)
+        // if(filtradito.length === 0){
+        //     alert("no existen elementos")
+        // }else{
+        //     dbPrincipal__Copia = filtradito
+        //     renderizar(dbPrincipal__Copia)
+        // }
+
+        console.log("las paabras son "+arraySearchs.length)
+
+
+        if (arraySearchs.length > 1){
+            
+            const duplicates = findDuplicates(arrayConcatenado);
+            console.log("array concatenado filtrado");
+            console.log(duplicates);
+            renderizar(duplicates)
+
+            
+        }
+        else{
+            if(arrayConcatenado.length ===0){
+                alert("no se encontraron itmes con esas caracterizticas")
+                // console.log("no se encontraron itmes con esas caracterizticas")
+            }
+            else{
+                console.log("array concatenado");
+                renderizar(arrayConcatenado)
+                console.log(arrayConcatenado);
+            }
+        }
+
+        // let filtrados = dbPrincipal__Copia.filter((dato)=>{
+        //     if (dato.Proveedor === busqueda){
+        //         // console.log(dato.Proveedor)
+        //         return true
+        //     }
+        // })
+        // if(filtrados.length === 0){
+        //     alert("no existen elementos")
+        // }else{
+        //     dbPrincipal__Copia = filtrados
+        //     renderizar(dbPrincipal__Copia)
+        // }
+    }
+    else{
+        // console.log("original")
+        dbPrincipal__Copia = [...dbPrincipal]
+        renderizar(dbPrincipal__Copia)
+        // console.log(dbPrincipal__Copia);
+    }
     
-    console.log(filtrados);
+     
+
     //  datos.map(elementos => {
         
     //     filterNP = elementos.filter((elemento) => {
@@ -220,51 +327,6 @@ buttonSearch.addEventListener("click",()=>{
     //  })
 
 })
-
-
-
-function searchNPs() {
-    var  filter, table, tr, td, i, txtValue;
-    // input = document.getElementById("myInput");
-    filter = inputSearch.value.toUpperCase();
-    //table = document.getElementById("datosTable");
-
-    table = document.getElementById("tablaAcciones");
-    tr = table.getElementsByTagName("tr");
-    //console.log(tabla_1)
-    //tr = table_1.getElementsByTagName("tr");
-    //console.log(tr)
-    let ocultar = [];
-    let mostrar = []
-    for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[1];
-        
-        if (td) {
-            txtValue = td.textContent || td.innerText;
-            let textoconsulta2 = tr[i].cells[2].innerText;
-            let textocampo3 = tr[i].cells[3].innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1 || textoconsulta2.toUpperCase().indexOf(filter) > -1 || textocampo3.toUpperCase().indexOf(filter) > -1 ) {
-                //console.log("true" + i)
-                //console.log(tr[i])
-                //tr[i].style.display = "";
-                mostrar.push(tr[i])
-            } else {
-                //console.log("false" + i)
-                //console.log(tr[i])
-                ocultar.push(tr[i])
-            //    tr[i].style.display = "none";
-            }
-        }
-        //console.log(ocultar)
-        
-    }
-    ocultar.forEach(item => {
-        item.style.display = "none";
-    })
-    mostrar.forEach(item => {
-        item.style.display = "";
-    })
-}
 
 
 
