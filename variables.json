@@ -1,0 +1,16 @@
+
+{
+  "Principal":  {   
+        "Session('Privilegios')": "null",
+        "Session('Usuario')": "null",
+        "Session('Site')":"null",
+        "Session('Other_Password')":"null"
+        
+    },
+    "Paginas":{
+        "hola":"adios"
+    }
+       
+    
+    
+}

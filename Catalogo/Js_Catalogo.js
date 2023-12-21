@@ -4,7 +4,7 @@ let inputSearch = document.getElementById("searchInput")
 const botonAtrasDOM = document.querySelector("#atras");
 const informacionPaginaDOM = document.querySelector("#informacion-pagina");
 const botonSiguienteDOM = document.querySelector("#siguiente");
-const elementosPorPagina = 10;
+const elementosPorPagina = 20;
 let paginaActual = 1;
 const baseDeDatos = [];
 let dbPrincipal = [];
@@ -122,7 +122,7 @@ function metodoForeach(respuesta){
                     </div>
                    
                         <div class="contenedorBoton">
-                            <button class="comic-button" onclick="modal(${elemento.ID_NP})">Details</button>
+                            <button class="comic-button" onclick="abrirModal(${elemento.ID_NP})">Details</button>
                     
                         </div>
                     </section>
@@ -202,12 +202,17 @@ function renderizar(useData) {
 
 
 let buttonSearch = document.getElementById("searchInput__Buton")
-buttonSearch.addEventListener("click",()=>{
+let inputbusqueda = document.getElementById("searchInput")
+
+
+
+inputSearch.addEventListener("input", () =>{
+// buttonSearch.addEventListener("click",()=>{
     let search = inputSearch.value.toUpperCase().trim()
     let arraySearchs = search.trim().split(" ")
     let arrayFiltrados = []
     let arrayConcatenado = []
-    console.log(arraySearchs)
+    // console.log(arraySearchs)
 
     dbPrincipal__Copia = [...dbPrincipal]
     // busqueda =  busqueda.toUpperCase()
@@ -228,10 +233,12 @@ buttonSearch.addEventListener("click",()=>{
             })
             // arrayFiltrados.concat(filtrado);
             arrayFiltrados.push(filtrado)
-            console.log("uno ");
-            console.log(filtrado)
+            // console.log("uno ");
+            // console.log(filtrado)
 
         })
+        // console.log("Arrar de arrays")
+        // console.log(arrayFiltrados);
 
         function findDuplicates(arr) {
             const distinct = new Set(arr);        // para mejorar el rendimiento
@@ -248,41 +255,30 @@ buttonSearch.addEventListener("click",()=>{
          
             return [...new Set(filtered)]
         }
-     
 
-
-
-        let filtradito = dbPrincipal__Copia.filter(dato=> {
-            // let filtradito = dbPrincipal__Copia.map(dato=> {
-            let valores= Object.values(dato).toString()
-            valores = valores.replaceAll(",","")
-            valores = valores.replace(/\s+/g, '')  
-            valores = valores.toUpperCase()
-            //console.log(valores)
-            if (valores.indexOf(search,0) > 0 ){
-             return true
-                // console.log(valores)
-            }
-           
-        })
-        // console.log(filtradito)
-        // if(filtradito.length === 0){
-        //     alert("no existen elementos")
-        // }else{
-        //     dbPrincipal__Copia = filtradito
-        //     renderizar(dbPrincipal__Copia)
-        // }
-
-        console.log("las paabras son "+arraySearchs.length)
-
-
+        
+        // console.log("Arrar de arrays ordenados")
+        
+        arrayData = [...arrayFiltrados].sort(descendenteFunction);
+        // console.log(arrayData);
+        // console.log("las paabras son "+arraySearchs.length)
         if (arraySearchs.length > 1){
             
+            if (arraySearchs.length < 3) {
             const duplicates = findDuplicates(arrayConcatenado);
             console.log("array concatenado filtrado");
             console.log(duplicates);
+            dbPrincipal__Copia = [...duplicates]
             renderizar(duplicates)
+            }else{
+                console.log("los elementos duplicados son")
+                let ff = encontrar(arrayData)
 
+                console.log(ff)
+                renderizar(ff)
+                dbPrincipal__Copia = [...ff]
+            }
+            
             
         }
         else{
@@ -293,42 +289,88 @@ buttonSearch.addEventListener("click",()=>{
             else{
                 console.log("array concatenado");
                 renderizar(arrayConcatenado)
+                dbPrincipal__Copia = [...arrayConcatenado]
                 console.log(arrayConcatenado);
             }
         }
 
-        // let filtrados = dbPrincipal__Copia.filter((dato)=>{
-        //     if (dato.Proveedor === busqueda){
-        //         // console.log(dato.Proveedor)
-        //         return true
-        //     }
-        // })
-        // if(filtrados.length === 0){
-        //     alert("no existen elementos")
-        // }else{
-        //     dbPrincipal__Copia = filtrados
-        //     renderizar(dbPrincipal__Copia)
-        // }
+
     }
     else{
         // console.log("original")
         dbPrincipal__Copia = [...dbPrincipal]
         renderizar(dbPrincipal__Copia)
-        // console.log(dbPrincipal__Copia);
-    }
-    
-     
-
-    //  datos.map(elementos => {
         
-    //     filterNP = elementos.filter((elemento) => {
-    //         elemento.Proveedor === "ASM"})
-    //     console.log(filterNP);
-    //  })
-
+    }
 })
 
+const descendenteFunction = (a, b) => {
+  
+    if(a.length == b.length) {
+        return 0; 
+      }
+      if(a.length > b.length) {
+        return -1;
+      }
+      return 1;
 
+}
+function findDuplicates(arr) {
+    // console.time("encontrar duplicados")
+    const distinct = new Set(arr);        // para mejorar el rendimiento
+    const filtered = arr.filter(item => {
+        // elimina el elemento del conjunto en el primer encuentro
+        if (distinct.has(item)) {
+            distinct.delete(item);
+        }
+        // devolver el elemento en encuentros posteriores
+        else {
+            return item;
+        }
+    });
+    // console.timeEnd("encontrar duplicados")
+    return [...new Set(filtered)]
+}
+
+
+function encontrar(arrayData1){
+
+
+    arrayData1 = [...arrayData1].sort(descendenteFunction);
+    // console.log(arrayData1)
+    let fusion = []
+    let filtrado = []
+    let medida = arrayData.length -1
+    let duplicados = []
+    arrayData1.forEach((data,indice) => {
+
+        //
+        if (indice !== medida){
+            // console.log("indice: " + indice+" datos:" + data +" siguientes datos => "+arrayData[indice +1])
+            let arrayfusionados = [...data,arrayData1[indice + 1]]//data.concat(arrayData[indice + 1])
+            // console.log("fusion "+ arrayfusionados)
+            duplicados = findDuplicates(arrayfusionados)
+            // console.log("duplicados "+ duplicados);
+            // console.log("\n");
+            // console.log(duplicados)
+        }
+        else{
+            // console.log("llegue al fin")
+            // console.log("indice: " + indice+" datos:" + data +" siguientes datos => "+arrayData[indice])
+            let arrayfusionados =  data.concat(arrayData1[indice])
+            // console.log("fusion "+ arrayfusionados)
+            duplicados = findDuplicates(arrayfusionados)
+            // console.log("duplicados "+ duplicados);
+            // console.log("\n");
+            
+        }
+      
+
+    })
+
+    return duplicados
+
+}
 
 
 botonAtrasDOM.addEventListener("click", retrocederPagina);

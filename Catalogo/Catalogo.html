@@ -6,9 +6,9 @@
     <title>Catalogo</title>
     <link rel="stylesheet" href="Styles/variablesRoot.css
     ">
-    <link rel="stylesheet" href="Styles/pageOrder.css">
-    <link rel="stylesheet" href="Styles/catalogo.css">
-    <link rel="stylesheet" href="Styles/busqueda.css">
+    <link rel="stylesheet" href="Styles/Catalog/pageOrder.css">
+    <link rel="stylesheet" href="Styles/Catalog/catalogo.css">
+    <link rel="stylesheet" href="Styles/Catalog/busqueda.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css" />
 </head>
 
@@ -65,13 +65,24 @@
         
        
     </main>
-
+    <dialog id="infoPieza">
+        
+    </dialog>
 
 
 
   
 
     <script src="Js_Catalogo.js"></script>
+    <script >
+        let dialogo = document.getElementById("infoPieza")
+
+        function abrirModal(id){
+            dialogo.showModal()
+            dialogo.innerHTML = ""
+            dialogo.innerHTML = `${id}`
+        }
+    </script>
 </body>
 
 </html>

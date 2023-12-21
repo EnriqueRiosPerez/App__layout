@@ -1,0 +1,59 @@
+{
+    "Principal": [
+      {
+        
+        "Menu":[{
+          "Menu_Mantenimiento":[{
+            "Mainentance_schedule":"Page",
+            "Maintenance_Plan": "Page",
+            "Maintenance_Status": "Page",
+            "Maintenance_Task": "Page",
+            "Maintenance_Inventory": "Page"
+            }],
+            "Menu_Warehouse":[{
+              "WH_Status_request": "Page",
+              "WH_Ticket": "Page",
+              "WH_Catalogo": "Page",
+              "WH_Report2": "Page" 
+            },
+            {"Menu_WH_configuracion":[{
+                "WH_Inventory": "Page",
+                "WH_Numpart": "Page",
+                "WH_Ubications": "Page",
+                "WH_Supplier": "Page",
+                "WH_Imports": "Page",
+                "WH_Status": "Page"
+            }]
+            }],
+            "Maintenance_Actions":[],
+            "Menu_Corrective_Maintenance":[{
+                  "New_version_down_time": "Page",
+                  "Corrective_Nozzled": "Page"
+            }],
+            "Menu_Metrics":[{
+                  "Dashboard_Attrition": "Page",
+                  "Dashboard_Downtime": "Page",
+                  "Dashboard_WH": "Page",
+                  "Dashboard_EDM_Supply": "Page"
+            }],
+            "Admin_menu": [
+              {
+                "Maintenance_Users": "Page",
+                "Maintenance_locations": "Page",
+                "Maintenance_Machines": "Page",
+                "Maintenance_Tutoriales": "Page",
+                "Maintenance_Skill_Matrix": "Page"
+              }
+            ]
+           
+          
+        }]
+        ,"ML":[{"Maintenance_dashBoard":"Clinic Report",
+                "Down time":"Generacion de downtime por maquina"}
+                ]
+        ,"FAQ's":[]        
+      }
+      
+    ]
+  }
+
