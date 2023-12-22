@@ -4,6 +4,7 @@ let Rows = document.getElementsByClassName("fa-caret-right")
 let usuarioImageInfo = document.getElementById("subMenu")
 let aside__Hiden = document.getElementById("cerrarNav")
 let Menu__Item__Title__sub = document.getElementsByClassName("Menu__Item__Title__sub")
+let Nav__Header__TitleContainer = document.getElementsByClassName("Nav__Header__TitleContainer")
 
 
 console.log(Rows.length)
@@ -12,13 +13,13 @@ document.addEventListener('click', function (e) {
     current = e.target
     let i =0 
     while (true) {
-        if (current.id=== "cerrarNav"){
-            console.log("se presiono el boton del aside")
-            aside__Hide(current)
+        // if (current.id=== "cerrarNav"){
+        //     console.log("se presiono el boton del aside")
+        //     aside__Hide(current)
 
-            // current.classList.toggle("aside__Hide")
-            break
-        }
+        //     // current.classList.toggle("aside__Hide")
+        //     break
+        // }
         if (current.id === "headIamgen_IMG") {
             console.log("entro al image");
             revisarClase()
@@ -58,9 +59,11 @@ document.addEventListener('click', function (e) {
 
 function aside__Hide(current){
     let items = [...Menu__Item__Title__sub]
-    let si=[]
-    let no = []
-    items.forEach(element =>{
+    let title = [...Nav__Header__TitleContainer]
+    let all = [...items, ...title]
+    console.log(all)
+ 
+    all.forEach(element =>{
         element.classList.toggle("aside__Hiden")
     })
 }
@@ -68,6 +71,7 @@ function aside__Hide(current){
 
 function selectMenu(current){
     let items = [...Items]
+
     let si = []
     let no = []
     items.forEach(element => {
