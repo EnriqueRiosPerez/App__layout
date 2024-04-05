@@ -5,57 +5,86 @@ let usuarioImageInfo = document.getElementById("subMenu")
 let aside__Hiden = document.getElementById("cerrarNav")
 let Menu__Item__Title__sub = document.getElementsByClassName("Menu__Item__Title__sub")
 let Nav__Header__TitleContainer = document.getElementsByClassName("Nav__Header__TitleContainer")
+let imgUser = document.getElementById("headIamgen_IMG")
+let falseBackground = document.getElementById("subMenu")
 
-
-console.log(Rows.length)
 let current
-document.addEventListener('click', function (e) {
-    current = e.target
-    let i =0 
-    while (true) {
-        // if (current.id=== "cerrarNav"){
-        //     console.log("se presiono el boton del aside")
-        //     aside__Hide(current)
 
-        //     // current.classList.toggle("aside__Hide")
-        //     break
-        // }
-        if (current.id === "headIamgen_IMG") {
-            console.log("entro al image");
-            revisarClase()
-            break
+let nav= document.getElementById("Ul_Menu")
+let li_Elements = nav.querySelectorAll("li.Menu__Item")
+li_Elements.forEach((li) => {
+    li.addEventListener('click', imprimmir_Elemento);
+});
+async function imprimmir_Elemento(e){
+    let current = e.target
+    console.log(current)
+    let titulo= current.querySelectorAll("span.Menu__Item__Title")
+    let submenu = current.querySelectorAll("ul.Menu__Item__Submenu")
+    
+    // console.time("Ocultar")
+    // hideNavSubmenus(submenu[0])
+    // selectMenu(titulo[0])
+    // console.timeEnd("Ocultar")
+
+    console.time("Ocultar2")
+    hideNavSubmenusPromise(submenu[0])
+    selectMenuPromise(titulo[0])
+    console.timeEnd("Ocultar2")
+
+}
+function selectMenuPromise(current){
+    return new Promise((resolve, reject) => {
+        let items = [...Items]
+        let si = []
+        let no = []
+        if (items.length === 0) {
+            reject(new Error("No se tiene items"))
         }
-        if (current.tagName == "SPAN") {
-
-            if (current.classList.contains("Menu__Item__Title")) {
-                selectMenu(current)
-                let subMenu_Current = current.parentNode.childNodes[3]
-                hideNavSubmenus(subMenu_Current)
-                rotateRow(current.childNodes[3])
-                break
+        items.forEach(element => {
+            if (element !== current) {
+                no.push(element)
+                element.classList.remove("seleccionando")
+            } else {
+                si.push(element)
+                element.classList.toggle("seleccionando")
             }
-        }
-        else {
-            hideNavSubmenus(current)
-            selectMenu(current)
-            rotateRow(current.childNodes[3])
-            // break
-        }
-        if(current.tagName === "BODY"){
-            usuarioImageInfo.classList.remove("mostrar")
-            break
-        }
-        else{
-            current = current.parentElement
-            // console.log("current")
-            // console.log(current)
-        }
-    }
+        });
+        resolve("yeah!")
+    })
+    
+}
 
+function hideNavSubmenusPromise(current) {
+    return new Promise((resolve, reject)=>{
+        let subMenus = [...subMenusHTML]
+        let si = []
+        let no = []
+        if (subMenus.length === 0) {
+            reject(new console.Error("none"))
+        }
+        subMenus.forEach(element => {
+            if (element !== current) {
+                no.push(element)
+                element.classList.remove("open")
+            } else {
+                si.push(element)
+                element.classList.toggle("open")
+            }
+        });
+        resolve("Okay")
+    })
+    
+}
 
-
+imgUser.addEventListener("click", async (e)=>{
+   
+    revisarClase(e)
 })
-
+falseBackground.addEventListener("click", async(e)=>{
+    
+  
+    revisarClase(e)
+})
 
 function aside__Hide(current){
     let items = [...Menu__Item__Title__sub]
@@ -84,6 +113,7 @@ function selectMenu(current){
         }
     });
 }
+
 function rotateRow(current){
     let rows = [...Rows]
     let si = []
@@ -111,17 +141,27 @@ function hideNavSubmenus(current) {
         } else {
             si.push(element)
             element.classList.toggle("open")
-        }
+        } 
     });
 }
 
-function revisarClase() {
 
-    if (usuarioImageInfo.classList.contains("mostrar")) {
-        usuarioImageInfo.classList.remove("mostrar")
-    }
-    else {
-        usuarioImageInfo.classList.add("mostrar")
-    }
+
+
+function revisarClase(e) {
+    let current = e.target
+    
+   
+        if (usuarioImageInfo.classList.contains("mostrar")) {
+            if (current.id==="subMenu"){
+                usuarioImageInfo.classList.remove("mostrar")
+            }
+           
+        }
+        else {
+            usuarioImageInfo.classList.add("mostrar")
+        }
+   
+    
     //console.log(aside.id)
 }

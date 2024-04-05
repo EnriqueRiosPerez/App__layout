@@ -42,7 +42,7 @@ window.addEventListener("load", ()=>{
     //     let mitad = (respuesta.length)/103
     //     mitad = 10
     //     console.log("datos a mostrar: "+mitad);
-    //     let arreglo = respuesta.splice(0, mitad )
+    //     let arreglo = respuesta.splice(0, mitad )commi
     //     let arregloMitad = respuesta.splice(mitad+1, respuesta.length )
 
     //     metodoForeach(arreglo).then(res =>{
@@ -68,70 +68,72 @@ function metodoForeach(respuesta){
 
             palabra +=`<main class="card">
                     
-                    <section class="card__sectionImage">
-                        <figure class="sectionImage__ImageContainer">
-                            <img loading="lazy"  class="sectionImage__Image" src="${serverPart+elemento.ID_NP}" alt="" >
-                            
-                            <figcaption><h3 class="sectionImage__Titulo ">${elemento.Num_parte}</h3> </figcaption>
-                        </figure>
-                            <picture class="sectionImage__icono">
-                                <img class="sectionImage__iconlogo" src="${proveedores[elemento.Proveedor] || defaulProveedor}" alt="" srcset="">
-                            </picture>
-
-                    </section>  
-                    <section class="card__sectionInfo">
-                        <div class="twoContainer">
-                            <div class="twoContainer__coolinput">
-                                <label for="input" class="twoContainer__Title">Machine type</label>
-                                <input type="text" name="input" class="twoContainer__Input" readonly value="${elemento.Tipo_maquina}" />
-                                
-                            </div>
-                            <div class="twoContainer__coolinput">
-                                <label for="input" class="twoContainer__Title">Supplier</label>
-                                <input type="text" name="input" class="twoContainer__Input" readonly value="${elemento.Proveedor}" />
-                            </div>
-                        </div>
-                    <div class="twoContainer">
-                        <div class="twoContainer__coolinput">
-                            <label for="input" class="twoContainer__Title">Warehouse</label>
-                            <input type="text" name="input" class="twoContainer__Input"  readonly value="${elemento.Almacen}" />
-                          
-                        </div>
-                        <div class="twoContainer__coolinput">
-                            <label for="input" class="twoContainer__Title">Bin</label>
-                            <input type="text" name="input" class="twoContainer__Input" readonly value="${elemento.Long_ubicacion_I}" />
-               
-                        </div>
-                    </div>
-                    <div class="twoContainer">
-                        <div class="twoContainer__coolinput">
-                            <label for="input" class="twoContainer__Title">Stock</label>
-                            <input type="text" name="input" class="twoContainer__Input" readonly value="${elemento.Quatity}" />
-                        </div>
-                        <div class="twoContainer__coolinput">
-                            <label for="input" class="twoContainer__Title">Active</label>
-                            <input type="text" name="input" class="twoContainer__Input" readonly value="${elemento.Estatus}" />
-                        </div>
-                    </div>
-                   
-                    <div class="oneContainer">
-                        <div class="twoContainer__coolinput">
-                            <label for="input" class="twoContainer__Title">Description</label>
-                            <textarea class="twoContainer__Input" readonly >${elemento.Descripcion}</textarea>
-                        </div>
-                    </div>
-                   
-                        <div class="contenedorBoton">
-                            <button class="comic-button" onclick="abrirModal(${elemento.ID_NP})">Details</button>
+            <section class="card__sectionImage">
+                <figure class="sectionImage__ImageContainer">
+                    <img loading="lazy"  class="sectionImage__Image" src="${serverPart+elemento.ID_NP}" alt="" >
                     
-                        </div>
-                    </section>
-                  
-                    
-                  
-                  
+                    <figcaption><h3 class="sectionImage__Titulo ">${elemento.Num_parte}</h3> </figcaption>
+                </figure>
+                    <picture class="sectionImage__icono">
+                        <img class="sectionImage__iconlogo" src="${proveedores[elemento.Proveedor] || defaulProveedor}" alt="" srcset="">
+                    </picture>
 
-                </main>`
+            </section>  
+            <section class="card__sectionInfo">
+                <div class="twoContainer">
+                    <div class="twoContainer__coolinput">
+                        <label for="input" class="twoContainer__Title">Machine type</label>
+                        <input type="text" name="input" class="twoContainer__Input" readonly value="${elemento.Tipo_maquina}" />
+                        
+                    </div>
+                    <div class="twoContainer__coolinput">
+                        <label for="input" class="twoContainer__Title">Supplier</label>
+                        <input type="text" name="input" class="twoContainer__Input" readonly value="${elemento.Proveedor}" />
+                    </div>
+                </div>
+            <div class="twoContainer">
+                <div class="twoContainer__coolinput">
+                    <label for="input" class="twoContainer__Title">Warehouse</label>
+                    <input type="text" name="input" class="twoContainer__Input"  readonly value="${elemento.Almacen}" />
+                  
+                </div>
+                <div class="twoContainer__coolinput">
+                    <label for="input" class="twoContainer__Title">Bin</label>
+                    <input type="text" name="input" class="twoContainer__Input" readonly value="${elemento.Long_ubicacion_I}" />
+       
+                </div>
+            </div>
+            <div class="twoContainer">
+                <div class="twoContainer__coolinput">
+                    <label for="input" class="twoContainer__Title">Stock</label>
+                    <input type="text" name="input" class="twoContainer__Input" readonly value="${elemento.Quatity}" />
+                </div>
+                <div class="twoContainer__coolinput">
+                    <label for="input" class="twoContainer__Title">Active</label>
+                    <input type="text" name="input" class="twoContainer__Input" readonly value="${elemento.Estatus}" />
+                </div>
+            </div>
+           
+            <div class="oneContainer">
+                <div class="twoContainer__coolinput">
+                    <label for="input" class="twoContainer__Title">Description</label>
+                    <textarea class="twoContainer__Input" readonly >${elemento.Descripcion}</textarea>
+                </div>
+            </div>
+           
+                <div class="contenedorBoton">
+                    <button class="comic-button" onclick="abrirModal(${elemento.ID_NP})">Details</button>
+            
+                </div>
+            </section>
+          
+            
+          
+          
+
+        </main>
+
+          `
         })
         resolve(palabra)
 
@@ -198,6 +200,7 @@ function renderizar(useData) {
             // contenedorTarjetas.innerHTML = res
             console.timeEnd("dibujar")
         })
+        tarjetas.scrollIntoView(true);
 }
 
 
@@ -212,7 +215,7 @@ inputSearch.addEventListener("input", () =>{
     let arraySearchs = search.trim().split(" ")
     let arrayFiltrados = []
     let arrayConcatenado = []
-    // console.log(arraySearchs)
+    console.log(arraySearchs)
 
     dbPrincipal__Copia = [...dbPrincipal]
     // busqueda =  busqueda.toUpperCase()
@@ -225,10 +228,13 @@ inputSearch.addEventListener("input", () =>{
                 valores = valores.replaceAll(",","")
                 valores = valores.replace(/\s+/g, '')  
                 valores = valores.toUpperCase()
+                // console.log(valores)
+
                 if (valores.indexOf(searchItem,0) > 0 ){
                     arrayConcatenado.push(dato)
+                    // console.log(valores)
                     return true
-                       // console.log(valores)
+                    
                    }
             })
             // arrayFiltrados.concat(filtrado);
@@ -237,62 +243,53 @@ inputSearch.addEventListener("input", () =>{
             // console.log(filtrado)
 
         })
-        // console.log("Arrar de arrays")
-        // console.log(arrayFiltrados);
+         console.log("Arrar de arrays")
+         console.log(arrayFiltrados);
 
-        function findDuplicates(arr) {
-            const distinct = new Set(arr);        // para mejorar el rendimiento
-            const filtered = arr.filter(item => {
-                // elimina el elemento del conjunto en el primer encuentro
-                if (distinct.has(item)) {
-                    distinct.delete(item);
-                }
-                // devolver el elemento en encuentros posteriores
-                else {
-                    return item;
-                }
-            });
-         
-            return [...new Set(filtered)]
-        }
-
-        
-        // console.log("Arrar de arrays ordenados")
         
         arrayData = [...arrayFiltrados].sort(descendenteFunction);
-        // console.log(arrayData);
+        console.log("Arraray de arrays ordenados");
+        console.log(arrayData);
         // console.log("las paabras son "+arraySearchs.length)
-        if (arraySearchs.length > 1){
-            
-            if (arraySearchs.length < 3) {
-            const duplicates = findDuplicates(arrayConcatenado);
-            console.log("array concatenado filtrado");
-            console.log(duplicates);
-            dbPrincipal__Copia = [...duplicates]
-            renderizar(duplicates)
-            }else{
-                console.log("los elementos duplicados son")
-                let ff = encontrar(arrayData)
+        
+        if (arrayConcatenado.length === 0) {
+            alert("no se encontraron itmes con esas caracterizticas")
+        }
+        else {
+            let ff = busquedaArraysObjetos(arrayData)
+            renderizar(ff)
+            dbPrincipal__Copia = [...ff]
+        }
 
-                console.log(ff)
-                renderizar(ff)
-                dbPrincipal__Copia = [...ff]
-            }
-            
-            
-        }
-        else{
-            if(arrayConcatenado.length ===0){
-                alert("no se encontraron itmes con esas caracterizticas")
-                // console.log("no se encontraron itmes con esas caracterizticas")
-            }
-            else{
-                console.log("array concatenado");
-                renderizar(arrayConcatenado)
-                dbPrincipal__Copia = [...arrayConcatenado]
-                console.log(arrayConcatenado);
-            }
-        }
+
+        // if (arraySearchs.length > 1){
+        //     if (arraySearchs.length < 3) {
+        //     const duplicates = findDuplicates(arrayConcatenado);
+        //     console.log("Array con mas elementos");
+        //     console.log(duplicates);
+        //     dbPrincipal__Copia = [...duplicates]
+        //     renderizar(duplicates)
+        //     }else{
+        //         console.log("Elementos con mas de dos busquedas")
+        //         // let ff = encontrar(arrayData)
+        //         let ff = busquedaArraysObjetos(arrayData)
+
+        //         console.log(ff)
+        //         renderizar(ff)
+        //         dbPrincipal__Copia = [...ff]
+        //     }
+        // }
+        // else{
+        //     if(arrayConcatenado.length ===0){
+        //         alert("no se encontraron itmes con esas caracterizticas")
+        //     }
+        //     else{
+        //         console.log("Array con un elemento");
+        //         renderizar(arrayConcatenado)
+        //         dbPrincipal__Copia = [...arrayConcatenado]
+        //         console.log(arrayConcatenado);
+        //     }
+        // }
 
 
     }
@@ -372,7 +369,23 @@ function encontrar(arrayData1){
 
 }
 
-
+function busquedaArraysObjetos(ArrayDeArrays){
+    var todoslosobjetos = [].concat(...ArrayDeArrays)
+    var frecuencia = {}
+    for( let i = 0; i< todoslosobjetos.length; i++){
+      var objeto = todoslosobjetos[i]
+      var cadenajson = JSON.stringify(objeto)
+      frecuencia[cadenajson] = (frecuencia[cadenajson] || 0) +1
+  }
+  var repetidos = Object.keys(frecuencia).filter(element =>{
+      return frecuencia[element] === ArrayDeArrays.length
+  })
+  var objetosRepetidos = repetidos.map(e =>{
+      return JSON.parse(e)
+  })
+  return objetosRepetidos
+  
+  }
 botonAtrasDOM.addEventListener("click", retrocederPagina);
 botonSiguienteDOM.addEventListener("click", avanzarPagina);
 

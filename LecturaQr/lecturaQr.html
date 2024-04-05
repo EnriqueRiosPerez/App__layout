@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lector de Códigos QR</title>
+    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.3.1/dist/jsQR.min.js"></script>
+</head>
+<body>
+    <video id="video" width="640" height="480" autoplay></video>
+    <canvas id="canvas" width="640" height="480" style="display: none;"></canvas>
+    <script>
+        const video = document.getElementById('video');
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d',{ willReadFrequently: true });
+
+        navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
+            .then(stream => {
+                video.srcObject = stream;
+                video.onloadedmetadata = () => {
+                    video.play();
+                    requestAnimationFrame(tick);
+                };
+            });
+
+        function tick() {
+            if (video.paused || video.ended) {
+                return;
+            }
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+            const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            const code = jsQR(imageData.data, imageData.width, imageData.height);
+            if (code) {
+                console.log(" QR :", code.data);
+            }
+
+            requestAnimationFrame(tick);
+        }
+
+
+
+
+// document.addEventListener('DOMContentLoaded', (event) => {
+//     const video = document.getElementById('qr-video');
+    
+//     navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
+//         .then((stream) => {
+//             video.srcObject = stream;
+//             video.play();
+//             detectarQR(stream);
+//         })
+//         .catch((error) => {
+//             console.error('Error al acceder a la cámara: ', error);
+//         });
+// });
+
+// function detectarQR(stream) {
+//     const video = document.getElementById('qr-video');
+//     const canvas = document.createElement('canvas');
+//     const ctx = canvas.getContext('2d',{ willReadFrequently: true });
+    
+//     const drawCanvas = () => {
+//         canvas.width = video.videoWidth;
+//         canvas.height = video.videoHeight;
+//         ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+//         const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+//         const code = jsQR(imageData.data, imageData.width, imageData.height);
+
+//         if (code) {
+//             console.log(code)
+//             // console.log('Código QR detectado:', code.data);
+//             // Aquí puedes realizar acciones con el código QR detectado
+//         }
+
+//         requestAnimationFrame(drawCanvas);
+//     };
+
+//     video.addEventListener('loadedmetadata', () => {
+//         drawCanvas();
+//     });
+    
+//     // Detener la detección de QR al cerrar la página
+//     window.addEventListener('beforeunload', () => {
+//         stream.getTracks().forEach(track => track.stop());
+//     });
+// }
+
+
+    </script>
+</body>
+</html>

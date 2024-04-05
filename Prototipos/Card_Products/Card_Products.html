@@ -30,7 +30,7 @@
         <section class="card__sectionInfo">
             <header class="card__sectionInfo__Header center">
                 <div class="oneContainer">
-                    <h1>2AGKHH001700</h1>
+                    <h1 style="font-size: 1rem;">Diámetro exterior 3x diámetro del cable 0,3 x longitud 15mm</h1>
                     <!-- <textarea class="twoContainer__Input" readonly ></textarea>  -->
                 </div>
                 <div class="oneContainer">
@@ -58,65 +58,39 @@
                     <div class="stock">
 
                         <div class="Flag">
-                                                     <!-- in stock -->
                             <span class="Flag__Span">Available</span>
+                            <i class="fa-solid fa-hashtag" title="Stock"></i>
+                             1
                         </div>
-                        1
+                        
                     </div>
-                    <i class="fa-solid fa-hashtag" title="Stock"></i>
+                 
 
                 </span>
-                <!-- <div class="twoContainer">
-                 
-                    <div class="twoContainer__coolinput">
-                        <span class="Submenu__Item__a"><i class="fa-regular fa-engine" title="Machine Type"></i>
-                            <span class="proveedorClass" title="Specnor Tecnic Inttl Corp">
-                                Specnor Tecnic Inttl Corp
-                            </span>
-                        </span>
-    
-                    </div>
-                    <div class="twoContainer__coolinput">
-    
-    
-                        <span class="Submenu__Item__a"><i class="fa-solid fa-warehouse" title="Warehouse"></i>Almacen
-                            Central</span>
-                    </div>
-    
-    
-                </div>
-                <div class="twoContainer">
-                    <div class="twoContainer__coolinput">
-                        <span class="Submenu__Item__a"><i class="fa-solid fa-location-dot" style="color:#EF4444;"
-                                title="Bin"></i>B0205-06</span>
-    
-                    </div>
-                    <dv class="twoContainer__coolinput">
-                        <span class="Submenu__Item__a">
-                            <div class="stock">
-    
-                                <div class="Flag">
-    
-                                    <span class="Flag__Span">In stock</span>
-                                </div>
-                                1
-                            </div>
-                            <i class="fa-solid fa-hashtag" title="Stock"></i>
-    
-                        </span>
-    
-                    </dv> -->
                 </div>
             </main>
             
+            <input type="text">
 
             <div class="contenedorBoton">
-                <button class="comic-button">Details</button>
+                <button class="comic-button" onclick="openmodal()">Details</button>
 
             </div>
         </section>
     </article>
+    <dialog id="dialog" class="modal">
+        hola como estas
+    </dialog>
 
+    <script>
+        let modal = document.getElementById("dialog")
+
+        function openmodal(){
+            modal.showModal()
+        }
+
+
+    </script>
 </body>
 
 </html>

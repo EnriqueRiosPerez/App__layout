@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.0.2/dist/jsQR.min.js"></script>
+
+        <!-- scrip del chart -->
+        <script src="ChartJs/cdn.jsdelivr.net_npm_chart.js"></script>
+        
+        <!-- scrips para los data lables -->
+        <script src="ChartJs/cdn.jsdelivr.net_npm_chartjs-plugin-datalabels@2.2.0_dist_chartjs-plugin-datalabels.min.js"></script>
+        <!-- archivo para las fechas de las graficas -->
+        <script src="ChartJs/cdn.jsdelivr.net_npm_chartjs-adapter-date-fns_dist_chartjs-adapter-date-fns.bundle.min.js"></script>
+    
+</head>
+
+<body>  
+    <header class="Body_Header">
+        
+    </header>
+
+
+    <main class="Body_Main">
+        <section class="Section__Carousel">
+            <section class="Carousel__Card">
+                <header class="Carousel__Card__Header">
+                    <h3>Progress CPK</h3>
+                </header>
+                <main class="Carousel__Card_Main">
+                    <svg version="1.1" width="100" height="100" viewBox="0 0 100 100" class="circle-progress"><circle class="circle-progress-circle" cx="50" cy="50" r="47" fill="none" stroke="#ddd" stroke-width="8"></circle><path d="M 50 3 A 47 47 0 0 1 97 50" class="circle-progress-value" fill="none" stroke="#00E699" stroke-width="8"></path><text class="circle-progress-text" x="50" y="50" font="16px Arial, sans-serif" text-anchor="middle" fill="#999" dy="0.4em">25%</text></svg>
+                    <input type="datetime-local" name="" id="">
+                
+                </main>
+            </section>
+            <section class="Carousel__Card">
+                <header class="Carousel__Card__Header">
+                    <h3>Progress CPK</h3>
+                </header>
+                <main class="Carousel__Card_Main">
+                    <svg version="1.1" width="100" height="100" viewBox="0 0 100 100" class="circle-progress"><circle class="circle-progress-circle" cx="50" cy="50" r="47" fill="none" stroke="#ddd" stroke-width="8"></circle><path d="M 50 3 A 47 47 0 0 1 97 50" class="circle-progress-value" fill="none" stroke="#00E699" stroke-width="8"></path><text class="circle-progress-text" x="50" y="50" font="16px Arial, sans-serif" text-anchor="middle" fill="#999" dy="0.4em">25%</text></svg>
+                </main>
+            </section>
+            <section class="Carousel__Card">
+                <header class="Carousel__Card__Header">
+                    <h3>Progress CPK</h3>
+                </header>
+                <main class="Carousel__Card_Main">
+                    <svg version="1.1" width="100" height="100" viewBox="0 0 100 100" class="circle-progress"><circle class="circle-progress-circle" cx="50" cy="50" r="47" fill="none" stroke="#ddd" stroke-width="8"></circle><path d="M 50 3 A 47 47 0 0 1 97 50" class="circle-progress-value" fill="none" stroke="#00E699" stroke-width="8"></path><text class="circle-progress-text" x="50" y="50" font="16px Arial, sans-serif" text-anchor="middle" fill="#999" dy="0.4em">25%</text></svg>
+                </main>
+            </section>
+        </section>
+
+        <section class="Section_Category">
+            <header class="Section_Header">
+                <h2>CMK / CPK</h2>
+            </header>
+
+
+            <main class="Section_Main">
+                <Section class="Section__Main__Card">
+                    <header class="Main__Card__Header">
+                        <h3 id="Title_1">All equipment</h3>
+    
+                    </header>
+                    
+                    
+                    <section class="Main__Card__Chart">
+                        <canvas id="Chart1">
+    
+                        </canvas>
+                    </section>
+
+                </Section>
+
+                <Section class="Section__Main__Card">
+                    <header class="Main__Card__Header">
+                        <h3 id="Title_1">Pick and Place: </h3>
+    
+                    </header>
+                    
+                    
+                    <section class="Main__Card__Chart">
+                        <canvas id="Chart2">
+    
+                        </canvas>
+                    </section>
+
+                </Section>
+                
+                <Section class="Section__Main__Card">
+                    <header class="Main__Card__Header">
+                        <h3 id="Title_1">Reflow Oven: </h3>
+    
+                    </header>
+                    
+                    
+                    <section class="Main__Card__Chart">
+                        <canvas id="Chart3">
+    
+                        </canvas>
+                    </section>
+
+                </Section>
+                <Section class="Section__Main__Card">
+                    <header class="Main__Card__Header">
+                        <h3 id="Title_1">Screen Printer: </h3>
+    
+                    </header>
+                    
+                    
+                    <section class="Main__Card__Chart">
+                        <canvas id="Chart4">
+    
+                        </canvas>
+                    </section>
+
+                </Section>
+                
+            </main>
+   
+            
+        </section>
+        <!-- <video id="qr-video" width="100%" height="100%" playsinline></video> -->
+
+    </main>
+    
+    
+
+   
+
+    <script src="datos.js"></script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+﻿:root {
+    --color-secondary-1: #CECDD0;
+    --color-secondary-1-placeholder: #89868D;
+    /* #89868D; */
+    /* #7A777F */
+    --bg-primary-100-hover: #4782A2;
+    --bg-primary-100: #5398BE;
+    --time-transition-labels: 150ms;
+    --text-300: rgb(55 55 55 / 1);
+}
+
+
+.Section__Form {
+    position: relative;
+    width: 100%;
+    padding: 1rem 0 0 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.Section__Form__Input {
+    width: 100%;
+    border: 1px solid var(--color-secondary-1);
+    border-radius: 0.8rem;
+    background: none;
+    padding: 1rem;
+    font-size: 1rem;
+    color: var(--color-secondary-1-placeholder);
+    transition: border var(--time-transition-labels) cubic-bezier(0.4,0,0.2,1);
+}
+    /*como debe mostrarse el placeholder en este caso el inicial debe de ser transsparente para que la label no se encime*/
+    .Section__Form__Input::placeholder {
+        color: transparent;
+        user-select: none;
+    }
+    /*cuando esta focus como se muestra el placeholder*/
+    .Section__Form__Input:focus::placeholder {
+        color: var(--color-secondary-1);
+    }
+    /*estilo cuando el input esta seleccionado */
+    .Section__Form__Input:focus {
+        outline: none;
+        border: 1.5px solid var(--bg-primary-100);
+    }
+    /*para cuando se esta escribiendo la tarjeta no se devuelva a su lugar */
+    .Section__Form__Input:not(:placeholder-shown) ~ label {
+        transform: translateY(-50%);
+        background-color: white;
+        padding: 0.1rem;
+        color:var(--text-300);
+        font-weight:500;
+        /*color: var(--color-secondary-1);*/
+    }
+    /*cuando el input esta focus mueve la tarjeta*/
+    .Section__Form__Input:focus ~ label {
+        transform: translateY(-50%);
+        background-color: white;
+        padding: 0.1rem;
+        color: var(--bg-primary-100);
+        font-weight: 500;
+    }
+
+
+.Section__Form__Label {
+    user-select: none;
+    position: absolute;
+    left: 0.9rem;
+    color: var(--color-secondary-1-placeholder);
+    pointer-events: none;
+    transform: translateY(1rem);
+    transition: var(--time-transition-labels) cubic-bezier(0.4,0,0.2,1);
+}
+
+.bad__label {
+    color: red !important;
+}
+
+.bad {
+    border: 1px solid red;
+}
+    .bad:focus {
+        outline: none;
+        border: 1.5px solid red;
+    }
+
+
+.Button {
+    /* height: 100%; */
+    border-radius: 0.8rem;
+    box-shadow: 0px 6px 18px -8px rgba(58, 53, 65, 0.56);
+    font-weight: 500;
+    padding: 1rem;
+    border: none;
+    border-radius: 5px;
+    /* letter-spacing: 1.71px; */
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
+
+
+.Button-primary {
+    background-color: var(--bg-primary-100);
+    color: #fff;
+}
+    .Button-primary:hover {
+        background-color: var(--bg-primary-100-hover);
+        color: #fff;
+    }
+.Button-secondary{
+    background-color: #F5F5F5;
+    color:var(--text-300);
+}
+
+
+.Button-Add {
+    background-color: #45CB85;
+    color: #fff;
+}
+.Button-Add:hover {
+    background-color: #3BAF73;
+    
+}
+
+.Button-Update {
+    background-color: #469CEB;
+    color:#fff;
+
+}
+    .Button-Update:hover {
+        background-color: #3E88CD;
+
+    }
+.Button-Delete-Secundary {
+    /*    color: #fff;
+    background-color: lightcoral;*/
+    color: #EA5047;
+    background-color: #FEF2F2;
+    border: 1px solid #EA5047;
+    box-shadow:none;
+}
+    .Button-Delete-Secundary:hover {
+        background-color: #fcdada;
+        color: #CD453E;
+        border: 1px solid #CD453E;
+    }
+
+.Button-Update-Secundary {
+    /*    color: #fff;
+    background-color: lightcoral;*/
+    color: #469CEB;
+    background-color: #F2F2FE;
+    border: 1px solid #469CEB;
+    box-shadow: none;
+}
+
+.Button-Add-Secundary {
+    /*    color: #fff;
+    background-color: lightcoral;*/
+    color: #45CB85;
+    background-color: #F2FEF2;
+    border: 1px solid #45CB85;
+    box-shadow: none;
+}

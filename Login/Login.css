@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <!-- <link rel="stylesheet" href="Login.css"> -->
-    <style>
-        *{
+*{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -212,75 +204,3 @@ aspect-ratio: 1/1;
     background-color: #fff;
     padding: 0 1rem;
 }
-    </style>
-    <link rel="stylesheet" href="/Prototipos/Inputs/Form__Inputs.css">
-    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css" />
-
-</head>
-<body>
-    <main class="body__Container">
-        <!-- <form action=""> -->
-            <section class="Container__Login">
-                <header class="Container__Login__Header">
-                    <div class="Container__Login__Header__Div">
-                        <img class="Container__Login__Header__Div__Img" src="MM.png" alt="" srcset="">
-                        <h6>Maintenance Management</h6>
-                    </div>
-                    
-                    <h5>Welcome to Maintenance Management  !</h5>
-                </header>
-                <section class="Container__Login__Section">
-                    <div class="Section__Form">
-                        <input class="Section__Form__Input"  type="text" id="TextBoxContraseña" required=""  autocomplete="off" placeholder="Explame: 'gdj', 'gdl'" />
-                        <label class="Section__Form__Label" for="name">User</label>
-                    </div>
-                    
-                    <div class="Section__Form">
-                        <input id="Form__Password__Input" class="Section__Form__Input Form__Password__Input" type="password"  required="" autocomplete="off" placeholder="Password"/>
-                        <label class="Section__Form__Label">Password</label>
-                        <button tabindex="-1" type="button" class="Button__Hide" id="Button_Show_Password"><i class="fa-solid fa-eye"></i></button>
-                    </div>
-                    
-                </section>
-                <footer class="Container__Login__Footer">
-                    <button type="button">LOGIN</button>
-                    <!-- <input type="button" value="LOGIN"> -->
-                </footer>
-                <div class="Container__Login__Div">
-                    <span>or</span>
-                </div>
-                <div class="contenedor_Opciones">
-                
-                    <a id="btnCalificaciones" class="btn_titulo" ><i class="fa-solid fa-qrcode"></i> QR Lable</a>
-                     <a id="LinkButton1" class="btn_titulo" ><i class="fa-solid fa-circle-question"></i> Faq's</a>
-                </div>
-            </section>
-        <!-- </form> -->
-    </main>
-
-    <script>
-        let Button_Show_Password = document.getElementById("Button_Show_Password")
-        let Input_Password = document.getElementById("Form__Password__Input")
-        // <i class="fa-solid fa-eye-slash"></i>
-        Button_Show_Password.addEventListener("click", (e)=>{
-            let current = e.target
-            let icon = current.children[0]
-            console.log(current.children)
-            icon.classList.toggle("fa-eye")
-            icon.classList.toggle("fa-eye-slash")
-
-            let isEyeOpen = icon.classList.contains("fa-eye-slash");
-            Input_Password.type = isEyeOpen ? "text" : "password";
-    
-            
-
-        })
-       
-    
-       
-       
-    </script>
-    
-    
-</body>
-</html>

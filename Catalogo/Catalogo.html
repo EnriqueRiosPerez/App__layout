@@ -10,6 +10,33 @@
     <link rel="stylesheet" href="Styles/Catalog/catalogo.css">
     <link rel="stylesheet" href="Styles/Catalog/busqueda.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css" />
+    <style>
+        dialog{
+     
+            margin: auto; width: 60%; height: 50%;
+        }
+        .dialog__Container{
+            display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+        }
+        .Dialog__Div__Image{
+            width: 50%;
+    height: 100%;
+    padding: 5px;
+        }
+        .Dialog_Image{
+            height: 100%;
+    width: 100%;
+        }
+        .Dialog__Div__Information{
+            width: 50%;
+    height: 100%;
+        }
+    </style>
+    <!-- <link rel="stylesheet" href="/Prototipos/Card_Products/Card_Products.css"> -->
 </head>
 
 <body>
@@ -66,7 +93,32 @@
        
     </main>
     <dialog id="infoPieza">
-        
+        <div class="dialog__Container">
+            <div class="Dialog__Div__Image">
+                <img src="http://gdjf04819.americas.ad.flextronics.com:85/Handlers/Catalog_Header.ashx?type=part&id=2773" class="Dialog_Image" alt="" srcset="">
+                </div>
+                <div class="Dialog__Div__Information">
+                    <div class="twoContainer">
+                        <div class="twoContainer__coolinput">
+                            <label for="input" class="twoContainer__Title">Location</label>
+                            <input type="text"id="DropDownList_LocationAdd" class="twoContainer__Input">
+                            </input>
+                
+                        </div>
+                        <div class="twoContainer__coolinput">
+                            <label for="input" class="twoContainer__Title">Opction</label>
+                            <input type="text"id="DropDownList_LocationAdd" class="twoContainer__Input">
+                            </input>
+                        </div>
+                    </div>
+                </div>
+                <footer>
+                    
+                </footer>
+                <button type="button" onclick="backend()">asdfasdf</button>
+        </div>
+  
+
     </dialog>
 
 
@@ -74,13 +126,13 @@
   
 
     <script src="Js_Catalogo.js"></script>
-    <script >
+    <script>
         let dialogo = document.getElementById("infoPieza")
 
         function abrirModal(id){
             dialogo.showModal()
-            dialogo.innerHTML = ""
-            dialogo.innerHTML = `${id}`
+            // dialogo.innerHTML = ""
+            // dialogo.innerHTML = `${id}`
         }
     </script>
 </body>

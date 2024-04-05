@@ -2,8 +2,55 @@
     box-sizing: border-box;
 }
 :root{
-    --Border--Radius--Card: 0.5rem;
+    --Border--Radius--Card: 0.75rem;
     --border--Radius--Img : var(--Border--Radius--Card) var(--Border--Radius--Card) 0 0 ;
+    --tw-border-spacing-x: 0;
+    --tw-border-spacing-y: 0;
+    --tw-translate-x: 0;
+    --tw-translate-y: 0;
+    --tw-rotate: 0;
+    --tw-skew-x: 0;
+    --tw-skew-y: 0;
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
+    --tw-pan-x: ;
+    --tw-pan-y: ;
+    --tw-pinch-zoom: ;
+    --tw-scroll-snap-strictness: proximity;
+    --tw-gradient-from-position: ;
+    --tw-gradient-via-position: ;
+    --tw-gradient-to-position: ;
+    --tw-ordinal: ;
+    --tw-slashed-zero: ;
+    --tw-numeric-figure: ;
+    --tw-numeric-spacing: ;
+    --tw-numeric-fraction: ;
+    --tw-ring-inset: ;
+    --tw-ring-offset-width: 0px;
+    --tw-ring-offset-color: #fff;
+    --tw-ring-color: rgb(59 130 246 / .5);
+    --tw-ring-offset-shadow: 0 0 #0000;
+    --tw-ring-shadow: 0 0 #0000;
+    --tw-shadow: 0 0 #0000;
+    --tw-shadow-colored: 0 0 #0000;
+    --tw-blur: ;
+    --tw-brightness: ;
+    --tw-contrast: ;
+    --tw-grayscale: ;
+    --tw-hue-rotate: ;
+    --tw-invert: ;
+    --tw-saturate: ;
+    --tw-sepia: ;
+    --tw-drop-shadow: ;
+    --tw-backdrop-blur: ;
+    --tw-backdrop-brightness: ;
+    --tw-backdrop-contrast: ;
+    --tw-backdrop-grayscale: ;
+    --tw-backdrop-hue-rotate: ;
+    --tw-backdrop-invert: ;
+    --tw-backdrop-opacity: ;
+    --tw-backdrop-saturate: ;
+    --tw-backdrop-sepia: ;
 }
 
 .mainContainer__Section__SubPage__Cards{
@@ -20,7 +67,9 @@
     /* background-color: var(--color1); */
     grid-auto-flow: dense;
     grid-auto-rows: auto;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+    grid-template-columns: repeat(4,minmax(0,1fr));
+    
+    /* grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); */
 }
 
 
@@ -31,11 +80,24 @@
 
 
 .Card{
-    /* height: 80%; */
+    
     height: -webkit-fill-available;
-    width: 80%;
-    outline: 1px solid #333333;
+    width: 90%;
     border-radius: var(--Border--Radius--Card);
+    box-shadow: 0px 0px 10px 0px rgb(51 51 51/ 1);
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+}
+.Card:hover{
+     /* box-shadow: 0 4px 18px 0 red; */
+    /* modo claro */
+  
+    /* color: #fff; */
+    /* --tw-scale-x: 1.05;
+    --tw-scale-y: 1.05; */
+    /* transform: translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y)); */
+        transform: scale(1.05);
 }
 .Card__Container__Images{
     width: 100%;
@@ -47,14 +109,29 @@
 }
 .Container__Images__Img{
 width: 100%;
-height: 50%;
+/* height: auto    ; */
 border-radius: var(--border--Radius--Img) ;
-/* aspect-ratio: 1/0.5; */
+aspect-ratio: 1/0.6;
 /* object-fit: contain; */
 }
 
 .Card__Container__Info{
-    padding: 0.5rem;
+    padding: 1.5rem;
+}
+.Card__Container__Info > p{
+    font-size: .875rem;
+    line-height: 1.5rem;
+    margin-bottom: 2em !important;
+}
+
+
+
+
+.Card__Container__Info__Header{
+    font-size: 1.25rem;
+    line-height: 2rem;
+    font-weight: 600;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji";
 }
 .Card__Container__Buttons{
     display: flex;

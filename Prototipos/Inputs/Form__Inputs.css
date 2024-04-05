@@ -1,0 +1,67 @@
+:root{
+    --color-secondary-1: #CECDD0;
+    --color-secondary-1-placeholder:#89868D;
+    /* #89868D; */
+    /* #7A777F */
+    --bg-primary-100-hover: #4782A2;
+    --bg-primary-100:#5398BE;
+    --time-transition-labels: 150ms;
+    --text-300:rgb(55 55 55 / 1);
+
+}
+
+.Section__Form {
+    position: relative;
+    width: 100%;
+    padding: 1rem 0 0 0;
+}
+
+.Section__Form__Input {
+    width: 100%;
+    border: 1px solid var(--color-secondary-1);
+    border-radius: 0.8rem;
+    background: none;
+    padding: 1rem;
+    font-size: 1rem;
+    color:var(--color-secondary-1-placeholder);
+    transition: border var(--time-transition-labels) cubic-bezier(0.4,0,0.2,1);
+}
+
+    .Section__Form__Input::placeholder {
+        color: transparent;
+        user-select: none;
+    }
+
+    .Section__Form__Input:focus::placeholder {
+        color: var(--color-secondary-1);
+    }
+
+    .Section__Form__Input:focus {
+        outline: none;
+        border: 1.5px solid var(--bg-primary-100);
+    }
+
+    .Section__Form__Input:not(:placeholder-shown) ~ label {
+        transform: translateY(-50%);
+        background-color: white;
+        padding: 0.1rem;
+        color: var(--color-secondary-1);
+    }
+
+    .Section__Form__Input:focus ~ label {
+        transform: translateY(-50%);
+        background-color: white;
+        padding: 0.1rem;
+        color:var(--bg-primary-100);
+    }
+
+
+.Section__Form__Label {
+    user-select: none;
+    position: absolute;
+    left: 0.9rem;
+    color: var(--color-secondary-1-placeholder);
+    pointer-events: none;
+    transform: translateY(1rem);
+    transition: var(--time-transition-labels) cubic-bezier(0.4,0,0.2,1);
+}

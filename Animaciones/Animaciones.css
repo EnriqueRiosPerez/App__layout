@@ -1,0 +1,34 @@
+
+
+.Fade__Out{
+    animation:scale-up-center 0.15s; 
+} 
+@keyframes scale-up-center{ 
+    0%{
+        opacity: 0;
+        transform:scale(.3)
+    } 
+100%{
+    opacity: 1;
+    transform:scale(1)
+} 
+}
+
+
+.Fade__In {
+    animation: scale-down-center 0.5s;
+}
+
+@keyframes scale-down-center {
+    0% {
+        opacity: 1;
+        transform: scale(1)
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0.5)
+    }
+}
+
+

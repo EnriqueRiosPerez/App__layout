@@ -1,16 +1,1 @@
-
-{
-  "Principal":  {   
-        "Session('Privilegios')": "null",
-        "Session('Usuario')": "null",
-        "Session('Site')":"null",
-        "Session('Other_Password')":"null"
-        
-    },
-    "Paginas":{
-        "hola":"adios"
-    }
-       
-    
-    
-}
+[{"Site":"Guadajalara south","Almacen":"Almacen Central","Tipo_maquina":"Screen Printer","Proveedor":"ASM","Estatus":"Activo","ID_NP":118,"Num_parte":"03131175-01","Descripcion":"BOM MOTOR DRIVE PRINT CARRIAGE","Quatity":"3","Long_ubicacion_I":"A0103-02","MinimoSTD":"1.0","MinimoManual":"1","STDEV_var":"0.7","MaxSTD":"3.5","maxmanual":"1","USD":"2032.0","Events":2,"Modificacion":"2023-05-23T12:02:03"}]

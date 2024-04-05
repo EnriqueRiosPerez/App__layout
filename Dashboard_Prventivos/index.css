@@ -1,0 +1,154 @@
+:root{
+    /* --bg-100: #333; */
+    --body-bg:#F4F5FA;
+    --card-bg:#fff;
+    --card-bxs: rgba(58, 53, 65, 0.1) 0px 2px 10px 0px;
+
+    --bg-100:#fff;  
+    --color-secondary-1: rgb(253 253 253 / 1);
+    --color-secondary-1-placeholder: #89868D;
+    --bg-primary-100-hover: #4782A2;
+    --bg-primary-100: #5398BE;
+    --time-transition-labels: 150ms;
+    /* --text-300: rgb(55 55 55 / 1); */
+    --text-300: rgb(51 51 51 / 1);
+    --border-color:#CECDD0;
+}
+/* @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700"); */
+@import url("https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700");
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+    font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+     /* "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; */
+}
+
+
+html {
+    height: 100%;
+    overflow: hidden;
+    /* background-color: red; */
+    /* padding: 10px; */
+    /* background-color: #fff; */
+   
+}
+
+body {
+    /* font-size: 1.2rem; */
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    overflow: hidden;
+    
+    /* background-color: var(--color-secondary-1); */
+    /* background-color: var(--body-bg);
+     */
+     /* background-color: rebeccapurple; */
+     background-color: #F6F7F8;
+    
+    display: flex;
+    flex-direction: column;
+}
+
+.Body_Header{
+    height: 3rem;
+    outline: 1px solid red;
+    /* background-color: aqua; */
+
+}
+.Body_Main{
+    height:100% ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    outline: 1px solid black;
+    padding: 1rem;
+    overflow-y: auto;
+    
+}
+.Section__Carousel{
+    /* 4782A2 */
+    background-color: rgb(51 51 51 / 0.1);
+
+    /* height:3rem ; */
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    width: 90%;
+    display: grid;
+    grid-auto-flow: dense;
+    grid-auto-rows: auto;
+    gap: 3rem 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr));
+    /* padding: 1rem 0; */
+
+}
+.Carousel__Card{
+    /* background-color: ; */
+    max-width: 40rem;
+    padding: 1rem;
+    background-color: var(--card-bg);
+    box-shadow: var(--card-bxs);
+    border-radius: 0.8rem;
+    margin: auto;
+}
+.Carousel__Card__Header{
+    padding: 0rem 1rem 1.5rem;
+
+}
+.Carousel__Card_Main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.Section_Category{
+    padding: 2rem;
+    width: 90% ;
+    background-color: var(--card-bg);
+    box-shadow: var(--card-bxs);
+    border-radius: 0.8rem;
+
+
+    --text-1: rgb(55 55 55 / 0.1);
+
+    /* box-shadow: 0 0 2px 1px var(--text-1); */
+    
+}
+
+.Section_Header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0 1rem 0;
+    color: var(--text-300);
+    border-bottom: 1px solid var(--border-color);
+    width: 100%;
+}
+.Section_Main{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    width: 100%;
+    display: grid;
+    grid-auto-flow: dense;
+    grid-auto-rows: auto;
+    /* gap: 3rem 1rem; */
+    gap:1rem 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 25rem), 1fr));
+}
+.Section__Main__Card{
+    /* background-color: #5398BE; */
+    padding: 1rem;
+}
+.Main__Card__Header{
+    color: var(--text-300);
+    padding: 0rem 0rem 1rem;
+    /* color: ;l */
+}
+.Main__Card__Chart{
+    width: 100%;
+}
+

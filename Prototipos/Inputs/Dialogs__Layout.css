@@ -1,0 +1,80 @@
+:root {
+    
+    
+     /* #1D2D36; */
+    --secondary-100: #F0F0F0;
+
+
+
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+dialog {
+    background-color: white;
+    width: 70%;
+    height: 90%;
+    margin: auto;
+    border-radius: 0.8rem;
+    border: none;
+    padding: 1rem;
+    max-width: 1030px;
+    overflow: hidden;
+
+}
+.Modal__Container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.Modal__Container__Header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 0 1rem 0;
+    color: var(--text-300);
+}
+
+.Modal__Container__Header__Span {
+  
+    cursor: pointer;
+    color: var(--secondary-100);
+    cursor: pointer;
+    background-color: var(--text-300);
+    border-radius: 1rem;
+}   
+.Modal__Container__Header__Span:hover {
+    color: rgb(239 68 68 / 0.8);
+    background-color: transparent;
+}
+
+.Modal__Container__Main__Overflow{
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+
+.Modal__Container__Footer{
+    display: flex;
+    justify-content: flex-end;
+    height: fit-content;
+    align-items: center;
+    padding: 1rem 0 0 0 ;
+
+}
+.Modal__Container__Footer > button{
+    /* height: 100%; */
+    border-radius: 0.8rem;
+    background-color:var(--text-300);
+    color: white;
+    font-weight: 500;
+    padding: 1rem;
+}
