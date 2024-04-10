@@ -205,55 +205,59 @@ a:focus, a:focus * { outline: none !important; }
     background-color: var(--primary-200);
 }
 .Menu__Item__Submenu {
-    /* opacity: 0; */
-    /* display: none; */
-    background-color: var(--bg-100);
-    border-radius: var(--br--100);
-    flex-direction: column;
-    /* height: 0px; */
-    /* 
-    transition: height 0.2s ; */
-    /* transition: all 0.5s allow-discrete; */
-    /* height: 0px; */
-    /* transition: height 0.5s; */
-    /* animation: ocultarElemento 0.3s forwards; */
-    animation: name duration timing-function delay iteration-count direction fill-mode;
-    animation: animation-fade-in 0.5s ease-in-out forwards;
-    overflow-y: hidden;
- 
-}
-.Menu__Item__Submenu.open {
-    /* display: flex; */
-    /* height: 320px; */
-      
+   
+    /* height: 0; */
     /* margin-top: 0.5rem;
     padding: 1rem 0.5rem; */
-    /* animation: mostrarElemento 0.3s forwards; */
-    animation: animation-fade-out 0.5s ease-in-out forwards;
-    flex-direction: column;
+
+
+
+    background-color: var(--bg-100);
+    border-radius: var(--br--100);
+    /* flex-direction: column; */    
+    display: grid;
+    grid-template-rows: 0fr;
+    overflow: hidden;
+
+    /* transition: grid-template-rows 0.5s; */
+    transition: grid-template-rows 0.5s;
+    /* height: 0px;
+    transition: height 0.5s; */
+
+
+}
+
+
+.Menu__Item__Submenu.open{
+    /* height: 320px; */
+    grid-template-rows: 1fr;
+  
 }
 
 
   @keyframes animation-fade-out{
     0% {
-      height: 0;
-      /* display: none; */
+        grid-template-rows: 0fr;
+      display: none;
     }
 
     100% {
-      height:320px;
-      /* display: flex; */
+       
+      /* height: 100%; */
+      display: grid;
+      grid-template-rows: 1fr;
     }
   }
   @keyframes animation-fade-in{
     0% {
+        /* height: 100%; */
         height: 320px;
-        /* display: flex; */
+        display: flex;
     }
     100% {
       
       height: 0;
-      /* display: none; */
+      display: none;
     }
   }
 
@@ -599,14 +603,11 @@ a:focus, a:focus * { outline: none !important; }
         object-fit: contain;
         padding: 0.5rem;
     }
-    .open {
+
+
+    .Menu__Item__Submenu{
         width: var(--width--aside--desktop);
-        /* display: flex;
-        transition: all 1s ease-out;
-        flex-direction: column;
-        margin-top: 0.5rem; */
         position: absolute;
-        /* transform: translate(calc(100% + 1rem), -0.5rem); */
         transform: translate(calc(var(--width-aside--tablet) + 0.5rem), -0.5rem);
     }
     .Menu__Item {

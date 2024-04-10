@@ -5,91 +5,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        #my-element {
-            background-color: #232323;
-            color: white;
-            height: 0;
-            /* transition: height 0.5s ease; */
-            /* display: none; */
-
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
         }
 
-        #my-element.visible {
-            background-color: red;
-            color: white;
-            display: flex;
-            animation: jj 0.5s forwards;
-        }
-      
+
+        #my-element2.visible{
+    grid-template-rows: 1fr;
+ }
 
         #my-element2{
-            /* display: none; */
-            background-color: #a7a7a7;
-            color: white;
-            height: 0px;
-            /* height: 320px; */
-            transition: height 0.5s;
+            position: relative;
+    padding: 0 5rem 0 0;
+    background-color: black;
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.5s ease-in-out;
+    min-height: 0;
         }
-        /* #my-element2.future{
-        
-        animation: gg 0.5s forwards;
-        
-    } */
-    #my-element2.visible{
-        /* display: flex; */
-            height: 320px;
-            /* transition: heigt 0.5s;            */
-            
-            /* animation: jj 0.5s forwards; */
-        }
-        /* @keyframes jj{
-            from{
-                height: 0px;
-            }
-            to{
-                height: fit-content;
-            }
 
-            
-        }
-        @keyframes gg {
-         
-            to{
-                height: 0px;
-            }
-            
-        } */
+        .expander {
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  transition: grid-template-rows 1s;
+}
+.expander-content {
+  min-height: 0;
+  /* transition: visibility 1s;
+  visibility: hidden; */
+}
+.expander.expanded {
+  grid-template-rows: 1fr;
+}
+/* .expander.expanded .expander-content {
+  visibility: visible;
+} */
+
             </style>
 </head>
 <body style="display: flex; flex-direction: column;">
     <button id="toggle-btn">Toggle</button>
-    <div id="my-element" class="ff">asdfasdfasdfasdfasdfasdfa
-        asdfasdgasdgasdg
-        adsasdgasdga
+
+    <div id="my-element2">
+        elementos
     </div>
-    <div id="my-element2"></div>
+
+    <button id="toggle">toggle</button>
+
+    <div>Something before 🙃</div>
+    <div class="title"> 
+        <span id="SpanToggle" style="display: block; width: 100%;">Titulo</span>
+        <div class="expander" id="expander">
+
+            <div class="expander-content">
+              This content should…<br />
+              toggle! 👻
+            </div>
+          </div>
+    </div>
+
+    <!-- <div class="expander" id="expander">
+
+      <div class="expander-content">
+        This content should…<br />
+        toggle! 👻
+      </div>
+    </div> -->
     
+    <div>Something after 🙂</div>
+
+
+
     <script>
         const toggleBtn = document.getElementById("toggle-btn");
 const myElement = document.getElementById("my-element");
 const myElement2 = document.getElementById("my-element2");
+// let cambiar = document.getElementById("toggle")
+let cambiar = document.getElementById("SpanToggle")
+
+cambiar.addEventListener("click", () => {
+  expander.classList.toggle("expanded");
+})
+
 
 toggleBtn.addEventListener("click", () => {
-    // myElement.classList.toggle("visible");
-    // if (myElement.classList.contains("visible")){
-    //     myElement.classList.replace("visible","hide")
-    // }else{
-    //     myElement.classList.replace("hide","visible")
-    // }
-//     let res = myElement.classList.contains("visible")
-//     console.log(res)
-//    if(res=== false){
-//     console.log("no tiene")
-//     myElement.classList.add("visible")
-//    }else{
-//     console.log("si  tiene")
-//     myElement.classList.remove("visible")
-//    }
+
    let res2 = myElement2.classList.contains("visible")
    if(res2===false){
     myElement2.classList.add("visible")

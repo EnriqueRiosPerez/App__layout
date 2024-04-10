@@ -23,27 +23,7 @@ export async function ShowItemNav(e) {
     console.timeEnd("Ocultar2")
 }
 
-//Original
-// function rotateRowIcon(current) {
-//     return new Promise((resolve, reject) => {
-//         let iconRows = [...rowsIcons]
-//         let si = []
-//         let no = []
-//         if(iconRows.length === 0 ){
-//             reject(new Error("No se tienen rows"))
-//         }
-//             iconRows.forEach(element=>{
-//                 if(element !== current){
-//                     no.push(element)
-//                     element.classList.remove("c_rotateIcon")
-//                 }else{
-//                     si.push(element)
-//                     element.classList.toggle("c_rotateIcon")
-//                 }
-//             })
-//             resolve("yeah rotate!")
-//     })
-// }
+
 
 function rotateRowIcon(current) {
     return new Promise((resolve, reject) => {

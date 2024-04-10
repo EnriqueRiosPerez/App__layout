@@ -9,9 +9,15 @@
 
     <!-- <link rel="stylesheet" href="/dropnav/index.csss"> -->
 
+    <style>
+        .expander-content {
+  min-height: 0;
+  /* transition: visibility 1s;
+  visibility: hidden; */
+}
+    </style>
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css" />
-
-
+    
 
 
 </head>
@@ -43,12 +49,15 @@
                                 
                             </span>
                             <ul class="Menu__Item__Submenu">
-                                <h5 class="Submenu__Header">Options</h5>
-                                <li class="Submenu__Item"><a class="Submenu__Item__a" href="/Nav/NavHTML.html"><i class="fa-solid fa-calendar-days"></i>Schedule</a></li>
-                                <li class="Submenu__Item"><a class="Submenu__Item__a" href="#"><i class="fa-solid fa-ballot-check"></i>Plan</a></li>
-                                <li class="Submenu__Item"><a class="Submenu__Item__a" href="#"><i class="fa-solid fa-calendar-check"></i> Status</a></li>
-                                <li class="Submenu__Item"><a class="Submenu__Item__a" href="#"><i class="fa-solid fa-pen-to-square"></i>Task</a></li>
-                                <li class="Submenu__Item"><a class="Submenu__Item__a" href="#"><i class="fa-solid fa-scanner-gun"></i>Inventory</a></li>
+                                <div class="expander-content">
+                                    <h5 class="Submenu__Header">Options</h5>
+                                    <li class="Submenu__Item"><a class="Submenu__Item__a" href="/Nav/NavHTML.html"><i class="fa-solid fa-calendar-days"></i>Schedule</a></li>
+                                    <li class="Submenu__Item"><a class="Submenu__Item__a" href="#"><i class="fa-solid fa-ballot-check"></i>Plan</a></li>
+                                    <li class="Submenu__Item"><a class="Submenu__Item__a" href="#"><i class="fa-solid fa-calendar-check"></i> Status</a></li>
+                                    <li class="Submenu__Item"><a class="Submenu__Item__a" href="#"><i class="fa-solid fa-pen-to-square"></i>Task</a></li>
+                                    <li class="Submenu__Item"><a class="Submenu__Item__a" href="#"><i class="fa-solid fa-scanner-gun"></i>Inventory</a></li>    
+                                </div>
+                                
                             </ul>
                         </li>
                         
@@ -63,11 +72,14 @@
                                 </span>
                             </span>
                             <ul class="Menu__Item__Submenu">
-                                <h5 class="Submenu__Header">Options</h5>
+                                <div class="expander-content">
+                                    <h5 class="Submenu__Header">Options</h5>
                                 <li class="Submenu__Item"><a class="Submenu__Item__a" href="#"><i class="fa-solid fa-truck-moving"></i>Request</a></li>
                                 <li class="Submenu__Item"><a class="Submenu__Item__a" href="#"><i class="fa-solid fa-cash-register"></i>Ticket</a></li>
                                 <li class="Submenu__Item"><a class="Submenu__Item__a" href="#"><i class="fa-solid fa-solar-panel"></i>Catalog</a></li>
                                 <li class="Submenu__Item"><a class="Submenu__Item__a" href="#"><i class="fa-solid fa-file-excel" style="color: #217346;"></i>Reports</a></li>
+                                </div>
+                                
                             </ul>
                         </li>
                         <li class="Menu__Item">
@@ -91,9 +103,12 @@
 
                           
                             <ul class="Menu__Item__Submenu">
-                                <h5 class="Submenu__Header">Options</h5>
-                                <li class="Submenu__Item"><a class="Submenu__Item__a" href="#"><i class="fa-solid fa-hourglass-clock"></i>Downtime</a></li>
-                                <li class="Submenu__Item"><a class="Submenu__Item__a" href="#">Nozzled</a></li>
+                                <div class="expander-content">
+
+                                    <h5 class="Submenu__Header">Options</h5>
+                                    <li class="Submenu__Item"><a class="Submenu__Item__a" href="#"><i class="fa-solid fa-hourglass-clock"></i>Downtime</a></li>
+                                    <li class="Submenu__Item"><a class="Submenu__Item__a" href="#">Nozzled</a></li>
+                                </div>
                             </ul>
                         </li>
 
@@ -107,11 +122,14 @@
 
                           
                             <ul class="Menu__Item__Submenu">
-                                <h5 class="Submenu__Header">Options</h5>
-                                <li class="Submenu__Item"><a class="Submenu__Item__a" href="/Metricos/Metrics.html">Attrition</a></li>
-                                <li class="Submenu__Item"><a class="Submenu__Item__a" href="#">Downtime</a></li>
-                                <li class="Submenu__Item"><a class="Submenu__Item__a" href="#">WH</a></li>
-                                <li class="Submenu__Item"><a class="Submenu__Item__a" href="#">Supply</a></li>
+                                <div class="expander-content">
+
+                                    <h5 class="Submenu__Header">Options</h5>
+                                    <li class="Submenu__Item"><a class="Submenu__Item__a" href="/Metricos/Metrics.html">Attrition</a></li>
+                                    <li class="Submenu__Item"><a class="Submenu__Item__a" href="#">Downtime</a></li>
+                                    <li class="Submenu__Item"><a class="Submenu__Item__a" href="#">WH</a></li>
+                                    <li class="Submenu__Item"><a class="Submenu__Item__a" href="#">Supply</a></li>
+                                </div>
                             </ul>
                         </li>
                     </ul>               
