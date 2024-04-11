@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+  dialog {
+    width: 20rem;
+    height: 10rem;
+    transform: translateY(-100vh) scale(0, 0);
+    transition: transform 500ms ease;
+  
+   }
+   .active {
+    transform: translateY(0) scale(1, 1);
+   }
+    </style>
+</head>
+<body>
+
+    <button name="open" class="">open</button>
+    <dialog>
+        <p>dialog title</p>
+        <div> <p>hola</p>
+        <button name="close">close</button>
+        </div>
+    </dialog>
+
+    
+
+   <script>
+const $ = (selector) => document.querySelector(selector)
+   const openButton = $('[name=open]')
+   const dialog = $('dialog')
+   const closeButton = $('[name=close]')
+
+   openButton.addEventListener('click', (evt) => {
+    dialog.showModal()
+    dialog.classList.add('active')
+   })
+   closeButton.addEventListener('click', (evt) => {
+    dialog.classList.remove('active')
+    // dialog.close()
+    setTimeout(() => dialog.close(), 500)
+   })
+   </script>
+</body>
+</html>

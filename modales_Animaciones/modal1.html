@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Downtime</title>
+    <link rel="stylesheet" href="estilos.css">
+
+    <!-- ingreso de los iconos -->
+    <script src="https://kit.fontawesome.com/e17299d67a.js" crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"/> -->
+
+</head>
+<body>
+    <button id="b_downtime" class="botones" type="button" > Reportar </button>
+    <!-- onclick="mostrar_modal()" -->
+   
+    <dialog class="modal_down" id = "modal_1">
+        <div class="modal_down_cont">
+            <div class="modal_down_cont_titulo">
+                <label for="">Maintenance requeriment</label>
+                <span>
+                    <i id="btn_cerrar" class="fa-solid fa-circle-xmark fa-2x"></i>
+                  </span>
+                    
+             
+            </div>
+            <hr class="divisor_subtitulo">
+            <!-- <div class="modal_down_cont_contenido">
+                 -->
+            <div class="gallery">
+                <div class="info_maquina">
+                <!-- <div> -->
+                    <label class ="texto_label" for="">Equipment information </label>
+                    <label class ="texto_label" for="">MACHINE NUMBER</label>
+                    <input type="text">
+                    <label class ="texto_label" for="">SELECT DEPARTMEN</label>
+                    <input type="text">
+                </div>
+                <div class="info_usuario">
+                <!-- <div > -->
+                    <input type="text">
+                </div>
+            </div>
+            <div class="modal_down_cont_botones">
+                <button id="btn_cerrar" type="button">
+                    Cerrar Modal
+                </button>
+            </div>
+    
+        </div>
+        
+    </dialog>
+</body>
+<script src="js.js"></script>
+</html>
