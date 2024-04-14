@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Hide the dialog by default */
+#myDialog {
+  display: none;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Fade out animation */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Apply animation to the dialog */
+#myDialog {
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+}
+
+/* Apply fadeIn animation when dialog opens */
+#myDialog.open {
+  display: block;
+  animation-name: fadeIn;
+}
+
+/* Apply fadeOut animation when dialog closes */
+#myDialog.close {
+  animation-name: fadeOut;
+}
+
+/* Style for the button to close dialog */
+#closeDialog {
+  margin-top: 10px;
+}
+    </style>
+</head>
+<body>
+    <button id="openDialog">Open Dialog</button>
+<dialog id="myDialog">
+  <h2>Hello, I'm a dialog!</h2>
+  <button id="closeDialog">Close Dialog</button>
+</dialog>
+
+
+<script>
+    // Open the dialog
+document.getElementById('openDialog').addEventListener('click', function() {
+  document.getElementById('myDialog').classList.add('open');
+});
+
+// Close the dialog
+document.getElementById('closeDialog').addEventListener('click', function() {
+  var dialog = document.getElementById('myDialog');
+//   dialog.classList.remove('open');
+//   dialog.classList.add('close');
+  setTimeout(function() {
+    dialog.classList.remove('open');
+  }, 500); // Adjust timing to match the animation duration
+});
+</script>
+</body>
+</html>

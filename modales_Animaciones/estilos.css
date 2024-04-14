@@ -19,6 +19,9 @@
 
     overflow:hidden;
     /* animation:in-modal 200ms forwards; */
+    
+
+  
     opacity: 0;
     /* transform: scale(0.95); */
     /* transition: all 200ms ease-in-out; */
@@ -28,6 +31,10 @@
     /* transition: box-shadow 1s cubic-bezier(0.4, 0, 0.2, 1) 0ms;u */
 
     box-shadow: rgba(58, 53, 65, 0.1) 0px 2px 10px 0px;
+    /* funciona la animacion  */
+    /* animation: scale-down-ver-top 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both; */
+
+
 }
  .modal_down::backdrop{
     backdrop-filter: blur(2px);
@@ -37,11 +44,14 @@
  }
 
 .modal_down.active{
-    /* animation:out-modal 0.5s forwards ; */
+   
     opacity: 1;
     /* transform: scale(1); */
     transition: opacity 200ms ease-in-out 0ms;
     /* transition: all 200ms linear; */
+
+    /* funciona la animacion */
+    /* animation: scale-up-ver-top 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both; */
  }
  .scale-up-ver-top {
 	animation: scale-up-ver-top 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
