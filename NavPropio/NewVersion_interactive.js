@@ -9,10 +9,7 @@ let rowsIcons = document.getElementsByClassName("Menu__Item__Title__sub")
 
 export async function ShowItemNav(e) {
     let current = e.target
-    console.log(current)
-    //estos son los elemntos que son seleccionados
     let title = current.querySelectorAll("span.Menu__Item__Title")
-
     let submenu = current.querySelectorAll("ul.Menu__Item__Submenu")
     let rowIcon = current.querySelectorAll("span.Menu__Item__Title__sub")
 
@@ -25,13 +22,7 @@ export async function ShowItemNav(e) {
 function rotateRowIcon(current) {
     return new Promise((resolve, reject) => {
         let iconRows = [...rowsIcons]
-        let iconRows_length = iconRows.length
-        if (iconRows_length === 0) {
-            reject(new Error("No se tienen rows"))
-            return
-        }
         iconRows.forEach(element => {
-            
             element !== current ? element.classList.remove("c_rotateIcon") : element.classList.toggle("c_rotateIcon");
            
         })
@@ -85,6 +76,7 @@ export async function revisarClase(e) {
         else {
             usuarioImageInfo.classList.add("mostrar")
         }
-
+        resolve();
     })
 }
+
