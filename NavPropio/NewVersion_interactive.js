@@ -70,6 +70,7 @@ export async function revisarClase(e) {
         let current = e.target
         if (usuarioImageInfo.classList.contains("mostrar")) {
             if (current.id === "subMenu") {
+                
                 usuarioImageInfo.classList.remove("mostrar")
             }
         }
