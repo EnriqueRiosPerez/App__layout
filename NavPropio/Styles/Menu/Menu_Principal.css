@@ -21,8 +21,9 @@
     --br--100:0.35rem;
     --font-weight-bold: 700;
     --width-aside--tablet: 6rem;
-    --width--aside--desktop:14rem;
-
+    --width--aside--desktop:15rem;
+    --aside-background : #f9f9f9;
+    --main-background: #FFFFFF;
 
 }
 
@@ -42,10 +43,10 @@
   }
   
   body {
-    /* font-size: 1.2rem; */
+    font-size: 1.2rem;
     height: 100%;
     overflow: hidden;
-    padding: 10px; 
+    /* padding: 10px;  */
     background-color: var(--bg-200);
   
   }
@@ -75,8 +76,9 @@ a:focus, a:focus * { outline: none !important; }
 
 /* nav styles */
 .mainContainer__Nav {
-    width: 14rem;
+    width: var(--width--aside--desktop);
     height: 100%;
+    background-color: var(--aside-background);
     /* background-color: #414b57; */
 
 }
@@ -123,14 +125,36 @@ a:focus, a:focus * { outline: none !important; }
     color: var(--oscuro--claro);
     width: 100%;
     height: calc(100% - var(--header-height));
-    border-right: 1px solid var(--oscuro--claro);
+    /* border-right: 1px solid var(--oscuro--claro); */
 }
 
 .Nav__Main__Section {
     width: 100%;
-    padding: 3px;
-
+    height: 100%;
+    padding: 0 0.5rem 0 1rem;
+    overflow-y: scroll;
+    /* scrollbar-width: calc(13px); */
+    /* scrollbar-color: red black; */
+    /* scrollbar-width: 1px; */
 }
+
+
+.Nav__Main__Section::-webkit-scrollbar {
+    width: 4px;
+    
+}
+
+.Nav__Main__Section::-webkit-scrollbar-thumb {
+    background-color:#ECECED;
+     /* #2f4f7d7e; */
+    border-radius: 2px;
+}
+
+    .Nav__Main__Section::-webkit-scrollbar-thumb:hover {
+        background: #C3C3C3;
+         
+    }
+
 
 .Section__Menu {
     width: 100%;
@@ -141,17 +165,20 @@ a:focus, a:focus * { outline: none !important; }
 .Menu__Item {
     width: 100%;
     font-size: 1rem;
+    font-weight: 500;
     cursor: pointer;
     /* padding: 1rem 0.5rem; */
+    /* color:rgba(5, 6, 15, .6); */
+    color: rgb(58 53 65 /1);
     display: flex;
     flex-direction: column;
 }
 
 .Menu__Item:hover {
-    background-color: var(--bg-100);
-
-
-    color: var(--oscuro--oscuro);
+    /* background-color: var(--bg-100); */
+    background-color: #ECECED;
+    /* background-color: rgb(5 6 15 /0.10); */
+    /* color: var(--oscuro--oscuro); */
     border-radius: 0.3rem;
 }
 
@@ -301,6 +328,8 @@ a:focus, a:focus * { outline: none !important; }
     display: flex;
     border-radius: var(--br--100);
     margin-bottom: 0.35rem;
+    font-weight: 400;
+    font-size: 0.95rem;
 }
 
 .Submenu__Item:hover {
@@ -372,8 +401,9 @@ a:focus, a:focus * { outline: none !important; }
       width: 100%;
       height: var(--header-height);
       /* background-color: #414b57; */
-      background-color: var(--primary-100);
+      /* background-color: var(--primary-100); */
       display: flex;
+      border-bottom: 1px solid rgba(5, 6, 15, .1);
       justify-content: space-between;
   }
   .Header__Container__Img{
@@ -390,7 +420,7 @@ a:focus, a:focus * { outline: none !important; }
   
   
   .mainContainer__Section__SubPage{
-      /* background-color: rgb(255, 255, 255); */
+      background-color:var(--main-background);
       width: 100%;
       height: calc(100% - 60px);
   }
@@ -566,8 +596,22 @@ width: 100%; */
 
 
 @media ( width < 720px) {
+    .Menu__Item__Submenu{
+        width: var(--width--aside--desktop);
+        position: absolute;
+        transform: translate(calc(var(--width-aside--tablet) + 1.5rem), 0px);
+    }
+    /* .open {
+        width: var(--width--aside--desktop);
+        position: absolute;
+        transform: translate(calc(var(--width-aside--tablet) + 0.5rem), 0);
+    } */
+    .Nav__Main__Section{
+        padding: 0 0.3rem;
+    }
+
     .mainContainer__Nav{
-        width: var(--width-aside--tablet);
+        width: calc(var(--width-aside--tablet) + 1rem );
     }
  
     .Menu__Item__Title__sub {
@@ -594,20 +638,16 @@ width: 100%; */
     }
 
 
-    .Menu__Item__Submenu{
-        width: var(--width--aside--desktop);
-        position: absolute;
-        transform: translate(calc(var(--width-aside--tablet) + 0.5rem), -0.5rem);
-    }
-    .Menu__Item {
+ 
+    /* .Menu__Item {
         width: 100%;
         font-size: 1rem;
         cursor: pointer;
-        /* padding: 1rem 0.5rem; */
+     
         display: flex;
         flex-direction: column;
         position: relative;
-    }
+    } */
 
 
 
