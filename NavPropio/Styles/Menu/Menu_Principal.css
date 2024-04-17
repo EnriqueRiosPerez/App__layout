@@ -22,8 +22,11 @@
     --font-weight-bold: 700;
     --width-aside--tablet: 6rem;
     --width--aside--desktop:15rem;
-    --aside-background : #f9f9f9;
+    --aside-background : #232323;
+    --aside-item-hover: #383838;
     --main-background: #FFFFFF;
+    --font-color1: #A7A7A7;
+    --font-color1-hover-aside:#F7F7F7; 
 
 }
 
@@ -118,6 +121,8 @@ a:focus, a:focus * { outline: none !important; }
     height: 100%;
     text-wrap: pretty;
     vertical-align: middle;
+    color: var(--font-color1-hover-aside);
+
 }
 
 .Nav__Main {
@@ -131,7 +136,7 @@ a:focus, a:focus * { outline: none !important; }
 .Nav__Main__Section {
     width: 100%;
     height: 100%;
-    padding: 0 0.5rem 0 1rem;
+    padding: 0.5rem 0.5rem 0 1rem;
     overflow-y: scroll;
     /* scrollbar-width: calc(13px); */
     /* scrollbar-color: red black; */
@@ -169,16 +174,20 @@ a:focus, a:focus * { outline: none !important; }
     cursor: pointer;
     /* padding: 1rem 0.5rem; */
     /* color:rgba(5, 6, 15, .6); */
-    color: rgb(58 53 65 /1);
+    /* color: rgb(58 53 65 /1); */
+
+    color:var(--font-color1);
     display: flex;
     flex-direction: column;
 }
 
 .Menu__Item:hover {
     /* background-color: var(--bg-100); */
-    background-color: #ECECED;
+    /* background-color: #ECECED; */
     /* background-color: rgb(5 6 15 /0.10); */
     /* color: var(--oscuro--oscuro); */
+    background-color: var(--aside-item-hover);
+    color:var(--font-color1-hover-aside);
     border-radius: 0.3rem;
 }
 
@@ -224,12 +233,16 @@ a:focus, a:focus * { outline: none !important; }
 
 
 .seleccionando {
-    background-color: var(--primary-200);
+    /* background-color: var(--primary-200); */
+    background-color: var(--aside-item-hover);
+    color:var(--font-color1-hover-aside);
 
 }
 
 .seleccionando:hover {
-    background-color: var(--primary-200);
+    /* background-color: var(--primary-200); */
+    background-color: var(--aside-item-hover);
+    color:var(--font-color1-hover-aside);
 }
 .Menu__Item__Submenu {
     background-color: var(--bg-100);
@@ -607,7 +620,7 @@ width: 100%; */
         transform: translate(calc(var(--width-aside--tablet) + 0.5rem), 0);
     } */
     .Nav__Main__Section{
-        padding: 0 0.3rem;
+        padding: 0.5rem  0.3rem 0 0.3rem;
     }
 
     .mainContainer__Nav{
