@@ -5,28 +5,27 @@
 :root{
     --ancho-aside: 16rem;
     --header-height:65px;
-    --oscuro--oscuro:#0C0C0C;
-    --oscuro--claro:#333333;
-    --primary-100:#2E86AB;
-    --primary-200:#67b6dd;
-    --primary-300:#d0ffff;
-    --accent-100:#F4A261;
-    --accent-200:#894705;
-    --text-100:#333333;
-    --text-200:#5c5c5c;
-    --bg-100:#F3F3F4;
-    --bg-200:#ffffff;
-    --bg-300:#c0c0c1;
-    --gg-400:#F4F5FA;
-    --br--100:0.35rem;
-    --font-weight-bold: 700;
     --width-aside--tablet: 6rem;
     --width--aside--desktop:15rem;
-    --aside-background : #232323;
-    --aside-item-hover: #383838;
-    --main-background: #FFFFFF;
-    --font-color1: #A7A7A7;
-    --font-color1-hover-aside:#F7F7F7; 
+    --br--100:0.35rem;
+    --font-weight-bold: 700;
+   
+    --bg-100:#ffffff;
+    --bg-200: #F6F6F6;
+    --bg-300:#F3F3F4;
+    --primary-100 : #232323;
+    --primary-100-hover: #383838;
+    --fc-100: #A7A7A7;
+    --fc-100-hover:#F7F7F7; 
+    
+
+
+    /* Color Theme Swatches in RGBA */
+/* .Vintage-pop-1-rgba { color: rgba(70, 65, 66, 1); }
+.Vintage-pop-2-rgba { color: rgba(255, 198, 54, 1); }
+.Vintage-pop-3-rgba { color: rgba(0, 172, 168, 1); }
+.Vintage-pop-4-rgba { color: rgba(255, 255, 255, 1); }
+.Vintage-pop-5-rgba { color: rgba(255, 100, 68, 1); } */   
 
 }
 
@@ -50,7 +49,7 @@
     height: 100%;
     overflow: hidden;
     /* padding: 10px;  */
-    background-color: var(--bg-200);
+    background-color: var(--bg-100);
   
   }
   li{
@@ -83,7 +82,7 @@ a:focus, a:focus * { outline: none !important; }
 .mainContainer__Nav {
     width: var(--width--aside--desktop);
     height: 100%;
-    background-color: var(--aside-background);
+    background-color: var(--primary-100);
     /* background-color: #414b57; */
 
 }
@@ -122,7 +121,7 @@ a:focus, a:focus * { outline: none !important; }
     height: 100%;
     text-wrap: pretty;
     vertical-align: middle;
-    color: var(--font-color1-hover-aside);
+    color: var(--fc-100-hover);
 
 }
 
@@ -173,7 +172,7 @@ a:focus, a:focus * { outline: none !important; }
     font-size: 1rem;
     font-weight: 500;
     cursor: pointer;
-    color:var(--font-color1);
+    color:var(--fc-100);
     display: flex;
     flex-direction: column;
 }
@@ -183,8 +182,8 @@ color: ;
 
 .Menu__Item:hover {
 
-    background-color: var(--aside-item-hover);
-    color:var(--font-color1-hover-aside);
+    background-color: var(--primary-100-hover);
+    color:var(--fc-100-hover);
     border-radius: 0.3rem;
 }
 
@@ -197,9 +196,7 @@ color: ;
     /* styles for div elements that have the class "myClass" */
 }
 
-.seleccionando2 {
-    background-color: var(--bg-200);
-}
+
 
 .Menu__Item__Title {
     width: 100%;
@@ -216,7 +213,7 @@ color: ;
 /* 
 .Menu__Item__Title:hover {
     color: var(--oscuro--oscuro);
-    background-color: var(--bg-100);
+    background-color: var(--bg-300);
 
 } */
 
@@ -234,18 +231,18 @@ color: ;
 
 .seleccionando {
     /* background-color: var(--primary-200); */
-    background-color: var(--aside-item-hover);
-    color:var(--font-color1-hover-aside);
+    background-color: var(--primary-100-hover);
+    color:var(--fc-100-hover);
 
 }
 
 .seleccionando:hover {
     /* background-color: var(--primary-200); */
-    background-color: var(--aside-item-hover);
-    color:var(--font-color1-hover-aside);
+    background-color: var(--primary-100-hover);
+    color:var(--fc-100-hover);
 }
 .Menu__Item__Submenu {
-    background-color: var(--bg-100);
+    background-color: var(--bg-300);
     border-radius: var(--br--100);
     display: grid;
     grid-template-rows: 0fr;
@@ -265,7 +262,7 @@ color: ;
 
 .Submenu__Header {
     padding: 0.7rem 0.35rem;
-    color: var(--aside-background);
+    color: var(--primary-100);
     border-bottom: 1px solid rgba(5, 6, 15, .1);
 }
 
@@ -276,11 +273,11 @@ color: ;
     margin-bottom: 0.35rem;
     font-weight: 400;
     font-size: 0.95rem;
-    color: var(--aside-background);
+    color: var(--primary-100);
 }
 
 .Submenu__Item:hover {
-    background-color: var(--bg-200);
+    background-color: var(--bg-100);
     color: #000000
 
     /* color: red; */
@@ -368,7 +365,7 @@ color: ;
   
   
   .mainContainer__Section__SubPage{
-      background-color:var(--main-background);
+      background-color:var(--bg-200);
       width: 100%;
       height: calc(100% - 60px);
   }
@@ -418,7 +415,7 @@ color: ;
     position: relative;
     right: 2%;
     /* top: 10%; */
-    background-color: var(--bg-200);
+    background-color: var(--bg-100);
     /* box-shadow: rgba(58, 53, 65, 0.2) 0px 5px 5px -3px, rgba(58, 53, 65, 0.14) 0px 8px 10px 1px, rgba(58, 53, 65, 0.12) 0px 3px 14px 2px; */
     box-shadow: 0px 0px 9px 1px rgb(51 51 51 / 1);
     padding: 0.3rem 0.8rem;
