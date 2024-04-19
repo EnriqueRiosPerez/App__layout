@@ -1,11 +1,11 @@
-import {ShowItemNav, revisarClase} from "./NewVersion_interactive.js"
+import {ShowItemNav, revisarClase, hola} from "./NewVersion_interactive.js"
 // variables para mostrar menu de usuario
 let imgUser = document.getElementById("headIamgen_IMG")
 let falseBackground = document.getElementById("subMenu")
 // variables para mostrar el submenu 
 let side_nav = document.getElementById("Ul_Menu")
 let side_nav_Li_Elements = side_nav.querySelectorAll("li.Menu__Item")
-
+console.log(hola)
 
 // agregar eventos a los elementos de side bar 
 side_nav_Li_Elements.forEach(li=>{

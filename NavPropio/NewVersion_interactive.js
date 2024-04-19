@@ -5,7 +5,7 @@ let subMenusHTML = document.getElementsByClassName("Menu__Item__Submenu")
 let Items = document.getElementsByClassName("Menu__Item__Title")
 let usuarioImageInfo = document.getElementById("subMenu")
 let rowsIcons = document.getElementsByClassName("Menu__Item__Title__sub")
-
+export const hola = `hola`
 
 export async function ShowItemNav(e) {
     let current = e.target
