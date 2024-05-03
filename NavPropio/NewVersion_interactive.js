@@ -6,6 +6,7 @@ let Items = document.getElementsByClassName("Menu__Item__Title")
 let usuarioImageInfo = document.getElementById("subMenu")
 let rowsIcons = document.getElementsByClassName("Menu__Item__Title__sub")
 
+
 let sub_subMenusHTML = document.getElementsByClassName("Menu_Item_Submenu")
 
 export async function ShowSubItemNav(e){
@@ -29,8 +30,6 @@ function hideNavSubmenusPromise2(current) {
         resolve("Okay");
     })
 }
-
-
 
 export async function ShowItemNav(e) {
     let current = e.target
