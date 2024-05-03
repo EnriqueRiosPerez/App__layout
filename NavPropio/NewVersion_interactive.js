@@ -6,6 +6,31 @@ let Items = document.getElementsByClassName("Menu__Item__Title")
 let usuarioImageInfo = document.getElementById("subMenu")
 let rowsIcons = document.getElementsByClassName("Menu__Item__Title__sub")
 
+let sub_subMenusHTML = document.getElementsByClassName("Menu_Item_Submenu")
+
+export async function ShowSubItemNav(e){
+    let current = e.target
+    let submenu = current.querySelectorAll("ul.Menu_Item_Submenu")
+    hideNavSubmenusPromise2(submenu[0])
+}
+function hideNavSubmenusPromise2(current) {
+    return new Promise((resolve, reject) => {
+        if (!current) {reject(new Error("Submenu element not found"))
+         return
+        }
+        let subMenus = [...sub_subMenusHTML]
+        subMenus.forEach(element => {
+            if (element !== current) {
+                element.classList.remove("open")
+            } else {
+                element.classList.toggle("open")
+            }
+        })
+        resolve("Okay");
+    })
+}
+
+
 
 export async function ShowItemNav(e) {
     let current = e.target
@@ -13,10 +38,17 @@ export async function ShowItemNav(e) {
     let submenu = current.querySelectorAll("ul.Menu__Item__Submenu")
     let rowIcon = current.querySelectorAll("span.Menu__Item__Title__sub")
 
+
+    // let submenu2 = current.querySelectorAll("ul.Menu_Item_Submenu")
+    
+
     console.time("Ocultar2")
     hideNavSubmenusPromise(submenu[0])
     selectMenuPromise(title[0])
     rotateRowIcon(rowIcon[0])
+
+    // hideNavSubmenusPromise2(submenu2[0])
+
     console.timeEnd("Ocultar2")
 }
 function rotateRowIcon(current) {
