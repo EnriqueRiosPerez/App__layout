@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        #Dialogo{
+            width: 90%;
+            height: 90%;
+            
+            margin: auto;
+        }
+        .Dialog_C{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .Dialog__Header{
+            height: 70px;
+            width: 100%;
+        }
+        .Dialog__Main{
+            height: 100%;
+            width: 100%;
+            background-color: red;
+
+        }
+        .Dialog__Footer{
+            padding: 1rem;
+        }
+        .Tabulador{
+            /* display: none; */
+            background-color: var(--bg-300);
+            border-radius: var(--br--100);
+            display: grid;
+            grid-template-rows: 0fr;
+            overflow: hidden;
+            padding: 0 0.35rem;
+            transition: grid-template-rows 0.5s, margin-top 0.5s;
+        }
+        .open{
+            /* display: flex;
+            transition: all 0.5s; */
+
+            grid-template-rows: 1fr;
+        }
+
+        .expander-content {
+    min-height: 0;
+}
+    </style>
+</head>
+<body>
+    <button id="Button_Modal">Open modal</button>
+    <dialog id="Dialogo">
+        <section class="Dialog_C">
+
+            <header class="Dialog__Header">
+                modal
+                <button class="Header__Button" id="cerrar_Modal">Cerrar</button>
+            </header>
+            <main class="Dialog__Main">
+                <div class="Tabulador" >
+                    <div class="expander-content">
+                        contenido 0
+                    </div>
+                    
+                </div>
+                <div class="Tabulador" >
+                    <div class="expander-content">
+                        contenido 1
+                    </div>
+                  
+                </div>
+                <div class="Tabulador" >
+                    <div class="expander-content">
+                        contenido 2 
+                    </div>
+                  
+                </div>
+                <div class="Tabulador" >
+                    <div class="expander-content">
+                        contenido 3 
+                    </div>
+                    
+                </div>
+            </main>
+            <footer class="Dialog__Footer">
+                <button id="Button_Prev" class="Footer__Button">
+                    Prev
+                </button>
+                <button id="Button_Next" class="Footer__Button">
+                    Next
+                </button>
+            </footer>
+        </section>
+            
+
+
+    </dialog>
+
+    <script>
+        let lista = document.querySelectorAll("div.Tabulador")
+        console.log(lista)
+        let total_elementos = lista.length 
+        let contador = 0
+        let previo = 0
+        let dialog2 = document.getElementById("Dialogo")
+        let button_modal = document.getElementById("Button_Modal")
+        let cerrar_Modal = document.getElementById("cerrar_Modal")
+        let Button_Prev = document.getElementById("Button_Prev")
+        let  Button_Next = document.getElementById("Button_Next")
+        
+        
+        button_modal.addEventListener("click", ()=>{
+            dialog2.showModal()
+            // lista[contador].style.display = "inline"
+            lista[contador].classList.add("open")
+        })
+        cerrar_Modal.addEventListener("click", ()=>{
+            dialog2.close()
+        })
+
+        Button_Next.addEventListener("click",()=>{
+            
+
+            if (contador < total_elementos-1) {
+
+                contador = contador + 1
+                previo = contador - 1
+                console.log(`al que va: ${contador},previo:  ${previo}`)
+                // lista[previo].style.display = "none"
+                // lista[contador].style.display = "inline"
+                lista[previo].classList.remove("open")
+                lista[contador].classList.add("open")
+                
+
+            }
+            
+        })
+        Button_Prev.addEventListener("click",()=>{
+            if (contador < total_elementos && contador > 0){
+                previo = contador
+                contador = contador - 1
+                console.log(`al que va: ${contador},previo:  ${previo}`)
+                // lista[previo].style.display = "none"
+                // lista[contador].style.display = "inline"      
+                lista[previo].classList.remove("open")
+                lista[contador].classList.add("open")
+            }
+        })
+    
+
+    </script>
+</body>
+</html>

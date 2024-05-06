@@ -21,18 +21,27 @@ export async function ShowSubItemNav(e){
 }
 function hideNavSubmenusPromise2(current) {
     return new Promise((resolve, reject) => {
-        if (!current) {reject(new Error("Submenu element not found"))
-         return
-        }
         let subMenus = [...sub_subMenusHTML]
-        subMenus.forEach(element => {
-            if (element !== current) {
-                element.classList.remove("open")
-            } else {
-                element.classList.toggle("open")
-            }
-        })
-        resolve("Okay");
+        if (!current) {
+            reject(new Error("Submenu element not found"))
+         return
+            
+        // subMenus.forEach(element => {
+        //     element.classList.remove("open")
+        // })
+        }
+        else{
+            subMenus.forEach(element => {
+                if (element !== current) {
+                    element.classList.remove("open")
+                } else {
+                    // element.classList.toggle("open")
+                    element.classList.toggle("open")
+                }
+            })
+            resolve("Okay");
+        }
+        
     })
 }
 function rotateRowIcon2(current) {
@@ -57,6 +66,16 @@ export async function ShowItemNav(e) {
 
 
     // let submenu2 = current.querySelectorAll("ul.Menu_Item_Submenu")
+    // let rowIcon2 = current.querySelectorAll("span.sub_Menu__Item__Title__sub")
+    // console.log(submenu2[0])
+    // console.log(rowIcon2[0])
+
+
+
+    // hideNavSubmenusPromise2(submenu2[0])
+    // rotateRowIcon2(rowIcon2[0])
+
+    // let submenu2 = current.querySelectorAll("ul.Menu_Item_Submenu")
     
 
     console.time("Ocultar2")
@@ -64,12 +83,14 @@ export async function ShowItemNav(e) {
     selectMenuPromise(title[0])
     rotateRowIcon(rowIcon[0])
 
+
+
     // hideNavSubmenusPromise2(submenu2[0])
 
     console.timeEnd("Ocultar2")
 }
 function rotateRowIcon(current) {
-    console.log(current)
+    
     return new Promise((resolve, reject) => {
         if (!current){
             return
@@ -97,6 +118,7 @@ function hideNavSubmenusPromise(current) {
             subMenus.forEach(element => {
                 if (element !== current) {
                     element.classList.remove("open")
+
                 } else {
                     element.classList.toggle("open")
                 }
