@@ -274,6 +274,14 @@ color: ;
     transition: transform 0.5s ease;
 }
 
+.sub_Menu__Item__Title__sub{
+    display: flex;
+    justify-content: center;
+    transform: rotate(0deg);
+    /* Start at 0 degrees*/
+    transition: transform 0.5s ease;
+}
+
 /* .fa-rotate-90 */
 
 

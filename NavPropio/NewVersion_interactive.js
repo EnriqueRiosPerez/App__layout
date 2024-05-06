@@ -7,12 +7,17 @@ let usuarioImageInfo = document.getElementById("subMenu")
 let rowsIcons = document.getElementsByClassName("Menu__Item__Title__sub")
 
 
+
 let sub_subMenusHTML = document.getElementsByClassName("Menu_Item_Submenu")
+let sub_rowsIcons = document.getElementsByClassName("sub_Menu__Item__Title__sub")
+
 
 export async function ShowSubItemNav(e){
     let current = e.target
     let submenu = current.querySelectorAll("ul.Menu_Item_Submenu")
+    let rowIcon2 = current.querySelectorAll("span.sub_Menu__Item__Title__sub")
     hideNavSubmenusPromise2(submenu[0])
+    rotateRowIcon2(rowIcon2[0])
 }
 function hideNavSubmenusPromise2(current) {
     return new Promise((resolve, reject) => {
@@ -30,6 +35,19 @@ function hideNavSubmenusPromise2(current) {
         resolve("Okay");
     })
 }
+function rotateRowIcon2(current) {
+
+    
+    return new Promise((resolve, reject) => {
+        let iconRows = [...sub_rowsIcons]
+        iconRows.forEach(element => {
+            element !== current ? element.classList.remove("c_rotateIcon") : element.classList.toggle("c_rotateIcon");
+           
+        })
+        resolve("yeah rotate!")
+    })
+}
+
 
 export async function ShowItemNav(e) {
     let current = e.target
@@ -51,48 +69,63 @@ export async function ShowItemNav(e) {
     console.timeEnd("Ocultar2")
 }
 function rotateRowIcon(current) {
+    console.log(current)
     return new Promise((resolve, reject) => {
-        let iconRows = [...rowsIcons]
-        iconRows.forEach(element => {
-            element !== current ? element.classList.remove("c_rotateIcon") : element.classList.toggle("c_rotateIcon");
-           
-        })
-        resolve("yeah rotate!")
+        if (!current){
+            return
+        }else{
+            let iconRows = [...rowsIcons]
+            iconRows.forEach(element => {
+                element !== current ? element.classList.remove("c_rotateIcon") : element.classList.toggle("c_rotateIcon");
+               
+            })
+            resolve("yeah rotate!")
+        }
+      
     })
 }
 
 
 function hideNavSubmenusPromise(current) {
     return new Promise((resolve, reject) => {
-        if (!current) {reject(new Error("Submenu element not found"))
+        if (!current) {
+            // reject(new Error("Submenu element not found"))
          return
         }
-        let subMenus = [...subMenusHTML]
-        subMenus.forEach(element => {
-            if (element !== current) {
-                element.classList.remove("open")
-            } else {
-                element.classList.toggle("open")
-            }
-        })
-        resolve("Okay");
+        else{
+            let subMenus = [...subMenusHTML]
+            subMenus.forEach(element => {
+                if (element !== current) {
+                    element.classList.remove("open")
+                } else {
+                    element.classList.toggle("open")
+                }
+            })
+            resolve("Okay");
+        }
+    
     })
 }
 
 function selectMenuPromise(current) {
     return new Promise((resolve, reject) => {
-        let items = [...Items]
+       
         if (!current) {
-            reject(new Error("Element no select"))
+            // reject(new Error("Element no select"))
+            return
         }
-        items.forEach(element => {
-            if (element !== current) {
-                element.classList.remove("seleccionando")
-            } else {
-                element.classList.toggle("seleccionando")
-            }
-        });
-        resolve("Okay")
+        else{
+            let items = [...Items]
+            items.forEach(element => {
+                if (element !== current) {
+                    element.classList.remove("seleccionando")
+                } else {
+                    element.classList.toggle("seleccionando")
+                }
+            });
+            resolve("Okay")
+        }
+      
     })
 }
 
