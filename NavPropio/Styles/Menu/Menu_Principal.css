@@ -218,7 +218,7 @@ a:focus, a:focus * { outline: none !important; }
     
     padding: 1rem 0.5rem;
     border-radius: var(--br--100);
-    gap: 0 1rem;
+    gap: 0 0.9rem;
     pointer-events: none;
     display: grid;
     align-items: center;
