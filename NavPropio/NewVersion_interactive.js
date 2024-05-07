@@ -21,14 +21,12 @@ export async function ShowSubItemNav(e){
 }
 function hideNavSubmenusPromise2(current) {
     return new Promise((resolve, reject) => {
+        // console.log(current)
         let subMenus = [...sub_subMenusHTML]
         if (!current) {
-            reject(new Error("Submenu element not found"))
-         return
-            
-        // subMenus.forEach(element => {
-        //     element.classList.remove("open")
-        // })
+            // reject(new Error("Submenu element not found"))
+            return
+
         }
         else{
             subMenus.forEach(element => {
@@ -42,6 +40,23 @@ function hideNavSubmenusPromise2(current) {
             resolve("Okay");
         }
         
+    })
+}
+
+function cerrarTodoSub(){
+    
+    return new Promise((resolve, reject)=>{
+        let subMenus = [...sub_subMenusHTML]
+        let iconRows = [...sub_rowsIcons]
+        subMenus.forEach(element=>{
+            element.classList.remove("open")
+        })
+        
+        iconRows.forEach(element => {
+             element.classList.remove("c_rotateIcon") 
+           
+        })
+        resolve("Okay");
     })
 }
 function rotateRowIcon2(current) {
@@ -64,19 +79,6 @@ export async function ShowItemNav(e) {
     let submenu = current.querySelectorAll("ul.Menu__Item__Submenu")
     let rowIcon = current.querySelectorAll("span.Menu__Item__Title__sub")
 
-
-    // let submenu2 = current.querySelectorAll("ul.Menu_Item_Submenu")
-    // let rowIcon2 = current.querySelectorAll("span.sub_Menu__Item__Title__sub")
-    // console.log(submenu2[0])
-    // console.log(rowIcon2[0])
-
-
-
-    // hideNavSubmenusPromise2(submenu2[0])
-    // rotateRowIcon2(rowIcon2[0])
-
-    // let submenu2 = current.querySelectorAll("ul.Menu_Item_Submenu")
-    
 
     console.time("Ocultar2")
     hideNavSubmenusPromise(submenu[0])
@@ -107,13 +109,15 @@ function rotateRowIcon(current) {
 }
 
 
-function hideNavSubmenusPromise(current) {
+async function hideNavSubmenusPromise(current) {
     return new Promise((resolve, reject) => {
+        // console.log(current)
         if (!current) {
-            // reject(new Error("Submenu element not found"))
+            //  reject(new Error("Submenu element not found"))
          return
         }
         else{
+            cerrarTodoSub()
             let subMenus = [...subMenusHTML]
             subMenus.forEach(element => {
                 if (element !== current) {
