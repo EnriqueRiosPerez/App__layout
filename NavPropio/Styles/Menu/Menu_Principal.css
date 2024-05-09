@@ -178,7 +178,7 @@ a:focus, a:focus * { outline: none !important; }
     flex-direction: column;
 }
 
-.Sub__Menu__Item{
+.Menu__Item__Submenu{
     width: 100%;
     font-size: 1rem;
     font-weight: 500;
@@ -198,12 +198,12 @@ a:focus, a:focus * { outline: none !important; }
 
 }
 
-.Menu_Item_Submenu.open {
+.Menu__Item__Submenu__Submenu.open {
     grid-template-rows: 1fr;
     margin-top: 1rem;
 }
 
-.Menu_Item_Submenu {
+.Menu__Item__Submenu__Submenu {
     background-color: var(--bg-300);
     border-radius: var(--br--100);
     display: grid;
@@ -212,7 +212,7 @@ a:focus, a:focus * { outline: none !important; }
     padding: 0 0.35rem;
     transition: grid-template-rows 0.5s, margin-top 0.5s;
 }
-.Sub__Menu__Item__Title {
+.Menu__Item__Title__Submenu{
     width: 100%;    
     padding: 1rem 0.5rem;
     border-radius: var(--br--100);
@@ -272,7 +272,7 @@ color: ;
     transition: transform 0.5s ease;
 }
 
-.sub_Menu__Item__Title__sub{
+.Menu__Item__Title__Icon__Submenu{
     display: flex;
     justify-content: center;
     transform: rotate(0deg);

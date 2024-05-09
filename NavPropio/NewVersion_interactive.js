@@ -8,14 +8,14 @@ let rowsIcons = document.getElementsByClassName("Menu__Item__Title__sub")
 
 
 
-let sub_subMenusHTML = document.getElementsByClassName("Menu_Item_Submenu")
-let sub_rowsIcons = document.getElementsByClassName("sub_Menu__Item__Title__sub")
+let sub_subMenusHTML = document.getElementsByClassName("Menu__Item__Submenu__Submenu")
+let sub_rowsIcons = document.getElementsByClassName("Menu__Item__Title__Icon__Submenu")
 
 
 export async function ShowSubItemNav(e){
     let current = e.target
-    let submenu = current.querySelectorAll("ul.Menu_Item_Submenu")
-    let rowIcon2 = current.querySelectorAll("span.sub_Menu__Item__Title__sub")
+    let submenu = current.querySelectorAll("ul.Menu__Item__Submenu__Submenu")
+    let rowIcon2 = current.querySelectorAll("span.Menu__Item__Title__Icon__Submenu")
     hideNavSubmenusPromise2(submenu[0])
     rotateRowIcon2(rowIcon2[0])
 }
