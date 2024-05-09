@@ -213,9 +213,7 @@ a:focus, a:focus * { outline: none !important; }
     transition: grid-template-rows 0.5s, margin-top 0.5s;
 }
 .Sub__Menu__Item__Title {
-    width: 100%;
-
-    
+    width: 100%;    
     padding: 1rem 0.5rem;
     border-radius: var(--br--100);
     gap: 0 0.9rem;

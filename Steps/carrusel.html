@@ -32,7 +32,8 @@
         .Dialog__Main{
             height: 100%;
             width: 100%;
-            background-color: red;
+            overflow: hidden;
+            /* background-color: red; */
 
         }
         .Dialog__Footer{
@@ -40,6 +41,47 @@
         }
         .Tabulador{
             /* display: none; */
+            background-color: brown;
+            
+            border-radius: var(--br--100);
+            display: grid;
+            
+            overflow: hidden;
+            padding: 0 0.35rem;
+
+
+            grid-template-rows: 0fr;
+
+            /* grid-template-rows: 0fr;
+            transform: translatex(100%); */
+            /* transition: transform 0.4s ease-in-out; */
+        }
+        .next{
+            
+            height: 100%;
+            grid-template-rows: 1fr;
+            animation: adelante 0.5s forwards;
+            /* transform: translatex(0px);
+            grid-template-rows: 1fr; */
+            
+         
+        }
+
+        @keyframes adelante{
+            from{
+                /* grid-template-rows: 0fr; */
+                transform: translatex(100%);
+            }
+            to{
+                
+                /* grid-template-rows: 1fr; */
+                transform: translatex(0px);
+                
+            }
+        }
+
+        /* .Tabulador{
+            
             background-color: var(--bg-300);
             border-radius: var(--br--100);
             display: grid;
@@ -49,11 +91,8 @@
             transition: grid-template-rows 0.5s, margin-top 0.5s;
         }
         .open{
-            /* display: flex;
-            transition: all 0.5s; */
-
             grid-template-rows: 1fr;
-        }
+        } */
 
         .expander-content {
     min-height: 0;
@@ -125,7 +164,7 @@
         button_modal.addEventListener("click", ()=>{
             dialog2.showModal()
             // lista[contador].style.display = "inline"
-            lista[contador].classList.add("open")
+            lista[contador].classList.add("next")
         })
         cerrar_Modal.addEventListener("click", ()=>{
             dialog2.close()
@@ -141,8 +180,8 @@
                 console.log(`al que va: ${contador},previo:  ${previo}`)
                 // lista[previo].style.display = "none"
                 // lista[contador].style.display = "inline"
-                lista[previo].classList.remove("open")
-                lista[contador].classList.add("open")
+                lista[previo].classList.remove("next")
+                lista[contador].classList.add("next")
                 
 
             }
@@ -155,8 +194,8 @@
                 console.log(`al que va: ${contador},previo:  ${previo}`)
                 // lista[previo].style.display = "none"
                 // lista[contador].style.display = "inline"      
-                lista[previo].classList.remove("open")
-                lista[contador].classList.add("open")
+                lista[previo].classList.remove("next")
+                lista[contador].classList.add("next")
             }
         })
     
