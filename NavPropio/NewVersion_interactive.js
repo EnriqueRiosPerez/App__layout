@@ -43,22 +43,7 @@ function hideNavSubmenusPromise2(current) {
     })
 }
 
-function cerrarTodoSub(){
-    
-    return new Promise((resolve, reject)=>{
-        let subMenus = [...sub_subMenusHTML]
-        let iconRows = [...sub_rowsIcons]
-        subMenus.forEach(element=>{
-            element.classList.remove("open")
-        })
-        
-        iconRows.forEach(element => {
-             element.classList.remove("c_rotateIcon") 
-           
-        })
-        resolve("Okay");
-    })
-}
+
 function rotateRowIcon2(current) {
 
     
@@ -132,7 +117,7 @@ async function hideNavSubmenusPromise(current) {
     
     })
 }
-
+¿
 function selectMenuPromise(current) {
     return new Promise((resolve, reject) => {
        
