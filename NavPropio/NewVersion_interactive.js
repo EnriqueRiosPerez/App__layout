@@ -117,7 +117,7 @@ async function hideNavSubmenusPromise(current) {
     
     })
 }
-¿
+
 function selectMenuPromise(current) {
     return new Promise((resolve, reject) => {
        
