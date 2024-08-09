@@ -4,39 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+     <link rel="stylesheet" href="General_Version_Layout.css">
+     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css" />
 </head>
 <body>
-    <div class="Container">
-        <aside class="Hola" id="Aside">
-            aqui vasn alsac pasdcas
-            <button type="button" id="Close_Aside" class="Aside_Button">
-                Ocultar 
-            </button>
-        </aside>
-        <main>
-            <header>
-                <button type="button" id="Open_Aside" >
-                    ocultar menu
-                </button>
-                Aqui van a las cosas que vamos  a poner 
+    <div id="Container_1" class="Principal__Container">
+        <aside class="Principal__Aside" id="Aside">
+            <div class="Principal__Aside__Container">
+                <header style="background-color: aqua;">
+                    <div style="background-color: red;">
+                        <img src="MM.png" alt="Logo aplicacion" class=""/>
+                    </div>
+                    <span id="Close_Aside" class="Aside_Button_Hide">
+                        <i class="fa-solid fa-xmark"></i>
+                    </span>
 
+
+                    <!-- <button type="button" id="Close_Aside" class="Aside_Button_Hide">
+                        Ocultar 
+                    </button> -->
+                                    
+                </header>
+                <section id="Nav__Main">
+                    sdfskdfskskksjsdjs
+                </section>
+            </div>
+            
+
+        </aside>
+        <main class="Principal__Main">
+            <header class="Principal__Header">
+                <button type="button"  id="Hide_Aside" class="Boton_Para_Ocultar">Ocultar menu</button>
             </header>
+            <article class="Principal__Article">
+                ajale
+            </article>
+         
         </main>
     </div>
 
     <script>
         let aside = document.getElementById("Aside")
-        let show_aside = document.getElementById("Open_Aside")
+        let Close_Main_Aside= document.getElementById("Hide_Aside")
+        let container = document.getElementById("Container_1")
         let hide_aside = document.getElementById("Close_Aside")
         
-        show_aside.addEventListener("click",()=>{
-            aside.classList.add("Show_aside")
+        Close_Main_Aside.addEventListener("click", ()=>{
+            cambiarClases()
         })
         hide_aside.addEventListener("click", ()=>{
-            aside.classList.remove("Show_aside")
+         cambiarClases() 
         })
-
+        function cambiarClases(){
+            aside.classList.toggle("Modificacion_Aside")
+            container.classList.toggle("ToggleContainer")
+            aside.classList.toggle("Show_aside")
+      
+        }
+    
 
     </script>
 </body>

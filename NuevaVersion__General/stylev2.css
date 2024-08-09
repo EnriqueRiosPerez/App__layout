@@ -41,8 +41,7 @@ header{
 .Container{
     display: grid;
     height: 100%;
-    width: 100%;
-    /* grid-template-columns: 12rem 1fr; */
+    width: 100%;  
     grid-template-columns: var(--aside_with) 1fr;
     background-color: #fff;
     padding: var(--padding_Prueba);
@@ -56,19 +55,12 @@ header{
     display: none;
     width: 0;
 }
-.Boton_Para_Mostrar{
-    display: none;
-}
 
 @media ( width < 720px){
     .Container{
         --aside_with:6rem;
-        /* grid-template-columns: 6rem 1fr; */
     }
-
-
 }
-
 
 @Media(width < 480px) {
     .Container {
@@ -83,9 +75,7 @@ header{
     aside {
         display: none;
     }
-    /* .Show_aside{
-        position: absolute;
-    } */
+    
     .Modificacion_Aside {
         display: initial;
         width: initial;
@@ -96,34 +86,9 @@ header{
         width: 12rem;
         height: calc(100% - calc(var(--padding_Prueba)*2));
     }
-    .Boton_Para_Ocultar{
-        display: none;
-    }
-    .Boton_Para_Mostrar{
-        display: block;
-    }
-
-
-
 }
-/* .Show_aside {
-    display: block;
-    height: 100%;
-    
-} */
 .ToggleContainer{
     grid-template-columns: 1fr;
  
 }
-
-
-
-
-/* 
-.Modificacion_Aside{
-
-}
-.Modificacion_Main{
-grid-template-columns:  1fr;
-} */
 
