@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Document</title>
+
+</head>
+c:\Users\gdjenrio\Desktop\ePOS_SDK_JavaScript_v2.27.0b\ePOS_SDK_JavaScript_v2.27.0b\DeviceControlProgram_Sample\ExecuteFiles\Sample01.exe
+<body>
+  <script type="text/javascript" src="epos-2.27.0.js"> </script>
+  <script>
+    var ePosDev = new epson.ePOSDevice();
+
+    connect()
+    function connect() {
+      var ipAddress = '10.165.28.35';
+      var port = '5501';
+      ePosDev.connect(ipAddress, port, callback_connect);
+    }
+    function callback_connect(resultConnect) {
+      var deviceId = 'local_printer';
+      var options = { 'crypto': false, 'buffer': false };
+      if ((resultConnect == 'OK') || (resultConnect == 'SSL_CONNECT_OK')) {
+        //Retrieves the Printer object
+        ePosDev.createDevice(deviceId, ePosDev.DEVICE_TYPE_PRINTER, options,
+          callback_createDevice);
+      }
+      else {
+        //Displays error messages
+      }
+    }
+    var printer = null;
+    function callback_createDevice(deviceObj, errorCode) {
+      if (deviceObj === null) {
+        //Displays an error message if the system fails to retrieve the Printer object
+        return;
+      }
+      printer = deviceObj;
+      //Registers the print complete event
+      printer.onreceive = function (response) {
+        if (response.success) {
+          //Displays the successful print message
+        }
+        else {
+          //Displays error messages
+        }
+      };
+    }
+
+    function createData() {
+      printer.addTextAlign(printer.ALIGN_CENTER);
+      printer.addText("Hello World\n");
+    }
+
+    function send() {
+      if (ePosDev.isConnected) {
+        printer.send();
+      }
+    }
+    ePosDev.deleteDevice(printer, callback_deleteDevice);
+    function callback_deleteDevice(errorCode) {
+      //Terminates connection with device
+      ePosDev.disconnect();
+    }
+
+  </script>
+</body>
+
+</html>

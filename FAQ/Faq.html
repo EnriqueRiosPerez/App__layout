@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ</title>
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css" />
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+
+            font-family: system-ui;
+        }
+
+
+        html {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            font-size: 1.2rem;
+            height: 100%;
+            overflow: hidden;
+            /* padding: 10px;  */
+            background-color: var(--bg-100);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .Search__Header {
+            /* background-color: #4E34F5; */
+        }
+
+        .Section__Title {
+            display: grid;
+            gap: 1rem 2%;
+            grid-auto-flow: dense;
+            grid-auto-rows: auto;
+            grid-template-columns: 1fr 100%;
+            /* repeat(auto-fit, minmax(min(100%, 41rem), 1fr)); */
+        }
+
+        .Section__Title__logo {}
+
+        main {
+            width: 100%;
+            height: 100%;
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+
+        }
+
+        .Section__Options {
+            max-width: 960px;
+            outline: 1px #000 solid;
+            height: 100%;
+            width: 100%;
+
+        }
+
+        /* > hijos directos & selectores normales */
+        header {
+            width: 100%;
+            padding: 2rem 2.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* background-color: #4E34F5; */
+            /* background-image: radial-gradient(circle, #4e34f4, #553df5, #5c45f6, #624df6, #6854f7, #6854f7, #6854f7, #6854f7, #624df7, #5c45f6, #563df6, #4f34f5); */
+            background-image: radial-gradient(circle, #4f34f5, #563df6, #5c45f6, #624df7, #6854f7, #6854f7, #6854f7, #6854f7, #624df7, #5c45f6, #563df6, #4f34f5);
+            gap: 3rem 0rem;
+            & .header__Div {
+                /* height: 40px; */
+                max-width: 960px;
+                width: 100%;
+                outline: 1px #000 solid;
+
+                /* display: flex; */
+                display: grid;
+
+                grid-auto-flow: dense;
+                /* grid-auto-rows: auto; */
+                grid-template-columns: 1fr 100%;
+            }
+
+
+        }
+
+        .Section__Title__1 {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+            h1{
+                font-size: 28px;
+            }
+            div {
+                max-width: 960px;
+                width: 100%;
+                /* background-color: orange; */
+            }
+        }
+        :root{
+            --ancho-icon:50px;
+        }
+        .header__Div__Div__IMG__Container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            img {
+                /* height: 100%; */
+                height: var(--ancho-icon);
+                aspect-ratio: 1/1;
+                object-fit: cover;
+            }
+        }
+
+        .header__Div__Div__Actions__Container {
+            /* color: hsl(none, 0%, 100%); */
+
+            font-weight: 600;
+            height: 100%;
+            width: calc(100% - var(--ancho-icon));
+            background-color: red;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            a {
+                color: #fff;
+                text-decoration: none;
+                font-size: 0.85rem;
+                padding-right: 0.5rem;
+
+            }
+
+        }
+        
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header__Div">
+            <div class="header__Div__Div__IMG__Container"><img src="MM.png" alt=""></div>
+            <div class="header__Div__Div__Actions__Container">
+                <a href="/Login/Login.html">Go to MM</a>
+            </div>
+        </div>
+
+        <section class="Section__Title__1">
+            <div>
+                <h1> Advice and answeres from the Maintenance Management Team
+                </h1>
+                <div class="Search__Header">
+                    <input type="text">
+
+                </div>
+            </div>
+        </section>
+    </header>
+
+    <main>
+        <section class="Section__Options">
+            <div class="Section__Title">
+                <div class="Section__Title__logo">
+                    <span>
+                        <i class="fa-duotone fa-warehouse-full"></i>
+                        <!-- <i class="fa-solid fa-gear"></i> -->
+                        <!-- <i class="fa-solid fa-screwdriver-wrench"></i> -->
+                    </span>
+                </div>
+                <div class="Secction__Title__Container__Info">
+                    <h3 class="Container__Info__Title">Central WareHouse</h3>
+                    <span> Aqui son temas relacionados del almacen central</span>
+                </div>
+            </div>
+            <div class="Section__Title">
+                <div class="Section__Title__logo">
+                    <span>
+                        <!-- <i class="fa-duotone fa-warehouse-full"></i> -->
+                        <!-- <i class="fa-solid fa-gear"></i> -->
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </span>
+                </div>
+                <div class="Secction__Title__Container__Info">
+                    <h3 class="Container__Info__Title">Support on line</h3>
+                    <span> Levantar tickets </span>
+                </div>
+            </div>
+            <div class="Section__Title">
+                <div class="Section__Title__logo">
+                    <span>
+                        <!-- <i class="fa-duotone fa-warehouse-full"></i> -->
+                        <i class="fa-solid fa-gear"></i>
+                        <!-- <i class="fa-solid fa-screwdriver-wrench"></i> -->
+                    </span>
+                </div>
+                <div class="Secction__Title__Container__Info">
+                    <h3 class="Container__Info__Title">Preventive</h3>
+                    <span> Aqui son temas relacionados con el mantenimento prevenitvo</span>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+    <footer>
+
+    </footer>
+
+
+    <script>
+        let objeto = '{"Sites":[{"Site":"Select. site"},{"Site":"Guadajalara south"},{"Site":"Guadalajara North"},{"Site":"Juarez North"}],"Buildings":[{"Edificio":"Select. BU"},{"Edificio":"N01"},{"Edificio":"N02"},{"Edificio":"N03"},{"Edificio":"N04"},{"Edificio":"N05"},{"Edificio":"N06"},{"Edificio":"N07"},{"Edificio":"N08"},{"Edificio":"B16"},{"Edificio":"JW1"},{"Edificio":"JW2"},{"Edificio":"JW3"},{"Edificio":"JW4"},{"Edificio":"B12"},{"Edificio":"Central Ware House"},{"Edificio":"N10"},{"Edificio":"N01"},{"Edificio":"B30"}],"Departments":[{"Departamento":"Select. deparment"},{"Departamento":"Quality"},{"Departamento":"Production control"},{"Departamento":"Facilities"},{"Departamento":"IT"},{"Departamento":"Maintenance corrective"},{"Departamento":"Maintenance preventive"},{"Departamento":"Manufacture"},{"Departamento":"Materials"},{"Departamento":"Process"},{"Departamento":"Product"},{"Departamento":"Program manager"},{"Departamento":"Test"},{"Departamento":"Ware house"},{"Departamento":"ESD"},{"Departamento":"Central Ware house"},{"Departamento":"Maintenance preventive zebras"},{"Departamento":"Tool Crib"},{"Departamento":"Programming"}],"Positions":[{"Position":"Select. Job"},{"Position":"Technican"},{"Position":"Engineer"},{"Position":"Manager"}],"Shifts":[{"Shift":"Select. Shift"},{"Shift":"1"},{"Shift":"2"},{"Shift":"3"},{"Shift":"4"}],"Privileges":[{"privileges":"Selec. privilegios"},{"privileges":"Usuario"},{"privileges":"Administrador"}]}'
+        let objetito = JSON.parse(objeto)
+        console.log(objetito)
+        // Object.groupBy(objeto)
+        let keysss = Object.keys(objetito)
+        keysss.forEach(key =>{
+            console.log(key)
+            objetito[key].forEach(info=>{
+                // console.log(typeof info)
+                console.log(info)
+            })
+        })
+    
+    
+    </script>
+</body>
+
+</html>

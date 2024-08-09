@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="Container">
+        <aside class="Hola" id="Aside">
+            aqui vasn alsac pasdcas
+            <button type="button" id="Close_Aside" class="Aside_Button">
+                Ocultar 
+            </button>
+        </aside>
+        <main>
+            <header>
+                <button type="button" id="Open_Aside" >
+                    ocultar menu
+                </button>
+                Aqui van a las cosas que vamos  a poner 
+
+            </header>
+        </main>
+    </div>
+
+    <script>
+        let aside = document.getElementById("Aside")
+        let show_aside = document.getElementById("Open_Aside")
+        let hide_aside = document.getElementById("Close_Aside")
+        
+        show_aside.addEventListener("click",()=>{
+            aside.classList.add("Show_aside")
+        })
+        hide_aside.addEventListener("click", ()=>{
+            aside.classList.remove("Show_aside")
+        })
+
+
+    </script>
+</body>
+</html>
