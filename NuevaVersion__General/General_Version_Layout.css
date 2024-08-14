@@ -5,7 +5,8 @@
     font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
 }
 :root {
-    --aside_with: 16rem;
+    /* --aside_with: 16rem; */
+    --aside_with: 12.5rem;
     --padding_Prueba: 1rem;
     --alto_head: 60px;
 
@@ -35,16 +36,31 @@ body{
 
 .Principal__Aside{
     background-color: var(--primary-100);
+
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* padding: 1rem; */
+    /* background-color: orange; */
+    overflow: hidden;
 }
 .Principal__Aside__Container{
     width: 100%;
     height: 100%;
     display: grid;
     grid-template-rows: var(--alto_head) 1fr;
+    /* padding: 1rem; */
+    /* background-color: blue; */
+    overflow: hidden;
+
     header{
         display: grid;
-        grid-template-columns: var(--alto_head) 1fr;
-        padding: 0 var(--padding_Prueba);
+        --header-padding:0.2rem;
+        grid-template-columns: calc(var(--alto_head) - var(--header-padding)) 1fr;
+        padding: var(--header-padding) var(--padding_Prueba);
         div{
             display: flex;
             justify-content: center;
@@ -59,6 +75,14 @@ body{
             }
         }
     }
+    > section{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
 
 }
 .Principal__Container{
@@ -66,7 +90,7 @@ body{
     height: 100%;
     width: 100%;  
     grid-template-columns: var(--aside_with) 1fr;
-    /* background-color: #fff; */
+    background-color: red;
     padding: var(--padding_Prueba);
     transition: grid-template-columns 0.1s ease-in-out  ;
 }
