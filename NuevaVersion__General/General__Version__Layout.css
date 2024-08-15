@@ -48,6 +48,9 @@ body {
     /* padding: 1rem; */
     /* background-color: orange; */
     overflow: hidden;
+
+
+    /* transition: width 0.5s; */
 }
 
 .Principal__Aside__Container {
@@ -65,7 +68,8 @@ body {
         grid-template-columns: calc(var(--alto_head) - var(--header-padding)) 1fr;
         padding: var(--header-padding) var(--padding_Prueba);
 
-        div {
+
+        > div {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -78,6 +82,11 @@ body {
                 object-fit: fill;
                 aspect-ratio: 1/1;
             }
+        }
+        >section{
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
         }
     }
 
@@ -97,14 +106,15 @@ body {
     height: 100%;
     width: 100%;
     grid-template-columns: var(--aside_with) 1fr;
-    background-color: red;
-    padding: var(--padding_Prueba);
+    /* background-color: red; */
+    /* padding: var(--padding_Prueba); */
     transition: grid-template-columns 0.1s ease-in-out;
 }
 
 .Principal__Main {
     display: grid;
     grid-template-rows: var(--alto_head) 1fr;
+    overflow: hidden;
 
     .Principal__Header {
         /* background-color: #ffffff; */
@@ -156,7 +166,8 @@ body {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+       
+        overflow: auto;
     }
 }
 
@@ -165,12 +176,15 @@ body {
 
 .Aside_Button_Hide {
     display: none;
+    
 
 }
+
 
 .Modificacion_Aside {
     display: none;
     width: 0;
+    /* height: 0; */
 }
 
 
@@ -179,6 +193,7 @@ body {
     .Principal__Container {
         --aside_with: 7rem;
     }
+
 }
 
 @Media(width < 480px) {
@@ -188,11 +203,37 @@ body {
     }
 
     .Aside_Button_Hide {
-        /* display: block; */
-        display: flex;
+        
+        /* display: flex;
         justify-content: flex-end;
         font-size: 2rem;
         align-items: center;
+        :hover{
+            background-color: var(--primary-100-hover);
+            color: var(--fc-100-hover);
+            border-radius: 50%;
+        } */
+         
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* height:calc(var(--alto_head) - var(--header-padding))  ; */
+        height:80%  ;
+        aspect-ratio: 1/1;
+        font-size: calc(var(--alto_head) - 2.5rem);
+        border-radius: 50%;
+        color: var(--fc-100-hover);
+        /* background-color: orange; */
+    }
+    .Aside_Button_Hide:hover{
+        
+            background-color: var(--primary-100-hover);
+            /* background-color: #383838; */
+            
+            
+            border-radius: 50%;
+            cursor: pointer;
+        
     }
 
     .Principal__Aside {
@@ -207,7 +248,8 @@ body {
     .Show_aside {
         display: block;
         position: absolute;
-        width: 16rem;
+        width: 12.5rem;
+        /* width: var(--aside_with); */
         height: calc(100% - calc(var(--padding_Prueba)*2));
     }
 }
