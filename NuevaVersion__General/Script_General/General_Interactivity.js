@@ -23,6 +23,13 @@ let side_nav_Li_Elements
 //varibles del sub sub menu
 let sub_side_nav_Li_Elements
 
+//varables para modificar el sidebar
+let aside = document.getElementById("Aside")
+let Close_Main_Aside = document.getElementById("Hide_Aside")
+let container = document.getElementById("Container_1")
+let hide_aside = document.getElementById("Close_Aside")
+
+
 
 //funciones de creacion del menu
 window.addEventListener("load",async () => {
@@ -49,6 +56,23 @@ window.addEventListener("load",async () => {
             revisarClase(e)
         })
     })
+
+
+    Close_Main_Aside.addEventListener("click", async ()=>{
+        await cambiarClases()
+    })
+    hide_aside.addEventListener("click",async ()=>{
+     await cambiarClases() 
+    })
+    async function cambiarClases(){
+        aside.classList.toggle("Modificacion_Aside")
+        container.classList.toggle("ToggleContainer")
+        aside.classList.toggle("Show_aside")
+  
+    }
+
+
+
     //nav.insertAdjacentHTML("afterbegin", Template__Nav__HTML)
 })
 
