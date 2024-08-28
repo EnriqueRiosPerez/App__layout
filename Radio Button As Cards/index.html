@@ -1,51 +1,58 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Radio Buttons As Cards</title>
-        <!--Google Font-->
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-        <!--Linking Stylesheet-->
-        <!-- <link rel="stylesheet" href="style.css"> -->
-    </head>
-    <body>
+
+<head>
+    <title>Radio Buttons As Cards</title>
+    <!--Google Font-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!--Linking Stylesheet-->
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css" />
+</head>
+
+<body>
+    <!-- para los sites -->
+    <!-- <i class="fa-solid fa-buildings"></i> -->
+     <div class="Section__2"> 
         <div class="card">
-            <input type="radio" name="pricing" id="card1"  value="mucho gusto">
-            <label for="card1">
-                <h5>BASIC</h5>
-                <h2>
-                    <span>$</span>
-                    15
-                    <span>/month</span>
-                </h2>
-            </label>
+            <input type="radio" name="pricing" id="card1" value="Almacen Central"/>
+            <div for="card1">
+                <i class="fa-solid fa-warehouse-full"></i><h5>Almacen Central</h5>
+            
+            </div>
         </div>
         <div class="card">
-            <input type="radio" name="pricing" id="card2" value="Hola">
-            <label for="card2">
-                <h5>STANDARD</h5>
-                <h2>
+            <input type="radio" name="pricing" id="card2" value="N03 Sinvo"/>
+            <div for="card2">
+                <i class="fa-solid fa-warehouse-full"></i><h5>N03 Sinvo</h5>
+                <!-- <h2>
                     <span>$</span>
                     35
                     <span>/month</span>
-                </h2>
-            </label>
+                </h2> -->
+            </div>
         </div>
         <div class="card">
-            <input type="radio" name="pricing" id="card3"  value="adios">
-            <label for="card3">
-                <h5>PREMIUM</h5>
-                <h2>
-                    <span>$</span>
-                    120
-                    <span>/month</span>
-                </h2>
-            </label>
+            <input type="radio" name="pricing" id="card3" value="Almacen Central HRS"/>
+            <div for="card3">
+                <i class="fa-solid fa-warehouse-full"></i> <h5>Almacen Central HRS</h5>
+             
+            </div>
         </div>
-        <button type="button" id="SalvarValores">Salvar valores</button>
-        <!-- <input type="radio" name="example" value="option1" checked> Option 1
+        <div class="card">
+            <input type="radio" name="pricing" id="card4" value="Programacion"/>
+            <div for="card4">
+                <i class="fa-solid fa-warehouse-full"></i><h5>Programacion</h5>
+           
+            </div>
+        </div>
+     </div>
+  
+    <button type="button" id="SalvarValores">Salvar valores</button>
+    <!-- <input type="radio" name="example" value="option1" checked> Option 1
 <input type="radio" name="example" value="option2"> Option 2
 <input type="radio" name="example" value="none"> None -->
-<script>
+    <script>
 
         let botoncitos = document.querySelectorAll('input[type="radio"][name="pricing"]');
         let radioButtons = [...botoncitos];
@@ -67,12 +74,12 @@
         //                 console.log("Hola2")
         //                 actual.checked = true
         //             }
-                    
+
 
         //         }
-        
+
         //         else{
-                    
+
         //             console.log("Seleccionado por primera vez")
         //             input.checked =  true
         //         }
@@ -86,34 +93,34 @@
         //             console.log(actual)
         //         }
         //     });
-       
+
         // });
 
 
         let actual = null;
 
-radioButtons.forEach((input) => {
-    input.addEventListener("click", (e) => {
-        console.log("Actual:", actual);
-        console.log("Input antes de modificar:", input.checked);
+        radioButtons.forEach((input) => {
+            input.addEventListener("click", (e) => {
+                console.log("Actual:", actual);
+                console.log("Input antes de modificar:", input.checked);
 
-        // Si el botón de opción actual ya está seleccionado, lo deseleccionamos
-        if (actual === input) {
-            if (actual.checked === true) {
-                console.log("Deseleccionando");
-                input.checked = false;
-                actual = null;
-            }
-        } else {
-            // Si se selecciona un nuevo botón, lo marcamos como actual
-            console.log("Seleccionando nuevo botón de opción");
-            actual = input;
-        }
+                // Si el botón de opción actual ya está seleccionado, lo deseleccionamos
+                if (actual === input) {
+                    if (actual.checked === true) {
+                        console.log("Deseleccionando");
+                        input.checked = false;
+                        actual = null;
+                    }
+                } else {
+                    // Si se selecciona un nuevo botón, lo marcamos como actual
+                    console.log("Seleccionando nuevo botón de opción");
+                    actual = input;
+                }
 
-        console.log("Input después de modificar:", input.checked);
-    });
-});
-        button1.addEventListener("click", async ()=>{
+                console.log("Input después de modificar:", input.checked);
+            });
+        });
+        button1.addEventListener("click", async () => {
             // let valor = radioButtons.filter(input =>{
             //     if(input.checked== true){
 
@@ -121,11 +128,16 @@ radioButtons.forEach((input) => {
             //     }
             // })
             let xx = radioButtons.filter(radios => radios.checked == true)
-            console.log(xx)
+            if (xx.length === 0) {
+                console.log("no hay ningun valor seleccionado")
+            } else {
+                console.log(xx[0].value)
+
+            }
         })
 
 
-</script>    
+    </script>
 </body>
 
 </html>

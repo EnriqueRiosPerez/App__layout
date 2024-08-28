@@ -32,7 +32,10 @@ input[type="radio"]{
     cursor: pointer;
     outline: none;
 }
+
 input[type="radio"]:before{
+    /* se al poner display none no pasa nada en este caso es el contenedor de la bolita */
+    display: none;
     content: "";
     position: absolute;
     height: 22px;
@@ -44,6 +47,8 @@ input[type="radio"]:before{
     right: 20px;
 }
 input[type="radio"]:after{
+    /* se al poner display none no pasa nada en este caso es el contenedor de la bolita */
+    display: none;
     content: "";
     position: absolute;
     height: 13px;
