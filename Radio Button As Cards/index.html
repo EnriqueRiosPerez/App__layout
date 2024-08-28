@@ -9,7 +9,7 @@
     </head>
     <body>
         <div class="card">
-            <input type="radio" name="pricing" id="card1">
+            <input type="radio" name="pricing" id="card1"  value="mucho gusto">
             <label for="card1">
                 <h5>BASIC</h5>
                 <h2>
@@ -20,7 +20,7 @@
             </label>
         </div>
         <div class="card">
-            <input type="radio" name="pricing" id="card2" checked>
+            <input type="radio" name="pricing" id="card2" value="Hola">
             <label for="card2">
                 <h5>STANDARD</h5>
                 <h2>
@@ -31,7 +31,7 @@
             </label>
         </div>
         <div class="card">
-            <input type="radio" name="pricing" id="card3">
+            <input type="radio" name="pricing" id="card3"  value="adios">
             <label for="card3">
                 <h5>PREMIUM</h5>
                 <h2>
@@ -41,34 +41,90 @@
                 </h2>
             </label>
         </div>
-
-        <input type="radio" name="example" value="option1" checked> Option 1
+        <button type="button" id="SalvarValores">Salvar valores</button>
+        <!-- <input type="radio" name="example" value="option1" checked> Option 1
 <input type="radio" name="example" value="option2"> Option 2
-<input type="radio" name="example" value="none"> None
+<input type="radio" name="example" value="none"> None -->
 <script>
-        let radioButtons = document.querySelectorAll('input[type="radio"][name="example"]');
+
+        let botoncitos = document.querySelectorAll('input[type="radio"][name="pricing"]');
+        let radioButtons = [...botoncitos];
+        let button1 = document.getElementById("SalvarValores")
         console.log(radioButtons)
-        radioButtons.forEach((input) => {
-            input.addEventListener('change', (e) => {
-                // Your code here
-                
-                if(input.checked === true){
-                    console.log(e.target.value)
-                }
-                
-                
-            });
-            input.addEventListener("click",() =>{
-           
-                console.log(input.checked)
-                if(input.checked === true){
-                    input.checked = false
-                }else{input.checked = true}
-                // if(input.checked === false){
-                //     input.checked = true
-                // }
-            })
-        });
+        // let actual 
+        // radioButtons.forEach((input) => {
+        //     input.addEventListener("click",(e) =>{
+        //         console.log(e.target)
+        //         console.log("Actual")
+        //         console.log(input.checked)
+        //         // if(actual == input && input.checked === true){
+        //         if(actual == input){
+        //             if(actual.checked == true){
+        //                 console.log("Hola1")
+        //                 actual.checked = false
+        //             }
+        //             else{
+        //                 console.log("Hola2")
+        //                 actual.checked = true
+        //             }
+                    
+
+        //         }
+        
+        //         else{
+                    
+        //             console.log("Seleccionado por primera vez")
+        //             input.checked =  true
+        //         }
+        //         console.log("modificacion")
+        //         console.log(input.checked)
+        //     })
+        //     input.addEventListener('change', (e) => {
+        //         if(input.checked == true){
+        //             console.log(e.target.value)
+        //             actual = e.target
+        //             console.log(actual)
+        //         }
+        //     });
+       
+        // });
+
+
+        let actual = null;
+
+radioButtons.forEach((input) => {
+    input.addEventListener("click", (e) => {
+        console.log("Actual:", actual);
+        console.log("Input antes de modificar:", input.checked);
+
+        // Si el botón de opción actual ya está seleccionado, lo deseleccionamos
+        if (actual === input) {
+            if (actual.checked === true) {
+                console.log("Deseleccionando");
+                input.checked = false;
+                actual = null;
+            }
+        } else {
+            // Si se selecciona un nuevo botón, lo marcamos como actual
+            console.log("Seleccionando nuevo botón de opción");
+            actual = input;
+        }
+
+        console.log("Input después de modificar:", input.checked);
+    });
+});
+        button1.addEventListener("click", async ()=>{
+            // let valor = radioButtons.filter(input =>{
+            //     if(input.checked== true){
+
+            //         return input.value 
+            //     }
+            // })
+            let xx = radioButtons.filter(radios => radios.checked == true)
+            console.log(xx)
+        })
+
+
 </script>    
 </body>
 
