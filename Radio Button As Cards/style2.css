@@ -32,25 +32,100 @@ body {
     grid-auto-rows: auto;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 600px), 1fr));
 }
+.Section__3 {
+    width: 100%;
+    /* background-color: orange; */
+    padding: 1rem;
+    display: grid;
+    gap: 1rem;
+    grid-auto-flow: dense;
+    grid-auto-rows: auto;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 350px), 1fr));
+}
 .card{
     /* background-color: aqua; */
     height: 100%;
     width: 100%;
     display: flex;
     /* grid-template-columns: 1fr 1fr; */
-    div{
+    label{
+
         width: 100%;
-        background-color: blueviolet;
+   
         display: grid;
         grid-template-columns:60px 1fr;
         align-items: center;
         padding: 1rem;
         border-radius: 1rem;
+        color: rgba(58, 53, 65, 0.87);
+        background-color: rgba(58, 53, 65, 0.04) ; 
+        border:1px solid rgba(58, 53, 65, 0.12);
+        cursor:pointer;
     }
-    >div:hover{
-            background-color: blue;
+    >label:hover{
+            background-color: rgba(58, 53, 65, 0.12);
     }
     >input[type="radio"]{
         display: none;
     }
+    /* >input[type="radio"]:checked{
+        background-color: orange;
+    } */
+    >input[type="radio"]:checked ~ label{
+        /* background-color: orange; */
+        color: rgb(145, 85, 253);
+    background-color: rgba(145, 85, 253, 0.12);
+    border: 1px solid rgb(145, 85, 253);
+    }
+    
+
+}
+
+
+
+.Card__Type__Select {
+    --anchoicon:4rem;
+    border-radius: 1rem;
+    width: 100%;
+    padding: 1rem;
+    /* background-color:red; */
+    color: rgba(58, 53, 65, 0.87);
+    background-color: rgba(58, 53, 65, 0.04) ; 
+    border:1px solid rgba(58, 53, 65, 0.12);
+    cursor:pointer;
+
+
+    >span{
+        user-select: none;
+        font-size:var(--anchoicon);
+        display: grid;
+        grid-template-columns: var(--anchoicon) 1fr;
+        /* align-items: center; */
+        justify-items: center;
+        gap: 1rem;
+    }
+    div{
+        /* font-size: 1rem; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /* align-items: center; */
+        width: 100%;
+        /* border:1px solid black; */
+        & > span:first-of-type {
+           /* background-color: blueviolet; */
+           font-weight:700; 
+           font-size: 2rem;
+           
+          }
+        & >span{
+            /* background-color: blue; */
+            font-size: 1rem;
+        }
+        
+        /* span{
+            background-color:olivedrab ;
+        } */
+    }
+
 }

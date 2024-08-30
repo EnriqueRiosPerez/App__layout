@@ -13,38 +13,64 @@
 <body>
     <!-- para los sites -->
     <!-- <i class="fa-solid fa-buildings"></i> -->
+
+    <div class="Section__3">
+        <button class="Card__Type__Select" type="button">
+            <span><i class="fa-solid fa-building"></i>
+                <div>
+                    <span name="id">
+                        Site
+                    </span>
+                    <span>
+                        Guadalajara sur
+                    </span>
+                </div>
+            </span>
+    
+        </button>
+        <button class="Card__Type__Select" >
+            <span><i class="fa-solid fa-warehouse"></i>
+                <div>
+                    <span name="id">
+                        WareHouse
+                    </span>
+                    <span>
+                        Guadalajara sur
+                    </span>
+                </div>
+            </span>
+    
+        </button>
+    </div>
+
+
      <div class="Section__2"> 
         <div class="card">
             <input type="radio" name="pricing" id="card1" value="Almacen Central"/>
-            <div for="card1">
+            <label for="card1">
                 <i class="fa-solid fa-warehouse-full"></i><h5>Almacen Central</h5>
-            
-            </div>
+            </label>
         </div>
         <div class="card">
             <input type="radio" name="pricing" id="card2" value="N03 Sinvo"/>
-            <div for="card2">
+            <label for="card2">
                 <i class="fa-solid fa-warehouse-full"></i><h5>N03 Sinvo</h5>
-                <!-- <h2>
-                    <span>$</span>
-                    35
-                    <span>/month</span>
-                </h2> -->
-            </div>
+          
+
+            </label>
         </div>
         <div class="card">
             <input type="radio" name="pricing" id="card3" value="Almacen Central HRS"/>
-            <div for="card3">
+            <label for="card3">
                 <i class="fa-solid fa-warehouse-full"></i> <h5>Almacen Central HRS</h5>
              
-            </div>
+            </label>
         </div>
         <div class="card">
             <input type="radio" name="pricing" id="card4" value="Programacion"/>
-            <div for="card4">
+            <label for="card4">
                 <i class="fa-solid fa-warehouse-full"></i><h5>Programacion</h5>
-           
-            </div>
+            </l>
         </div>
      </div>
   
@@ -57,46 +83,9 @@
         let botoncitos = document.querySelectorAll('input[type="radio"][name="pricing"]');
         let radioButtons = [...botoncitos];
         let button1 = document.getElementById("SalvarValores")
+
+        let butontesSeleccion = document.querySelectorAll("button.Card__Type__Select")
         console.log(radioButtons)
-        // let actual 
-        // radioButtons.forEach((input) => {
-        //     input.addEventListener("click",(e) =>{
-        //         console.log(e.target)
-        //         console.log("Actual")
-        //         console.log(input.checked)
-        //         // if(actual == input && input.checked === true){
-        //         if(actual == input){
-        //             if(actual.checked == true){
-        //                 console.log("Hola1")
-        //                 actual.checked = false
-        //             }
-        //             else{
-        //                 console.log("Hola2")
-        //                 actual.checked = true
-        //             }
-
-
-        //         }
-
-        //         else{
-
-        //             console.log("Seleccionado por primera vez")
-        //             input.checked =  true
-        //         }
-        //         console.log("modificacion")
-        //         console.log(input.checked)
-        //     })
-        //     input.addEventListener('change', (e) => {
-        //         if(input.checked == true){
-        //             console.log(e.target.value)
-        //             actual = e.target
-        //             console.log(actual)
-        //         }
-        //     });
-
-        // });
-
-
         let actual = null;
 
         radioButtons.forEach((input) => {
@@ -135,6 +124,19 @@
 
             }
         })
+        
+        butontesSeleccion.forEach(boton =>{
+            boton.addEventListener("click", async ()=>{
+                console.log("El selector es ")
+                let span = boton.querySelectorAll('span[name="id"]')
+                console.log(span[0].textContent.trim())
+            })
+        })
+    // en el caso del usuario chido chido 
+    // las opciones que tendra son todas 
+    // abrir el modal en ambos casos para que relice el fitro
+    // en base a la seleccion del site este nos tiene que realizar el filtro de los almacenes que estan dados de alta en el 
+    // despues se tiene que realizar el fitro en base al almacen seleccionado
 
 
     </script>
