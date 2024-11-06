@@ -150,3 +150,76 @@ position: relative;
     transform: translateY(1rem);
     transition: 0.2s cubic-bezier(0.4,0,0.2,1);
 }
+
+
+
+.Modal__Principal {
+    background-color: white;
+    width: var(--Dialog__Base__Width);
+    height: var(--Dialog__Base__heigth);
+    margin: auto;
+    /*border-radius: 0.8rem;*/
+    border-radius: var(--General__Border__Radius);
+    border: none;
+    padding: 1rem;
+    max-width: var(--Dialog__Base__max-width);
+    max-height: var(--Dialog__Base__max-heigth);
+    overflow: hidden;
+    min-width: var(--Dialog__Base__min-width);
+    .Modal__Principal__Container{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 0 1rem 0;
+            color: black;
+            border-bottom: 1px solid #F0F0F0;
+            &>span{
+                    /*color:white;*/
+                }
+
+            }
+
+            &>span:hover {
+                /*color: rgb(239 68 68 / 0.8);*/
+                background-color: transparent;
+                i{
+                    color: red;
+                }
+
+            }
+        }
+
+        /*secciones*/
+        &>section{
+            /*background-color:orange;*/
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            /*padding: 0 0 1rem 0;*/
+        }
+           &>section::-webkit-scrollbar {
+                            width: 2px;
+                        }
+
+            &>section::-webkit-scrollbar-thumb {
+                background-color: #ECECED;
+                border-radius: 50%;
+            }
+
+               &> section::-webkit-scrollbar-thumb:hover {
+                    background: #C3C3C3;
+                }
+
+
+
+        /*Footer*/
+        &>footer {
+            display: flex;
+            justify-content: flex-end;
+            height: fit-content;
+            align-items: center;
+            padding: 1rem 0 0 0;
+            gap: 0 2rem;
+        }
+
+

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    html{
+        height: 100%;
+    }
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+
+        input[name="gg"] {
+            background-color: blue;
+            display: none;
+        }
+        .contenedor{
+            
+            cursor: pointer;
+            width: 90%;
+            height:500px;
+            /* border:2px dotted #f1f1f1; */
+            border: 2px dashed rgba(93, 89, 98, 0.22);
+            border-radius: 1rem;
+            display: grid;
+            grid-template-rows: 1fr auto;
+            &>label {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;    
+                    /* height: 50px; */
+                    padding: 1rem;
+                    width: 100%;
+                    background-color: red;
+                    border-radius: 1rem;
+                }
+                &>.image_container{
+                    padding: 1rem;
+                    width: 100%;
+                    height: 100%;
+                    /* display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center; */
+                    display: grid;
+                    gap: 1rem;
+                    grid-auto-flow: dense;
+                    grid-auto-rows: auto;
+                    grid-template-columns: repeat(auto-fit, minmax(min(100%, 610px), 1fr));
+                    &>div{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        width: 100%;
+                        background-color: aliceblue;
+                        &>h5{
+                            font-size: 1.4993rem;
+                            font-weight: 500;
+                            color: rgba(58, 53, 65, 0.87);
+                        }
+                        &>span{
+                            font-size: 1rem;
+                            font-weight: 400;
+                            color: rgba(58, 53, 65, 0.6);
+
+                        }
+
+
+
+
+                    }
+                    &>img{
+                        max-height: 395px;
+                        width: 100%;
+                        height: 100%;
+                        aspect-ratio: 1/1;
+                        object-fit:contain ;
+                    }
+
+                    /* &>img[src=""] {
+                        display:none;
+                     
+                    }   */
+                }
+                &>.image_container::before{
+                    background-image: url(upload.png);
+                    display: flex;
+                }
+             
+                &>.image_container:has(>img[src=""])::before{
+                        margin: auto;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-size: 2rem;
+                        font-weight: bold;
+                        background-color: purple;
+                        color: #FFF;
+                        padding: 1rem;
+                        border-radius: 1rem;
+                        /* content: "Add files Here"; */
+                        /* background-image:url("upload.png"); */
+                }
+                
+            /* background-color: red; */
+        }
+
+        /* .image_container::before{
+                            margin: auto;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            font-size: 2rem;
+                            font-weight: bold;
+                            background-color: purple;
+                            color: #FFF;
+                            padding: 1rem;
+                            border-radius: 1rem;
+                            content: "Add files Here";
+                    }
+                    .image_container::after{
+                            margin: auto;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            font-size: 2rem;
+                            font-weight: bold;
+                            background-color: blue;
+                            color: #FFF;
+                            padding: 1rem;
+                            border-radius: 1rem;
+                            background-image: ();
+                    } */
+        /* img:not([src=""]) ~ .image_container::before {
+
+        }     */
+        /* .image_container{
+            img:not[src=""] {
+                background-color: blue;
+            }
+            
+        } */
+
+        .contenedor:hover{
+            /* background-color: #f1f1f1; */
+            /* background-color: red; */
+        }
+
+        input[type=number]::-webkit-inner-spin-button, 
+
+        input[type=number]::-webkit-outer-spin-button { 
+              -webkit-appearance: none; 
+              margin: 0; 
+            }
+        input[type=number] { 
+            -moz-appearance:textfield; 
+        }
+     
+    </style>
+</head>
+
+<body>
+    <iframe style="height: 500px; width: 500px;" src="https://insighttwo.flex.com/t/LMXR/views/Gdls_PvA_PCB4/PvAAllBuildings?iframeSizedToWindow=true&%3Aembed=y&%3AshowAppBanner=false&%3Adisplay_count=no&%3AshowVizHome=no&%3Aorigin=viz_share_link&%3Arefresh=y#1"></iframe>
+    <iframe style="height: 600px; width: 600px;" src="https://sketchfab.com/3d-models/hc-aetter-solder-paste-screen-printer-fc2447b8d1264400a797d0076dcb6903"></iframe>
+    <input type="number" id="eaeaea">
+
+    <!-- <img src="" id="Prev_IMG"  style="height:100px; width:100px;" /> -->
+    <div class="contenedor" id="Buton_x">
+        <div class="image_container">
+
+            <img id="Prev_IMG" src="upload.png"  />
+            <div>
+                <h5>Click to upload file</h5>
+                <span>Allowed *.jpeg, *.png, *.jpg </span>
+            </div>
+        </div>
+
+        <input type="file" id="Input_file_IMG" name="gg" />
+        <!-- <label for="Input_file_IMG">Selecciona un archivo</label> -->
+
+    </div>
+    <!-- <button type="button" id="Buton_x">click</button> -->
+
+    <script>
+        let imagenDefault = "upload.png"
+        let dataImagen = document.querySelectorAll('[name="gg"]')
+        let Buton_x = document.getElementById("Buton_x")
+        let img = document.getElementById("Prev_IMG")
+        Buton_x.addEventListener("click", ()=>{
+            let imgh = document.getElementById("Input_file_IMG")
+            imgh.click()
+            console.log("gola")
+
+        })
+        // let padre = img.parentElement
+        // let arraypadre = Array.from(padre.children)
+        // let arraypadre = padre.children
+        // console.log(arraypadre)
+        // let ffdiv = arraypadre.filter(element => element.tagName === "DIV")
+        // ffdiv[0].style.display = "none"
+        // console.log()
+// console.log(padre.children)
+// console.log(arraypadre)
+
+        // console.log(dataImagen[0])
+        dataImagen[0].addEventListener('change', async (e) => {
+            let padre = img.parentElement
+            let arraypadre = Array.from(padre.children)
+            let ffdiv = arraypadre.filter(element => element.tagName === "DIV")
+            console.log(e.target.files[0])
+            console.log(e.target.files[0].type)
+            let res = await ValidateExtensions(e.target.files[0].type)
+            if (res === true) {
+                ffdiv[0].style.display = "none"
+                img.src = await dataUriFromFormField(e.target.files[0])
+
+            } else {
+                ffdiv[0].style.display = "flex"
+                img.src = imagenDefault
+                // alert("nel esta mal la imagen")
+            }
+
+        })
+        // Modal__Save__Button.addEventListener("click",async()=> {
+        //     const data = Object.fromEntries(new FormData(document.getElementById("Formulario__NP__Item")))
+        //     data["Action"] = Action
+        //     delete data.NP_Update
+
+        //     console.log(data.Imagen)
+        //     let dataImage = await dataUriFromFormField(data.Imagen)
+        //     delete data.Imagen
+        //     console.log(dataImage)
+        //     data["Imagen21"] = dataImage
+        //     let dataToBackend = JSON.stringify(data)
+        //     console.log(dataToBackend)
+        //     backEnd(dataToBackend)
+
+
+        // })
+        function ValidateExtensions(type) {
+            arary = ["image/jpeg", "image/png", "image/jpg"]
+            return new Promise((resolve) => {
+                if (arary.includes(type)) {
+                    resolve(true)
+                } else {
+                    resolve(false)
+                }
+            })
+        }
+
+        function dataUriFromFormField(field) {
+            return new Promise((resolve) => {
+                const reader = new FileReader();
+
+                reader.addEventListener('load', () => {
+                    resolve(reader.result);
+                });
+
+                reader.readAsDataURL(field);
+            });
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -81,8 +81,15 @@ body {
 
 }
 
+/* input[type="text"][readonly] {
 
+    background-color: red;
+} */
 
+:is(input[type="text"],textarea)[readonly] {
+    /* Your styles here */
+    background-color: blue;
+}
 .Card__Type__Select {
     --anchoicon:4rem;
     border-radius: 1rem;
@@ -95,7 +102,7 @@ body {
     cursor:pointer;
 
 
-    >span{
+    &>span{
         user-select: none;
         font-size:var(--anchoicon);
         display: grid;
@@ -103,29 +110,30 @@ body {
         /* align-items: center; */
         justify-items: center;
         gap: 1rem;
-    }
-    div{
-        /* font-size: 1rem; */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        /* align-items: center; */
-        width: 100%;
-        /* border:1px solid black; */
-        & > span:first-of-type {
-           /* background-color: blueviolet; */
-           font-weight:700; 
-           font-size: 2rem;
-           
-          }
-        & >span{
-            /* background-color: blue; */
-            font-size: 1rem;
+        &>div{
+            /* font-size: 1rem; */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* align-items: center; */
+            width: 100%;
+            /* border:1px solid black; */
+            & > span:first-of-type {
+               /* background-color: blueviolet; */
+               font-weight:700; 
+               font-size: 2rem;
+               
+              }
+            & >span{
+                /* background-color: blue; */
+                font-size: 1rem;
+            }
+            
+            /* span{
+                background-color:olivedrab ;
+            } */
         }
-        
-        /* span{
-            background-color:olivedrab ;
-        } */
     }
+
 
 }

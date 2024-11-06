@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <article class="card" >
+        <section class="card__sectionImage">
+       
+        <img loading="lazy" class="sectionImage__Image"
+            src="${serverPart + elemento.ID_NP}"
+            alt="">
+
+    
+
+    </section>
+    <section class="card__sectionInfo">
+
+
+     <span class="Tree">
+                    <i class="fa-solid fa-angle-right"></i>
+                    <span class="">ID: ${elemento.ID_NP} </span>
+                    <i class="fa-solid fa-angle-right"></i>
+                    <span class="">Status: ${elemento.Estatus}</span>
+     </span>
+
+
+        <header class="Card__Header__Information">
+            <div class="oneContainer">
+                <h1 class="card__sectionInfo__Header__Title">${elemento.Num_parte}</h1>
+          
+            </div>
+            <div class="oneContainer">
+
+                <textarea class="oneContainer__Input"  placeholder="Description"
+                    readonly>${elemento.Descripcion}</textarea>
+            </div>
+        </header>
+       
+    
+
+        <section class="Card__Tags__View">
+         
+            <span class="Tags" title="Machine Type">
+                <i class="fa-regular fa-engine" ></i>
+                <span class="proveedorClass" >
+                    ${elemento.Tipo_maquina}
+                </span>
+            </span>
+            <span class="Tags"><i class="fa-solid fa-warehouse" title="Warehouse"></i>
+            ${elemento.Almacen}
+            </span>
+            <span class="Tags"><i class="fa-solid fa-location-dot" style="color:#EF4444;"
+                    title="Bin"></i>
+                    ${elemento.Long_ubicacion_I}
+            </span>
+            <span class="Tags">
+                <span class="Flag__Span">QTY</span>
+                ${elemento.Quatity}
+                                    
+            </span>
+            </div>
+        </section>
+        
+
+       
+    </section>
+</article>
+</body>
+</html>
