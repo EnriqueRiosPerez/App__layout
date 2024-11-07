@@ -21,15 +21,31 @@ let objToRender
 // Cargar el modelo GLTF
 const loader = new GLTFLoader();
 loader.load('6_11_2024.glb', function(gltf) {
-  // loader.load('free_bee_club.glb', function(gltf) {
+//// loader.load('free_bee_club.glb', function(gltf) {
+gltf.scene.children[0].name = "eaeaMachien"
   const model = gltf.scene;
   scene.add(model);
 
   // Opcional: Escalar o posicionar el modelo
   model.position.set(0, 0, 0);
   model.scale.set(1, 1, 1);
-}, undefined, function(error) {
+  gltf.scene.children[0].name = "eaeaMachien"
+  // console.log(gltf.scene.children[0].name)
+}, 
+undefined, function(error) {
   console.error(error);
+  
+
+// while(gltf.children.length){
+//   var name=object.children[0].name;
+//   mesh[name]=object.children[0];
+//   mesh[name].matrixAutoUpdate=false;
+//   mesh[name].updateMatrixWorld=function(){};
+//   scene.add(mesh[name]);
+// }
+
+
+
 });
 
 // Configurar la posición de la cámara
@@ -39,7 +55,7 @@ scene.add(ambientLight);
 controls = new OrbitControls(camera, renderer.domElement);
 // Función para manejar clics
 function onClick(event) {
-  // Convertir coordenadas de la posición del ratón en coordenadas normalizadas del dispositivo (-1 a +1)
+  // Convertir coordenadas de la posición del ratón en coordenadas normalizadas del dispositivo (-1 a +1) 
   mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
   mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
@@ -53,6 +69,7 @@ function onClick(event) {
   if (intersects.length > 0) {
     const intersectedObject = intersects[0].object;
     console.log("Objeto clickeado:", intersectedObject);
+    console.log("Objeto clickeado:", intersectedObject.name);
 
     // Cambiar color como ejemplo
     if (intersectedObject.material) {

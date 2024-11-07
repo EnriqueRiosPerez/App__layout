@@ -7,12 +7,14 @@ import * as THREE from "https://cdn.skypack.dev/three@0.129.0/build/three.module
 import { OrbitControls } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls.js";
 // To allow for importing the .gltf file
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
+import { FBXLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/FBXLoader.js";
 
+let eaeaeaeae = document.getElementById("eaea")
 //Create a Three.JS Scene
 const scene = new THREE.Scene();
 //create a new camera with positions and angles
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-
+camera.position.set(1, 1, 1)
 //Keep track of the mouse position, so we can make the eye move
 let mouseX = window.innerWidth / 2;
 let mouseY = window.innerHeight / 2;
@@ -25,7 +27,8 @@ let controls;
 
 //Set which object to render
 // let objToRender = 'free_bee_club.glb';
-let objToRender = '6_11_2024.glb'
+let objToRender = 'Modelos_Maquinas/6_11_2024.glb'
+let objToRender_Screen= 'Modelos_Maquinas/Screen.fbx'
 // let objToRender  = 'casita.glb'
 
 //Instantiate a loader for the .gltf file
@@ -37,22 +40,33 @@ interaccion.addEventListener("click", function(e){
 })
 
 // Load the file
-loader.load(
-  `${objToRender}`,
-  function (gltf) {
-    //If the file is loaded, add it to the scene
-    object = gltf.scene;
-    scene.add(object);
-  },
-  function (xhr) {
-    //While it is loading, log the progress
-    console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-  },
-  function (error) {
-    //If there is an error, log it
-    console.error(error);
+// loader.load(
+//   `${objToRender}`,
+//   function (gltf) {
+//     //If the file is loaded, add it to the scene
+//     // gltf.scene.children[0].name = 'Flex-pm0067'
+//     object = gltf.scene;
+//     scene.add(object);
+//   },
+//   function (xhr) {
+//     //While it is loading, log the progress
+//     console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+//   },
+//   function (error) {
+//     //If there is an error, log it
+//     console.error(error);
+//   }
+// );
+
+
+const fbxLoader = new FBXLoader()
+fbxLoader.load(`${objToRender_Screen}`, 
+  function(object){
+    let add_obj = object.scene
+    scene.add(add_obj)
+    
   }
-);
+)
 
 // loader.load(
 //     `free_bee_club.glb`,
@@ -144,9 +158,9 @@ function onMouseDown(event) {
     const intersections = raycaster.intersectObjects(scene.children, true);
     if (intersections.length > 0) {
       const selectedObject = intersections[0].object;
-      const color = new THREE.Color(Math.random(), Math.random(), Math.random());
-      selectedObject.material.color = color;
+      // const color = new THREE.Color(Math.random(), Math.random(), Math.random());
+      // selectedObject.material.color = color;
       console.log(`${selectedObject.name} was clicked!`);
-      console.log(intersections)
+      // console.log(intersections)
     }
   }
