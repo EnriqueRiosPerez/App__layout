@@ -186,15 +186,17 @@ body {
 }
 
 
+@media (width < 1020px) {
 
-@media (width < 720px) {
+/* @media (width < 720px) { */
     .Principal__Container {
         --aside_with: 7rem;
     }
 
 }
 
-@Media(width < 480px) {
+@Media(width < 820px) {
+/* @Media(width < 480px) { */
     .Principal__Container {
         /* --aside_with:0rem; */
         grid-template-columns: 1fr;
