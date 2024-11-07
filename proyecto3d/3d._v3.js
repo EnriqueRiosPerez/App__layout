@@ -11,13 +11,17 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
+//OrbitControls allow the camera to move around the scene
+let controls;
+
 // Crear Raycaster y vector para las coordenadas del ratón
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
-
+let objToRender
 // Cargar el modelo GLTF
 const loader = new GLTFLoader();
 loader.load('6_11_2024.glb', function(gltf) {
+  // loader.load('free_bee_club.glb', function(gltf) {
   const model = gltf.scene;
   scene.add(model);
 
@@ -32,7 +36,7 @@ loader.load('6_11_2024.glb', function(gltf) {
 camera.position.z = 5;
 const ambientLight = new THREE.AmbientLight(0xFFFFFF, objToRender === "6_11_2024.glb" ? 1 : 1);
 scene.add(ambientLight);
-
+controls = new OrbitControls(camera, renderer.domElement);
 // Función para manejar clics
 function onClick(event) {
   // Convertir coordenadas de la posición del ratón en coordenadas normalizadas del dispositivo (-1 a +1)
@@ -58,7 +62,7 @@ function onClick(event) {
 }
 
 // Agregar listener de evento de clic
-window.addEventListener('click', onClick);
+document.addEventListener('click', onClick);
 
 // Animación y renderizado
 function animate() {
