@@ -1,13 +1,16 @@
 
 
 
-  //Import the THREE.js library
-import * as THREE from "https://cdn.skypack.dev/three@0.129.0/build/three.module.js";
-// To allow for the camera to move around the scene
-import { OrbitControls } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls.js";
-// To allow for importing the .gltf file
-import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
-import { FBXLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/FBXLoader.js";
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { FBXLoader } from 'three/addons/loaders/FBXLoader.js';
+
+let objettos = [{name:"Modelos_Maquinas/Screen.fbx", position:{x:0,y:0,z:0}},
+  {name:"Modelos_Maquinas/Fuji.fbx", position:{x:1,y:0,z:0.5}},
+  {name:"Modelos_Maquinas/ReflowOvenBTUHQ.fbx", position:{x:5,y:0,z:0}}
+]
+
 
 let eaeaeaeae = document.getElementById("eaea")
 //Create a Three.JS Scene
@@ -28,16 +31,18 @@ let controls;
 //Set which object to render
 // let objToRender = 'free_bee_club.glb';
 let objToRender = 'Modelos_Maquinas/6_11_2024.glb'
-let objToRender_Screen= 'Modelos_Maquinas/Screen.fbx'
+// objToRender = 'free_bee_club.glb'
+// let objToRender_Screen= 'Modelos_Maquinas/Screen.fbx'
+let objToRender_Screen = 'Modelos_Maquinas/ReflowOvenBTUHQ.fbx'
 // let objToRender  = 'casita.glb'
 
 //Instantiate a loader for the .gltf file
 const loader = new GLTFLoader();
 
-const interaccion = new THREE.EventDispatcher()
-interaccion.addEventListener("click", function(e){
-    console.log(e)
-})
+// const interaccion = new THREE.EventDispatcher()
+// interaccion.addEventListener("click", function(e){
+//     console.log(e)
+// })
 
 // Load the file
 // loader.load(
@@ -57,16 +62,83 @@ interaccion.addEventListener("click", function(e){
 //     console.error(error);
 //   }
 // );
-
-
-const fbxLoader = new FBXLoader()
-fbxLoader.load(`${objToRender_Screen}`, 
-  function(object){
-    let add_obj = object.scene
-    scene.add(add_obj)
+let escena_padre = new THREE.Group()
+scene.add(escena_padre)
+// const fbxLoader2 = new FBXLoader()
+// fbxLoader2.load(`Modelos_Maquinas/Screen.fbx`, 
+//   function(object){ 
+//     // escena_padre.add(object)
+//     // object.position.set(0,0,0)
+//     posiciones(object,escena_padre, 0,0,0)    
     
-  }
-)
+//   }
+// )
+// const fbxLoader3 = new FBXLoader()
+// fbxLoader3.load("Modelos_Maquinas/Fuji.fbx", 
+//   function(object){
+//     posiciones(object,escena_padre, 1,0,0.5)    
+//     // escena_padre.add(object)
+//     // object.position.set(1,0,0.5)
+    
+    
+//   }
+// )
+
+// const fbxLoader = new FBXLoader()
+// fbxLoader.load(`${objToRender_Screen}`, 
+//   function(object){
+//     // escena_padre.add(modelo_afura)
+//     // modelo_afura.position.set(5,0,0) 
+//    posiciones(object, escena_padre, 5,0,0)
+    
+//   }
+// )
+// let comando = `const fbxLoader = new FBXLoader()
+// fbxLoader.load("${objToRender_Screen}", 
+//   function(object){
+//     // escena_padre.add(modelo_afura)
+//     // modelo_afura.position.set(5,0,0) 
+//    posiciones(object, escena_padre, 5,0,0)
+    
+//   }
+// )`
+
+objettos.forEach((objeto, index)=>{
+  console.log(index)
+  console.log(objeto.name)
+  let keyposition = Object.keys(objeto.position)
+  // keyposition.forEach(position =>{
+  //   console.log(objeto.position[position])
+  // })
+
+  let comando = `const fbxLoader${index} = new FBXLoader()
+  fbxLoader${index}.load("${objeto.name}", 
+                  function(object){
+                  posiciones(object, escena_padre, ${objeto.position.x},${objeto.position.y},${objeto.position.z})
+    
+  })`
+  eval(comando)
+  
+  
+  console.log(comando)
+
+
+})
+
+// console.log(comando)
+// eval(comando)
+function posiciones(modelito , lugar, x, y, z) {
+  
+  lugar.add(modelito)
+  modelito.position.set(x,y,z) 
+  // let comando = `${modelito}.position.set(${x},${y},${z})`
+  // eval(comando)
+
+  // return eval(comando)
+}
+
+
+
 
 // loader.load(
 //     `free_bee_club.glb`,
