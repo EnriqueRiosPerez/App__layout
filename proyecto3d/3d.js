@@ -6,18 +6,51 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { FBXLoader } from 'three/addons/loaders/FBXLoader.js';
 
-let objettos = [{name:"Modelos_Maquinas/Screen.fbx", position:{x:0,y:0,z:0}},
-  {name:"Modelos_Maquinas/Fuji.fbx", position:{x:1,y:0,z:0.5}},
-  {name:"Modelos_Maquinas/ReflowOvenBTUHQ.fbx", position:{x:5,y:0,z:0}}
+let objettos = [
+  // {name:"Modelos_Maquinas/Screen.fbx", position:{x:0,y:0,z:0}},
+  {name:"http://gdjnt280.americas.ad.flextronics.com:90/Get_Media.aspx?type=3D_Image&Name=Screen Printer-ASM.fbx",  position:{x:0,y:0,z:0}},
+// {name:"Modelos_Maquinas/Fuji.fbx", position:{x:1,y:0,z:0.5}},
+  {name:"http://gdjnt280.americas.ad.flextronics.com:90/Get_Media.aspx?type=3D_Image&Name=Conveyor.fbx",  position:{x:1,y:0,z:1}},
+
+  {name:"http://gdjnt280.americas.ad.flextronics.com:90/Get_Media.aspx?type=3D_Image&Name=Pick and Place-NXT.fbx",  position:{x:2,y:0,z:0.5}},
+  {name:"http://gdjnt280.americas.ad.flextronics.com:90/Get_Media.aspx?type=3D_Image&Name=Conveyor.fbx",  position:{x:3.4,y:0,z:1}},
+  // {name:"Modelos_Maquinas/ReflowOvenBTUHQ.fbx", position:{x:5,y:0,z:0}}
+  {name:"http://gdjnt280.americas.ad.flextronics.com:90/Get_Media.aspx?type=3D_Image&Name=Reflow Oven-Heller.fbx", position:{x:7,y:0,z:0}},
 ]
 
 
-let eaeaeaeae = document.getElementById("eaea")
+let eaeaeaeae = document.getElementById("eaea") 
 //Create a Three.JS Scene
 const scene = new THREE.Scene();
 //create a new camera with positions and angles
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-camera.position.set(1, 1, 1)
+// const camera = new THREE.OrthographicCamera( window.innerWidth / - 2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / - 2, 1, 1000 );
+// scene.add( camera );
+// var OFFSET = 20;
+
+// const camera = new THREE.OrthographicCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
+// // camera.position.set(camera.geometry.boundingSphere.radius + OFFSET, 0, 0 );
+// // Spherical
+// var sphericalCoord = new THREE.Spherical();
+// sphericalCoord.setFromVector3( camera.position );
+// sphericalCoord.phi =45
+// sphericalCoord.theta = 45
+
+// var vec = new THREE.Vector3().setFromSpherical(sphericalCoord);
+
+// camera.position.set( vec.x, vec.y, vec.z );
+
+
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
+// const camera = new THREE.PerspectiveCamera(75,window.innerWidth / window.innerHeight,1, 1000);
+// camera.position.set(-3, 4, 5)
+
+camera.position.set( -20, 20, 20 ); // all components equal
+camera.lookAt( scene.position ); // or the origin
+
+
+scene.add( camera );
+
+
 //Keep track of the mouse position, so we can make the eye move
 let mouseX = window.innerWidth / 2;
 let mouseY = window.innerHeight / 2;
@@ -38,7 +71,24 @@ let objToRender_Screen = 'Modelos_Maquinas/ReflowOvenBTUHQ.fbx'
 
 //Instantiate a loader for the .gltf file
 const loader = new GLTFLoader();
+// camera.position.set( 20, 20, 10 );
+// camera.lookAt( 10, 10, 10 );
 
+// const aspect = window.innerWidth / window.innerHeight;
+// const d = 20;
+// const camera = new THREE.OrthographicCamera(
+//     - d * aspect, d * aspect, d, - d, 1, 1000
+// );
+// camera.position.set( 20, 20, 20 ); // all components equal
+// camera.lookAt( scene.position ); // or the origi
+
+// const map = new THREE.TextureLoader().load( 'Modelos_Maquinas/square-outline-textured.png' );
+// map.colorSpace = THREE.SRGBColorSpace;
+// cubeGeo = new THREE.BoxGeometry( 50, 50, 50 );
+				// let cubeMaterial = new THREE.MeshLambertMaterial( { color: 0xfeb74c, map: map } );
+
+				// grid
+				
 // const interaccion = new THREE.EventDispatcher()
 // interaccion.addEventListener("click", function(e){
 //     console.log(e)
@@ -103,6 +153,7 @@ scene.add(escena_padre)
 //   }
 // )`
 
+let cuadritos = 0
 objettos.forEach((objeto, index)=>{
   console.log(index)
   console.log(objeto.name)
@@ -115,15 +166,20 @@ objettos.forEach((objeto, index)=>{
   fbxLoader${index}.load("${objeto.name}", 
                   function(object){
                   posiciones(object, escena_padre, ${objeto.position.x},${objeto.position.y},${objeto.position.z})
-    
+
   })`
+
   eval(comando)
-  
+  cuadritos += objeto.position.x
   
   console.log(comando)
 
 
 })
+//se agrega la cantida de cuadros en la grilla
+const gridHelper = new THREE.GridHelper(20, 10 );
+scene.add( gridHelper );
+
 
 // console.log(comando)
 // eval(comando)
@@ -131,6 +187,7 @@ function posiciones(modelito , lugar, x, y, z) {
   
   lugar.add(modelito)
   modelito.position.set(x,y,z) 
+  
   // let comando = `${modelito}.position.set(${x},${y},${z})`
   // eval(comando)
 
@@ -167,7 +224,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 //Add the renderer to the DOM
 document.getElementById("eaea").appendChild(renderer.domElement);
 
-camera.position.z = objToRender === "free_bee_club.glb" ? 15 : 1;
+// camera.position.z = objToRender === "free_bee_club.glb" ? 15 : 1;
 //Set how far the camera will be from the 3D model
 
 //Add lights to the scene, so we can actually see the 3D model
@@ -182,7 +239,9 @@ scene.add(ambientLight);
 //This adds controls to the camera, so we can rotate / zoom it with the mouse
 // if (objToRender === "dino") {
   controls = new OrbitControls(camera, renderer.domElement);
-// }
+// }  
+
+
 
 //Render the scene
 function animate() {

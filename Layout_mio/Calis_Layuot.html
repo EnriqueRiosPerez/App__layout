@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css">
+    <style>
+        :root {
+            --superficie--15: #4d4a4a;
+            --fondo--cabecera: #000;
+            --onFondo--cabecera: #f1e8e8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+        }
+
+        html {
+
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            height: 100%;
+            overflow: hidden;
+            background-color: blueviolet;
+            padding: 1rem;
+        }
+
+        .container {
+            display: grid;
+            grid-template-rows: 100px 34px auto;
+            background-color: red;
+            padding: 1rem;
+            width: 100%;
+            height: 100%;
+
+            &>header {
+                background-color: var(--fondo--cabecera);
+                color: var(--onFondo--cabecera);
+            }
+
+            &>div {
+                background-color: var(--superficie--15);
+            }
+
+            &>section {
+                background-color: var(--fondo--cabecera);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+
+                &>.img_container {
+                    background-color: #f1e8e8;
+                    /* height: 100%;
+                    object-fit: contain; */
+                    height: 100%;
+                    aspect-ratio: 16/9;
+                    object-fit: contain;
+                    overflow: hidden;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: relative;
+                    cursor: pointer;
+                    &>img{
+                        height: 100%;
+                        width: 100%;
+                    }
+
+                }
+
+                /* &>img{
+                    
+                    height: 100%;
+                    aspect-ratio: 16/9;
+                    object-fit: contain;
+                } */
+            }
+        }
+
+        .Span_icon{
+            background-color: #F1f1f1;
+            border-radius: 50%;
+            height: 3rem;
+            font-size: 2rem;
+            aspect-ratio: 1/1;
+            /* padding: 0.7rem 0.35rem; */
+            /* width: 100%; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* gap: 0.35rem; */
+            position: absolute;
+            &>i{
+                color:#EF4444;
+                pointer-events: none;
+            }
+        }
+
+    </style>
+
+
+
+</head>
+
+<body>
+    <div class="container">
+        <header> flex 360 automotive</header>
+        <div> line view</div>
+        <section>
+            <div class="img_container">
+                <span class="Span_icon" name="Hxh">
+                    <i class="fa-solid fa-location-dot"></i>
+                </span>
+                <img src="IMG_Layout/N01-min.jpg" alt="">
+            </div>
+
+        </section>
+    </div>
+
+
+
+    <script>
+        let Elementos = [{id:"",}]
+
+        let iconons =Array.from( document.querySelectorAll("Span.Span_icon"))
+        console.log(iconons)
+        iconons.forEach(icono =>{
+            icono.addEventListener("click",(e)=> {
+                console.log(e.target)
+                let y = e.target
+                y.style.top = 0;
+                y.style.left = 0;
+            })
+        })
+
+    </script>
+
+</body>
+
+
+</html>
