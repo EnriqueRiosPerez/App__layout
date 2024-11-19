@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+    padding: 0;
+    margin: 0;
+  }
+  
+  #container{
+    background-color:#212228;
+    background-image: linear-gradient(#292a30 .1em, transparent .1em), 
+    linear-gradient(90deg, #292a30 .1em, transparent .1em);
+    background-size: 4em 4em;
+    height: 100vh;
+  }
+  
+  
+  #card{
+    width: 100px;
+    height: 100px;
+    background-color: #AFDA9F;
+    border-radius: 5px;
+    cursor: pointer;
+    position: fixed;
+  }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <div id="card"></div>
+   </div>
+   
+
+    
+    <script>
+        let newX = 0, newY = 0, startX = 0, startY = 0;
+
+const card = document.getElementById('card')
+
+card.addEventListener('mousedown', mouseDown)
+
+function mouseDown(e){
+    startX = e.clientX
+    startY = e.clientY
+
+    document.addEventListener('mousemove', mouseMove)
+    document.addEventListener('mouseup', mouseUp)
+}
+
+function mouseMove(e){
+    newX = startX - e.clientX 
+    newY = startY - e.clientY 
+  
+    startX = e.clientX
+    startY = e.clientY
+
+    card.style.top = (card.offsetTop - newY) + 'px'
+    card.style.left = (card.offsetLeft - newX) + 'px'
+}
+
+function mouseUp(e){
+    document.removeEventListener('mousemove', mouseMove)
+}
+    </script>
+</body>
+</html>

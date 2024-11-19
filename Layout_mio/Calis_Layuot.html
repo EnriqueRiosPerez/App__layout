@@ -69,7 +69,7 @@
                     justify-content: center;
                     align-items: center;
                     position: relative;
-                    cursor: pointer;
+                    
                     &>img{
                         height: 100%;
                         width: 100%;
@@ -90,7 +90,7 @@
             background-color: #F1f1f1;
             border-radius: 50%;
             height: 3rem;
-            font-size: 2rem;
+            font-size: 1.5rem;
             aspect-ratio: 1/1;
             /* padding: 0.7rem 0.35rem; */
             /* width: 100%; */
@@ -99,12 +99,24 @@
             justify-content: center;
             /* gap: 0.35rem; */
             position: absolute;
+            cursor: pointer;
+            user-select: none;
             &>i{
                 color:#EF4444;
                 pointer-events: none;
             }
         }
+        .Span_icon:hover{
+            background-color: orange;
+        }
+        .Red{
+            background-color: #EF4444;
 
+        }
+        /* disable */
+        .Green{
+            background-color: #6cef44;
+        }
     </style>
 
 
@@ -114,33 +126,193 @@
 <body>
     <div class="container">
         <header> flex 360 automotive</header>
-        <div> line view</div>
+        <div> line view
+
+                <button type="button" id="salvar">guardar informacion</button>
+                <button type="button" id="Enable" class="Red" >Enable Move</button>
+
+        </div>
         <section>
-            <div class="img_container">
-                <span class="Span_icon" name="Hxh">
-                    <i class="fa-solid fa-location-dot"></i>
-                </span>
+            <div class="img_container" id="contenedor_Principal">
                 <img src="IMG_Layout/N01-min.jpg" alt="">
+                <!-- <span class="Span_icon" id="1" name="MMC" title="L01">
+                    <i class="fa-solid fa-chart-user"></i>
+                </span>
+                <span class="Span_icon" id="2" name="Nexim" title="L01">
+                    <i class="fa-solid fa-engine"></i>
+                </span>
+
+
+                <span class="Span_icon" id="3" name="HxH" title="L01">
+                    <i class="fa-solid fa-stopwatch"></i>
+                </span> -->
+               
+               
             </div>
 
         </section>
+
     </div>
 
 
 
     <script>
-        let Elementos = [{id:"",}]
+        let fonticons = {
+            MMC:"fa-engine",
+            Nexim:"fa-chart-user",
+            
+            HxH:"fa-stopwatch"
+        }
 
-        let iconons =Array.from( document.querySelectorAll("Span.Span_icon"))
-        console.log(iconons)
-        iconons.forEach(icono =>{
-            icono.addEventListener("click",(e)=> {
-                console.log(e.target)
-                let y = e.target
-                y.style.top = 0;
-                y.style.left = 0;
-            })
+        let Elementos = [
+
+            {   
+                id:"1",
+                name:"MMC",
+                title:"L01",
+                top:516,
+                left:368,
+                mensaje:"soy el elemento 1"
+
+            },
+            {   
+                id:"2",
+                name:"Nexim",
+                title:"L01",
+                top:486,
+                left:218,
+                mensaje:"soy el elemento 2"
+
+            },
+            {   
+                id:"3",
+                name:"HxH",
+                title:"L01",
+                top:376,
+                left:243,
+                mensaje:"soy el elemento 3"
+
+            }
+        ]
+        let guardar = document.getElementById("salvar")
+        let Enable = document.getElementById("Enable")
+        let contenedor_Principal = document.getElementById("contenedor_Principal")
+        let newX = 0, newY = 0, startX = 0, startY = 0
+        document.addEventListener("DOMContentLoaded",async () => {
+            let rr =  await CreateDom(Elementos)
+            // Enable_Func(itons()
+            Init_Functions()
+            console.log(rr)
+            //Fill__Drops(Json__Dropss)
         })
+        
+        Enable.addEventListener("click", ()=>{
+            // console.log(Enable.className)
+            if(Enable.className === "Red"){
+               
+                Enable.className = "Green"
+                Enable_Funcitons()
+            }else{
+                
+                 Enable.className = "Red"
+                 Disable_Functions()
+            }
+        })
+
+
+        function CreateDom(data) {
+           
+            return new Promise((resolve, reject) => {
+                 let dom = ""
+                data.forEach(element =>{
+                dom += `<span class="Span_icon" id="${element.id}" name="${element.name}" title="${element.title}">
+                    <i class="fa-solid ${fonticons[element.name]}"></i>
+                </span>`
+                })
+
+
+                // contenedor_Principal.innerHTML = ""
+                //document.startViewTransition(() => updateTheDOMSomehow(data));
+                console.time("Rescribir")
+                contenedor_Principal.insertAdjacentHTML("afterbegin", dom)
+                console.timeEnd("Rescribir")
+                resolve("done");
+            })
+
+        }  
+
+        async function Enable_Funcitons() {
+            let iconons = Array.from(document.querySelectorAll("Span.Span_icon"))
+            iconons.forEach(icono => {
+                icono.addEventListener("mousedown", mouseDown)
+                icono.removeEventListener("click", ClickIcon)
+            })
+        }
+        async function Disable_Functions() {
+            let iconons = Array.from(document.querySelectorAll("Span.Span_icon"))
+            iconons.forEach(icono => {
+                icono.removeEventListener("mousedown", mouseDown)
+                icono.addEventListener("click", ClickIcon)
+
+            })
+        }
+        async function Init_Functions() {
+            let iconons = Array.from(document.querySelectorAll("Span.Span_icon"))
+            iconons.forEach(icono => {
+                icono.addEventListener("click", ClickIcon)
+            })
+        }
+       
+        function ClickIcon(e){
+            console.log(e.target)
+                    let y = e.target
+                    let name = y.getAttribute("name")
+                    console.log(name)
+                    // y.style.top = 0;
+                    // y.style.left = 0;
+        }
+
+        function mouseDown(e){
+            startX = e.clientX
+            startY = e.clientY
+
+            document.addEventListener('mousemove', mouseMove)
+            document.addEventListener('mouseup', mouseUp)
+        }
+
+        function mouseMove(e){
+            newX = startX - e.clientX 
+            newY = startY - e.clientY 
+        
+            startX = e.clientX
+            startY = e.clientY
+
+            let y = e.target
+            y.style.top = (y.offsetTop - newY) + 'px'
+            y.style.left = (y.offsetLeft - newX) + 'px'
+        }
+
+        function mouseUp(e){
+            document.removeEventListener('mousemove', mouseMove)
+        }
+        guardar.addEventListener("click", async () => {
+            let iconons = Array.from(document.querySelectorAll("Span.Span_icon"))
+                console.log("se presiono guardar")
+                iconons.forEach((icono, index) => {
+                    console.log(icono.id)
+                    console.log(icono.style.top)
+                    console.log(icono.style.left)
+                })
+            })
+
+
+
+
+
+
+
+
+
 
     </script>
 
