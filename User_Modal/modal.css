@@ -1,0 +1,276 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+:root {
+    --Eerie_black: #232323;
+    --Yellow_Green: #A0E000;
+    --Mint: #17B890;
+    --Blue_NCS: #0094C6;
+    --Medium_Slate_blue: #8A4FFF;
+    --Medium_Slate_blue_Hover: #7A46E2;
+    --Blue_Title: #4E34F5;
+    --anti_flash_white: #EFEFEF;
+    --white: #FFFFFF;
+    --backgroud_100: #f1f1f1;
+    --color_border: #CECDD0;
+    /* --color_border: red; */
+    --input_placeholder: #89868D;
+    --time-transition-labels: 150ms;
+    --text-300: #373737;
+    --icon__searchWidth: 55px;
+    --animation_delay: 0.15s;
+    --Dialog__Base__Width: 70%;
+    --Dialog__Base__heigth: 97%;
+    /* --Dialog__Base__max-heigth: 780px; */
+    --Dialog__Base__max-heigth: 900px;
+    --Dialog__Base__max-width: 1030px;
+    --Dialog__Base__min-width: 400px;
+    --General__Border__Radius: 10px;
+    --General__Border__Radius__2: 5px;
+}
+
+
+
+@keyframes open {
+   
+        0% {
+            scale: 0.95;
+            opacity: 0;
+        }
+    
+        100% {
+            scale: 1;
+            opacity: 1;
+        }
+    
+      
+    }
+    
+    @keyframes close {
+        from {
+            opacity: 1;
+        }
+    
+        to {
+            opacity: 0;
+        }
+    }
+/* dialog {
+    
+    transition: display 100ms allow-discrete, overlay 100s allow-discrete;
+    animation: close 150ms ;
+    
+    &[open]{
+    
+    animation: open 150ms ;
+           }
+} */
+
+
+dialog{ 
+    animation: close 150ms ;
+    &[open]{
+        animation: open 150ms ;
+    }
+}
+
+.Modal__Principal {
+  
+    background-color: white;
+    max-width: var(--Dialog__Base__max-width);
+    width: calc(100% - 64px);
+    /*min-width: var(--Dialog__Base__min-width);*/
+
+    /*width: 100%;
+    height:100%;*/
+    height: var(--Dialog__Base__heigth);
+    max-height: var(--Dialog__Base__max-heigth);
+
+    margin: auto;
+    /*border-radius: 0.8rem;*/
+    border-radius: var(--General__Border__Radius);
+    border: none;
+    padding: 1rem;
+    overflow: hidden;
+    .Modal__Principal__Container{
+        /*background-color:red;*/
+        width: 100%;
+        height: 100%;
+       /* display: flex;
+        flex-direction: column;*/
+       display:grid;
+       grid-template-rows:auto 1fr auto;
+
+        &>header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 0 0.5rem 0;
+            color: black;
+            border-bottom: 1px solid #F0F0F0;
+            &>p{
+                   font-size:1.5rem;
+                   font-weight:800;
+               }
+            &>span{
+                color: #F0F0F0;
+                cursor: pointer;
+                background-color: rgb(55 55 55 / 1);
+                /*  border: 1px solid black;
+                border-radius: 50%;*/
+                border-radius: 50%;
+                i{
+                    /*color:white;*/
+                }
+
+            }
+
+            &>span:hover {
+                /*color: rgb(239 68 68 / 0.8);*/
+                background-color: transparent;
+                i{
+                    color: red;
+                }
+
+            }
+        }
+
+        /*secciones*/
+        &>section{
+            /*background-color:orange;*/
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            overflow-x:hidden;
+            padding:1rem 0rem;
+            /*padding: 0 0 1rem 0;*/
+        }
+           &>section::-webkit-scrollbar {
+                            width: 2px;
+                        }
+
+            &>section::-webkit-scrollbar-thumb {
+                background-color: #ECECED;
+                border-radius: 50%;
+            }
+
+               &> section::-webkit-scrollbar-thumb:hover {
+                    background: #C3C3C3;
+                }
+
+
+
+        /*Footer*/
+        &>footer {
+            display: flex;
+            justify-content: flex-end;
+            height: fit-content;
+            align-items: center;
+            padding: 1rem 0 0 0;
+            gap: 0 2rem;
+        }
+
+    }
+.Modal__Principal__Container:focus-visible {
+    /*background-color: red;*/
+    border: none;
+    outline: none;
+}
+}
+::backdrop {
+    backdrop-filter: blur(2px);
+    background-color:rgb(35 35 35 / 0.5);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.User_Modal{
+    background-color: white;
+    max-width: var(--Dialog__Base__max-width);
+    width: calc(100% - 64px);
+    /* min-width: var(--Dialog__Base__min-width); */
+    height: var(--Dialog__Base__heigth);
+    max-height: var(--Dialog__Base__max-heigth);
+    margin: auto;
+    /* border-radius: 0.8rem; */
+    border-radius: var(--General__Border__Radius);
+    border: none;
+    padding: 1rem;
+    overflow: hidden;
+    &>.User_Modal__Container {
+        /* background-color: red; */
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-rows: auto auto 1fr auto;
+        &>header{
+            /* position: relative; */
+            
+            background-color:rgb(241 241 241/ 1) ;
+            
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            padding: 1.5rem;
+            color: black;
+            border-bottom: 1px solid #F0F0F0;
+            &>span {
+                /* position: absolute; */
+                color: #F0F0F0;
+                cursor: pointer;
+                background-color: rgb(55 55 55 / 1);
+                border-radius: 50%;
+            }
+            &>span:hover {
+                /* color: rgb(239 68 68 / 0.8); */
+                background-color: transparent;
+                i {
+                    color: red;
+                }
+            }
+        }
+        &>div{
+            /* background-color: #0094C6; */
+            display: grid;
+            grid-template-columns: 1fr auto;
+            padding: 1rem;
+            &>.IMG_Container{
+                position: relative;
+                /* background-color: red; */
+                width: 100%;
+                &>img{
+                    position: absolute;
+                    height: 100px;
+                    top: calc(-4.5rem);
+                    aspect-ratio: 1/1;
+                    border-radius: 50%;
+                }
+            }
+        }
+
+        &>section {
+            background-color: orange;
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            overflow-x: hidden;
+            /* padding: 1rem 0rem; */
+            /* padding: 0 0 1rem 0; */
+        }
+    
+    }
+}
+

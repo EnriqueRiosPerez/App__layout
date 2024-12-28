@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #000;
+}
+
+.sol {
+  width: 100px;
+  height: 100px;
+  /* background-color: ; */
+  border-radius: 50%;
+  position: relative;
+  animation: ChangeColor 2s alternate-reverse infinite;
+}
+
+.orbita {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px dashed rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  animation: girar 10s linear infinite;
+
+}
+
+
+@keyframes ChangeColor {
+    0% {
+        /* background-color:#f39c12; */
+        background-color:transparent;
+    }
+
+    100% {
+        background-color: blue;
+    }
+}
+
+.planeta {
+  width: 30px;
+  height: 30px;
+  background-color: #3498db;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes girar {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+    </style>
+</head>
+<body>
+    <div class="sol">
+        <div class="orbita">
+          <div class="planeta"></div>
+        </div>
+      </div>
+
+      <script>
+        let objetoio = [
+    {
+        "Id": 9,
+        "Building": "N01",
+        "Line": "L01",
+        "Type": "MMC",
+        "Link": "http://gdjf06109.americas.ad.flextronics.com:8000/MMC-Panel.aspx?seg=HRS&nave=N01",
+        "top": "96px",
+        "left": "181px",
+        "Screen": "2"
+    },
+    {
+        "Id": 10,
+        "Building": "N01",
+        "Line": "L01",
+        "Type": "Nexim",
+        "Link": "http://10.165.129.44/fujiweb/fujimoni/UI/FloorMonitor.aspx",
+        "top": "158px",
+        "left": "262px",
+        "Screen": "2"
+    },
+    {
+        "Id": 11,
+        "Building": "N01",
+        "Line": "L01",
+        "Type": "HxH",
+        "Link": "http://10.106.254.60/Sites/GdlSouth/N1/ZF/Production/HxHYield.php?stations%5B%5D=TESLA-BRAZING",
+        "top": "177px",
+        "left": "148px",
+        "Screen": "2"
+    },
+    {
+        "Id": 12,
+        "Building": "N01",
+        "Line": "L01",
+        "Type": "Nexim",
+        "Link": "http://10.165.129.47/fujiweb/fujimoni/UI/FloorMonitor.aspx",
+        "top": "160px",
+        "left": "401px",
+        "Screen": "2"
+    }
+]
+
+console.log(objetoio.Id[12])
+      </script>
+</body>
+</html>
